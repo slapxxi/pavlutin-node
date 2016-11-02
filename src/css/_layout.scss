@@ -1,0 +1,26 @@
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';
+
+
+.container, .container_fill {
+  box-sizing: content-box;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: 0 auto;
+  max-width: var(--layout-width-max);
+}
+
+@media (--screen-medium) {
+  .container, .container_fill {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media (--screen-large) {
+  .container_fill {
+    padding-left: calc((100% - var(--layout-width-max)) / 2);
+    padding-right: calc((100% - var(--layout-width-max)) / 2);
+  }
+}

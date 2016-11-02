@@ -1,0 +1,18 @@
+.logo {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-caps);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  font-weight: 400;
+
+  & > a {
+    text-decoration: none;
+    color: var(--color-text);
+
+    &:hover {
+      color: var(--color-text-em);
+    }
+  }
+}

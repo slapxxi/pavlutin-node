@@ -1,0 +1,16 @@
+:root {
+  --white: #FCFCFF;
+  --white-dimmed: #F1F1F4;
+
+  --grey-dark: #212128;
+  --grey: #303037;
+  --grey-middle: #53535F;
+  --grey-light: #CACACF;
+
+  --blue: #1097FF;
+  --cyan: #31D7FF;
+  --yellow: #FFE070;
+  --red: #ED1C24;
+  --red-dark: color(var(--red) blackness(30%));
+  --red-light: color(var(--red) tint(20%));
+}
