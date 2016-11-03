@@ -7,10 +7,8 @@ const config = require('./config');
 
 const app = express();
 
-console.log(app.locals);
 app.locals = Object.assign({}, app.locals, config.locals);
 
-console.log(app.locals);
 app.set('env', config.ENV);
 app.set('view engine', 'pug');
 
