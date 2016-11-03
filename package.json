@@ -4,6 +4,7 @@
   "description": "Personal website developed with Express",
   "main": "index.js",
   "scripts": {
+    "test": "mocha",
     "postinstall": "gulp build --production"
   },
   "keywords": [
@@ -45,5 +46,8 @@
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
     "webpack-stream": "^3.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
   }
 }
