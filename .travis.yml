@@ -6,3 +6,7 @@ node_js:
   - "6"
   - "5.11"
   - "iojs"
+env:
+  - NODE_ENV=production
+before_script:
+  - npm install -g mocha
