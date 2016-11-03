@@ -33,8 +33,10 @@ app.get('/projects', (req, res) => {
   res.render('projects', {title});
 });
 
-if (app.get(env) === 'production') {
-  app.listen(process.env.PORT || 8080);
+if (app.get('env') === 'production') {
+  const server = app.listen(process.env.PORT || 8080, () => {
+    console.log('Starting app on port ', server.address().port);
+  });
 } else {
   app.listen(8000);
 }
