@@ -4,11 +4,13 @@ const compression = require('compression');
 
 
 const app = express();
+const env = process.env.NODE_ENV || 'development';
 
 app.locals.title = "Slava Pavlutin"
 app.locals.themeColor = "#212128";
 app.locals.lorem = lorem;
 
+app.set('env', env);
 app.set('view engine', 'pug');
 
 app.use(morgan('dev'));
@@ -31,7 +33,11 @@ app.get('/projects', (req, res) => {
   res.render('projects', {title});
 });
 
-app.listen(8000);
+if (app.get(env) === 'production') {
+  app.listen(80);
+} else {
+  app.listen(8000);
+}
 
 function generateTitle(...pieces) {
   return pieces.join(' | ')
