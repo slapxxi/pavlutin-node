@@ -1,23 +1,25 @@
 const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
+const { generateTitle, lorem } = require('./lib/utils');
+const config = require('./config');
 
 
 const app = express();
-const env = process.env.NODE_ENV || 'development';
 
-app.locals.title = "Slava Pavlutin"
-app.locals.themeColor = "#212128";
-app.locals.lorem = lorem;
+console.log(app.locals);
+app.locals = Object.assign({}, app.locals, config.locals);
 
-app.set('env', env);
+console.log(app.locals);
+app.set('env', config.ENV);
 app.set('view engine', 'pug');
 
 app.use(compression());
 app.use(morgan('dev'));
-app.use('/css', express.static('public/css'));
-app.use('/js', express.static('public/js'));
-app.use('/img', express.static('public/img'));
+
+app.use('/css', express.static(config.outputDirs.stylesheets));
+app.use('/img', express.static(config.outputDirs.images));
+app.use('/js', express.static(config.outputDirs.scripts));
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -34,17 +36,9 @@ app.get('/projects', (req, res) => {
 });
 
 if (app.get('env') === 'production') {
-  const server = app.listen(process.env.PORT || 8080, () => {
+  const server = app.listen(config.PORT, () => {
     console.log('Starting app on port ', server.address().port);
   });
 } else {
   app.listen(8000);
-}
-
-function generateTitle(...pieces) {
-  return pieces.join(' | ')
-}
-
-function lorem() {
-  return "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis nisi, delectus perferendis distinctio adipisci harum, earum qui, sequi, ratione inventore eveniet impedit! Corporis maiores facere ducimus non eaque voluptatibus dolorem?";
 }
