@@ -13,11 +13,11 @@ app.locals.lorem = lorem;
 app.set('env', env);
 app.set('view engine', 'pug');
 
+app.use(compression());
 app.use(morgan('dev'));
 app.use('/css', express.static('public/css'));
 app.use('/js', express.static('public/js'));
 app.use('/img', express.static('public/img'));
-app.use(compression());
 
 app.get('/', (req, res) => {
   res.render('index');
