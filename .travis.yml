@@ -7,3 +7,4 @@ env:
   - NODE_ENV=production
 before_script:
   - npm install -g mocha
+  - npm install chai
