@@ -1,15 +1,16 @@
 const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
-const { generateTitle, lorem } = require('./lib/utils');
+
 const config = require('./config');
+const { generateTitle, lorem } = require('./lib/utils');
 
 
 const app = express();
 
 app.locals = Object.assign({}, app.locals, config.locals);
 
-app.set('env', config.ENV);
+app.set('env', config.env);
 app.set('view engine', 'pug');
 
 app.use(compression());
