@@ -35,7 +35,7 @@ app.get('/projects', (req, res) => {
 });
 
 if (app.get('env') === 'production') {
-  const server = app.listen(config.PORT, () => {
+  const server = app.listen(config.port, () => {
     console.log('Starting app on port ', server.address().port);
   });
 } else {
