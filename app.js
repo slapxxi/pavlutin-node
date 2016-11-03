@@ -34,9 +34,7 @@ app.get('/projects', (req, res) => {
 });
 
 if (app.get(env) === 'production') {
-  const server = app.listen(process.env.PORT || 8080, () => {
-    console.log(`Server running on port ${server.address().port}`);
-  });
+  app.listen(process.env.PORT || 8080);
 } else {
   app.listen(8000);
 }
