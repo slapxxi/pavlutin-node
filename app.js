@@ -6,6 +6,7 @@ const compression = require('compression');
 const app = express();
 
 app.locals.title = "Slava Pavlutin"
+app.locals.themeColor = "#212128";
 app.locals.lorem = lorem;
 
 app.set('view engine', 'pug');
