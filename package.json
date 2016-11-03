@@ -16,7 +16,8 @@
   "author": "Slava Pavlutin",
   "license": "MIT",
   "engines": {
-    "node": "7.0.0"
+    "node": "7.0.0",
+    "npm": "3.10.8"
   },
   "dependencies": {
     "babel-core": "^6.18.2",
