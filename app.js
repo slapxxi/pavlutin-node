@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const compression = require('compression');
 
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(morgan('dev'));
 app.use('/css', express.static('public/css'));
 app.use('/js', express.static('public/js'));
 app.use('/img', express.static('public/img'));
+app.use(compression());
 
 app.get('/', (req, res) => {
   res.render('index');

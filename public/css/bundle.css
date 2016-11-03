@@ -590,9 +590,6 @@ hr {
 .nav__item:last-child {
     border: 0;
 }
-.nav__item:hover {
-    border-color: #ED1C24;
-}
 .nav__item > a {
     display: block;
     padding: 2em 0;
@@ -885,13 +882,11 @@ hr {
     overflow: hidden;
     padding-top: 1em;
     padding-bottom: 1em;
-    background-color: #212128;
     font-size: 0.9em;
     color: #53535F;
 }
 .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
     font-size: 2em;
-    text-align: center;
     color: #53535F;
 }
 .footer a:link, .footer a:visited {
@@ -916,9 +911,6 @@ hr {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     }
-    .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
-        text-align: left;
-    }
     .footer > .box {
         margin-right: 1em;
     }
@@ -928,7 +920,7 @@ hr {
     text-align: center;
     text-transform: uppercase;
     font-size: 0.8em;
-    color: #303037;
+    color: #CACACF;
 }
 @media only screen and (min-width: 600px) {
     .footer__copy {
