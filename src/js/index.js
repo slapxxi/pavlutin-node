@@ -15,6 +15,7 @@ $(function() {
 
   store.subscribe(() => { subscribeMenu(store) });
 
+  // Not supported in IE < 10
   $(window).on('resize.menu', function(e) {
     const mq = window.matchMedia('(min-width: 600px)');
     if (mq.matches) {

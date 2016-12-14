@@ -6,6 +6,9 @@ const OUTPUT_DIR = 'public';
 module.exports = {
   env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 8000,
+  viewEngine: 'pug',
+  db: {
+  },
   outputDirs: {
     scripts: path.join(OUTPUT_DIR, 'js'),
     images: path.join(OUTPUT_DIR, 'img'),

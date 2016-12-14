@@ -3,22 +3,23 @@ const morgan = require('morgan');
 const compression = require('compression');
 
 const config = require('./config');
-const { generateTitle, lorem } = require('./lib/utils');
+const { generateTitle } = require('./lib/utils');
 
 
+const ENV = config.env;
 const app = express();
 
 app.locals = Object.assign({}, app.locals, config.locals);
 
-app.set('env', config.env);
-app.set('view engine', 'pug');
+app.set('env', ENV);
+app.set('view engine', config.viewEngine);
 
 app.use(compression());
 app.use(morgan('dev'));
 
 app.use('/css', express.static(config.outputDirs.stylesheets));
-app.use('/img', express.static(config.outputDirs.images));
 app.use('/js', express.static(config.outputDirs.scripts));
+app.use('/img', express.static(config.outputDirs.images));
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -34,10 +35,16 @@ app.get('/projects', (req, res) => {
   res.render('projects', {title});
 });
 
-if (app.get('env') === 'production') {
-  const server = app.listen(config.port, () => {
-    console.log('Starting app on port ', server.address().port);
+app.get('/contact', (req, res) => {
+  const title = generateTitle(app.locals.title, 'Contact');
+  res.render('contact');
+});
+
+if (ENV !== 'test') {
+  const server = app.listen(config.port, (err) => {
+    if (err) { throw err }
+    console.log('Starting app on port', server.address().port);
   });
-} else {
-  app.listen(8000);
 }
+
+module.exports = app;
