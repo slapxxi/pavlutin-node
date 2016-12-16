@@ -2,7 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
 
-const config = require('./config');
+const config = require('./app/config');
+const { pageNotFound } = require('./app/middleware/http');
 const { generateTitle } = require('./lib/utils');
 
 
@@ -39,6 +40,8 @@ app.get('/contact', (req, res) => {
   const title = generateTitle(app.locals.title, 'Contact');
   res.render('contact');
 });
+
+app.use(pageNotFound);
 
 if (ENV !== 'test') {
   const server = app.listen(config.port, (err) => {

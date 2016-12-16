@@ -1,5 +1,5 @@
 const path = require('path');
-const helpers = require('./lib/helpers');
+const helpers = require('../lib/helpers');
 
 const OUTPUT_DIR = 'public';
 
