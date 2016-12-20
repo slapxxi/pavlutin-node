@@ -1,5 +1,6 @@
 const path = require('path');
 const helpers = require('../lib/helpers');
+const _ = require('lodash');
 
 const OUTPUT_DIR = 'public';
 
@@ -8,6 +9,7 @@ module.exports = {
   port: process.env.PORT || 8000,
   viewEngine: 'pug',
   db: {
+    URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/test'
   },
   outputDirs: {
     scripts: path.join(OUTPUT_DIR, 'js'),
@@ -15,6 +17,7 @@ module.exports = {
     stylesheets: path.join(OUTPUT_DIR, 'css')
   },
   locals: {
+    _,
     title: 'Slava Pavlutin',
     themeColor: '#212128',
     helpers: helpers
