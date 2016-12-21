@@ -12,7 +12,9 @@ const { pageNotFound } = require('./app/middleware/http');
 const ENV = config.env;
 const app = express();
 
-mongoose.connect(config.db.URI);
+if (ENV !== 'test') {
+  mongoose.connect(config.db.URI);
+}
 
 app.locals = Object.assign({}, app.locals, config.locals);
 
