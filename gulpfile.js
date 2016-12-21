@@ -9,6 +9,7 @@ const stylelint = require('gulp-stylelint');
 const webpackConfig = require('./webpack.config');
 const browsersync = require('browser-sync');
 const util = require('gulp-util');
+const mocha = require('gulp-mocha');
 
 
 const config = {
@@ -17,7 +18,8 @@ const config = {
     css: 'src/**/*.css',
     scss: 'src/**/*.{css,scss}',
     img: 'src/**/*.{png,ico,jpeg,jpg,svg}',
-    html: 'views/**/*.pug'
+    html: 'views/**/*.pug',
+    test: ['test/**/*.js', 'app/**/*.js']
   },
   dest: {
     js: 'public/js',
@@ -30,9 +32,10 @@ const config = {
 gulp.task('default', ['build'])
 
 gulp.task('watch', ['browsersync'], () => {
-  gulp.watch(config.patterns.js, ['build:js']);
+  gulp.watch(config.patterns.js, ['build:js', 'test']);
   gulp.watch(config.patterns.scss, ['build:css']);
   gulp.watch(config.patterns.img, ['build:img']);
+  gulp.watch(config.patterns.test, ['test']);
   gulp.watch(config.patterns.html, () => {
     browsersync.reload();
   });
@@ -95,7 +98,16 @@ gulp.task('browsersync', () => {
   });
 });
 
-function handleError(e) {
-  console.log(e.toString());
+gulp.task('test', () => {
+  process.env.NODE_ENV = 'test';
+  gulp.src('test/**/*.js', {read: false})
+    .pipe(mocha({
+      growl: true
+    }))
+    .on('error', util.log);
+});
+
+function handleError(error) {
+  console.log(error.toString());
   this.emit('end');
 }
