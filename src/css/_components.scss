@@ -1,3 +1,4 @@
+@import "components/list";
 @import "components/logo";
 @import "components/nav";
 @import "components/buttons";
@@ -20,7 +21,4 @@
 
 .link {
   display: inline-block;
-}
-
-.link_active {
 }
