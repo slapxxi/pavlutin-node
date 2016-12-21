@@ -1,14 +1,18 @@
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 const compression = require('compression');
 
 const config = require('./app/config');
 const pagesRouter = require('./app/routes/pages-router');
+const blogRouter = require('./app/routes/blog-router');
 const { pageNotFound } = require('./app/middleware/http');
 
 
 const ENV = config.env;
 const app = express();
+
+mongoose.connect(config.db.URI);
 
 app.locals = Object.assign({}, app.locals, config.locals);
 
@@ -23,12 +27,13 @@ app.use('/js', express.static(config.outputDirs.scripts));
 app.use('/img', express.static(config.outputDirs.images));
 
 app.use('/', pagesRouter);
+app.use('/blog', blogRouter);
 
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.use(pageNotFound);
+app.use(pageNotFound());
 
 if (ENV !== 'test') {
   const server = app.listen(config.port, (err) => {

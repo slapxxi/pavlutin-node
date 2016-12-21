@@ -6,11 +6,6 @@ const { generateTitle } = require('../../lib/utils');
 const pagesRouter = express.Router();
 const BASE_TITLE = config.locals.title;
 
-pagesRouter.get('/blog', (req, res) => {
-  const title = generateTitle(BASE_TITLE, 'Blog');
-  res.render('blog', {title});
-});
-
 pagesRouter.get('/projects', (req, res) => {
   const title = generateTitle(BASE_TITLE, 'Projects');
   res.render('projects', {title});
