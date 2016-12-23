@@ -4,18 +4,32 @@ const app = require('../app');
 
 
 describe('Pages', function() {
-  describe('/', function() {
-    let req;
+  let req;
 
+  describe('/', function() {
     beforeEach(function() {
-      req = request(app).get('/');
+      req = request(app).get('/')
     });
 
     it('returns 200 OK', function(done) {
       req.expect(200, done);
     });
 
-    it('renders a template', function (done) {
+    it('renders template', function (done) {
+      req.expect('Content-Type', /text\/html/, done);
+    });
+  });
+
+  describe('/contact', function() {
+    beforeEach(function() {
+      req = request(app).get('/contact');
+    });
+
+    it('returns 200 OK', function (done) {
+      req.expect(200, done);
+    });
+
+    it('renders template', function (done) {
       req.expect('Content-Type', /text\/html/, done);
     });
   });
