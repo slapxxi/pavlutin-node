@@ -9,3 +9,4 @@ before_script:
   - npm install -g mocha
   - npm install chai
   - npm install supertest
+  - npm install cheerio
