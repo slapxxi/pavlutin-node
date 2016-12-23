@@ -1,4 +1,5 @@
 const { expect } = require('chai');
+const cheerio = require('cheerio');
 const request = require('supertest');
 const app = require('../app');
 
@@ -18,6 +19,16 @@ describe('Pages', function() {
     it('renders template', function (done) {
       req.expect('Content-Type', /text\/html/, done);
     });
+
+    it('has valid title', function (done) {
+      req
+        .expect((res) => {
+          const content = res.text;
+          const $ = cheerio.load(content);
+          expect($('title').text()).to.eq('Slava Pavlutin');
+        })
+        .end(done);
+    });
   });
 
   describe('/contact', function() {
@@ -31,6 +42,16 @@ describe('Pages', function() {
 
     it('renders template', function (done) {
       req.expect('Content-Type', /text\/html/, done);
+    });
+
+    it('has valid title', function (done) {
+      req
+        .expect((res) => {
+          const content = res.text;
+          const $ = cheerio.load(content);
+          expect($('title').text()).to.eq('Slava Pavlutin | Contact');
+        })
+        .end(done);
     });
   });
 });
