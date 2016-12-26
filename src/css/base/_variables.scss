@@ -3,21 +3,21 @@
 
   --color-bg: var(--white);
   --color-bg-dark: var(--grey-dark);
-  --color-bg-light: var(--red);
+  --color-bg-light: var(--cyan);
 
-  --color-link: var(--red);
-  --color-link-active: var(--red);
+  --color-link: var(--cyan);
+  --color-link-active: var(--cyan);
 
   --color-text-dark: var(--grey);
   --color-text: var(--grey-middle);
   --color-text-light: var(--grey-light);
   --color-text-lightest: var(--white);
 
-  --color-text-em-dark: var(--red-dark);
-  --color-text-em: var(--red);
-  --color-text-em-light: var(--red-light);
+  --color-text-em-dark: var(--cyan);
+  --color-text-em: var(--cyan);
+  --color-text-em-light: var(--cyan);
 
-  --color-selection: var(--red);
+  --color-selection: var(--cyan);
   --color-selection-fg: var(--white);
 
   --font-main: "Open Sans", "Helvetica Neue", sans-serif;
@@ -26,7 +26,7 @@
 
   --layout-gutter: 2.3rem;
   --layout-spacing: 5%;
-  --layout-width-max: 960px;
+  --layout-width-max: 1096px;
 
   @custom-media --screen-large only screen and (width >= 1180px);
   @custom-media --screen-medium only screen and (width >= 600px);

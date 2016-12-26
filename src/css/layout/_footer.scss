@@ -5,33 +5,14 @@
   font-size: 0.9em;
   color: var(--color-text);
 
-  & :--link {
-    text-decoration: none;
-    color: var(--color-text-light);
-  }
-
-  & :--link-active {
-    text-decoration: underline;
-  }
-
   :--heading {
     font-size: 2em;
     color: var(--color-text);
   }
-
-  @media (--screen-medium) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    & > .box {
-      margin-right: 1em;
-    }
-  }
 }
 
 .footer__copy {
+  clear: both;
   display: block;
   text-align: center;
   text-transform: uppercase;

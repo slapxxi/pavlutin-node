@@ -4,14 +4,6 @@
   font-family: var(--font-caps);
   background-color: var(--color-bg);
   color: var(--color-text-light);
-
-  & :--link {
-    color: var(--color-text);
-  }
-
-  & :--link-active {
-    color: var(--color-text-em);
-  }
 }
 
 .header_theme_inverse {
@@ -52,6 +44,14 @@
 .header__nav {
   clear: both;
   line-height: 1;
+
+  :--link {
+    color: var(--color-text);
+  }
+
+  :--link-active {
+    color: var(--color-text-em);
+  }
 }
 
 .header__logo {
