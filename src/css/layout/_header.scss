@@ -10,16 +10,28 @@
   background-color: var(--color-bg-dark);
   color: var(--white);
 
-  & :--link {
-    color: var(--color-bg);
-  }
-
-  & :--link-active {
-    color: var(--color-text-em-dark);
-  }
-
-  .header__menu:after, .header__menu:before {
+  & .header__menu:after, .header__menu:before {
     background-color: var(--color-bg);
+  }
+
+  & .header__logo {
+    & a:link, & a:visited {
+      color: var(--color-text-lightest);
+    }
+
+    & a:hover, & a:active {
+      color: var(--color-text-em);
+    }
+  }
+
+  & .header__nav {
+    & a:link, & a:visited {
+      color: var(--color-text-lightest);
+    }
+
+    & a:hover, & a:active {
+      color: var(--color-text-em);
+    }
   }
 }
 
