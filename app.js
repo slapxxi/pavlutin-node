@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
 const compression = require('compression');
+const mongoose = require('mongoose');
 
 const config = require('./app/config');
 const pagesRouter = require('./app/routes/pages-router');
@@ -14,6 +14,18 @@ const app = express();
 
 if (ENV !== 'test') {
   mongoose.connect(config.db.URI);
+
+  mongoose.connection.on('connected', () => {
+    console.log("Mongoose connected to", config.db.URI);
+  });
+
+  mongoose.connection.on('disconnected', () => {
+    console.log("Mongoose disconnected");
+  });
+
+  mongoose.connection.on('error', (err) => {
+    console.log("Mongoose connection error", err);
+  });
 }
 
 app.locals = Object.assign({}, app.locals, config.locals);
