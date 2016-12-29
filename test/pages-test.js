@@ -9,7 +9,7 @@ describe('Pages', function() {
 
   describe('/', function() {
     beforeEach(function() {
-      req = request(app).get('/')
+      req = request(app).get('/');
     });
 
     it('returns 200 OK', function(done) {
