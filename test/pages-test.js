@@ -31,9 +31,9 @@ describe('Pages', function() {
     });
   });
 
-  describe('/contact', function() {
+  describe('/templates', function() {
     beforeEach(function() {
-      req = request(app).get('/contact');
+      req = request(app).get('/templates');
     });
 
     it('returns 200 OK', function (done) {
@@ -49,7 +49,7 @@ describe('Pages', function() {
         .expect((res) => {
           const content = res.text;
           const $ = cheerio.load(content);
-          expect($('title').text()).to.eq('Slava Pavlutin | Contact');
+          expect($('title').text()).to.eq('Slava Pavlutin | Templates');
         })
         .end(done);
     });

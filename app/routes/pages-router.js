@@ -11,9 +11,9 @@ pagesRouter.get('/projects', (req, res) => {
   res.render('projects', {title});
 });
 
-pagesRouter.get('/contact', (req, res) => {
-  const title = generateTitle(BASE_TITLE, 'Contact');
-  res.render('contact', {title});
+pagesRouter.get('/templates', (req, res) => {
+  const title = generateTitle(BASE_TITLE, 'Templates');
+  res.render('templates', {title});
 });
 
 module.exports = pagesRouter;
