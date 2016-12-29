@@ -1,6 +1,7 @@
 const { expect } = require('chai');
 const helpers = require('../lib/helpers');
 
+
 describe('helpers', function() {
   describe('.lorem()', function() {
     const expected = `<p>${helpers.LOREM}</p>`;

@@ -18,5 +18,10 @@ describe('utils', function() {
       const result = generateTitle();
       expect(result).to.eq('');
     });
+
+    it('should combine titles correctly', function () {
+      const result = generateTitle('Title', 'Generated | Title');
+      expect(result).to.eq('Title | Generated | Title');
+    });
   });
 });
