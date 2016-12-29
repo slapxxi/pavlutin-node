@@ -36,9 +36,11 @@ if (ENV !== 'test') {
   app.use(compression());
 }
 
-app.use('/css', express.static(config.outputDirs.stylesheets));
-app.use('/js', express.static(config.outputDirs.scripts));
-app.use('/img', express.static(config.outputDirs.images));
+const {scripts, stylesheets, images } = config.outputDirs;
+
+app.use('/css', express.static(stylesheets));
+app.use('/js', express.static(scripts));
+app.use('/img', express.static(images));
 
 app.use('/', pagesRouter);
 app.use('/blog', blogRouter);
