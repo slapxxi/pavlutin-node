@@ -12,6 +12,11 @@ const { pageNotFound } = require('./app/middleware/http');
 const ENV = config.env;
 const app = express();
 
+app.locals = Object.assign({}, app.locals, config.locals);
+
+app.set('env', ENV);
+app.set('view engine', config.viewEngine);
+
 if (ENV !== 'test') {
   mongoose.connect(config.db.URI);
 
@@ -26,15 +31,10 @@ if (ENV !== 'test') {
   mongoose.connection.on('error', (err) => {
     console.log("Mongoose connection error", err);
   });
+
+  app.use(morgan('dev'));
+  app.use(compression());
 }
-
-app.locals = Object.assign({}, app.locals, config.locals);
-
-app.set('env', ENV);
-app.set('view engine', config.viewEngine);
-
-app.use(compression());
-app.use(morgan('dev'));
 
 app.use('/css', express.static(config.outputDirs.stylesheets));
 app.use('/js', express.static(config.outputDirs.scripts));
