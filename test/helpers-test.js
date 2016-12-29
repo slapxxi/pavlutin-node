@@ -1,10 +1,11 @@
 const { expect } = require('chai');
 const helpers = require('../lib/helpers');
+const { LOREM } = helpers;
 
 
 describe('helpers', function() {
   describe('.lorem()', function() {
-    const expected = `<p>${helpers.LOREM}</p>`;
+    const expected = `<p>${LOREM}</p>`;
 
     it('should generate dummy text', function () {
       const result = helpers.lorem(1);
@@ -24,6 +25,12 @@ describe('helpers', function() {
     it('should generate multiple paragraphs', function () {
       const result = helpers.lorem(3);
       expect(result).to.eq(expected + expected + expected);
+    });
+
+    it('wraps dummy text in specified HTML tag', function () {
+      const result = helpers.lorem(1, 'div');
+      const expected = `<div>${LOREM}</div>`;
+      expect(result).to.eq(expected);
     });
   });
 });
