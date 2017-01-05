@@ -4,23 +4,23 @@ const request = require('supertest');
 const app = require('../app');
 
 
-describe('Pages', function() {
+describe('Pages', () => {
   let req;
 
-  describe('/', function() {
-    beforeEach(function() {
+  describe('/', () => {
+    beforeEach(() => {
       req = request(app).get('/');
     });
 
-    it('returns 200 OK', function(done) {
+    it('returns 200 OK', (done) => {
       req.expect(200, done);
     });
 
-    it('renders template', function (done) {
+    it('renders template', (done) => {
       req.expect('Content-Type', /text\/html/, done);
     });
 
-    it('has valid title', function (done) {
+    it('has valid title', (done) => {
       req
         .expect((res) => {
           const content = res.text;
@@ -31,20 +31,20 @@ describe('Pages', function() {
     });
   });
 
-  describe('/templates', function() {
-    beforeEach(function() {
+  describe('/templates', () => {
+    beforeEach(() => {
       req = request(app).get('/templates');
     });
 
-    it('returns 200 OK', function (done) {
+    it('returns 200 OK', (done) => {
       req.expect(200, done);
     });
 
-    it('renders template', function (done) {
+    it('renders template', (done) => {
       req.expect('Content-Type', /text\/html/, done);
     });
 
-    it('has valid title', function (done) {
+    it('has valid title', (done) => {
       req
         .expect((res) => {
           const content = res.text;

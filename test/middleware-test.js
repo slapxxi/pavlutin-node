@@ -4,24 +4,24 @@ const { expect } = require('chai');
 const app = require('../app');
 
 
-describe('Middleware', function() {
-  describe('http', function() {
-    describe('.pageNotFound', function() {
+describe('Middleware', () => {
+  describe('http', () => {
+    describe('.pageNotFound', () => {
       let req;
 
       beforeEach(() => {
         req = request(app).get('/nonexisting');
       });
 
-      it('sets HTTP status to 404', function (done) {
+      it('sets HTTP status to 404', (done) => {
         req.expect(404, done);
       });
 
-      it('renders HTML page', function (done) {
+      it('renders HTML page', (done) => {
         req.expect('Content-Type', /text\/html/, done);
       });
 
-      it('sets page title', function (done) {
+      it('sets page title', (done) => {
         req
           .expect((res) => {
             const content = res.text;

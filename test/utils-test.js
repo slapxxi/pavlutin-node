@@ -2,24 +2,24 @@ const { expect } = require('chai');
 const { generateTitle } = require('../lib/utils');
 
 
-describe('utils', function() {
-  describe('.generateTitle()', function() {
-    it('generates valid title', function () {
+describe('utils', () => {
+  describe('.generateTitle()', () => {
+    it('generates valid title', () => {
       const result = generateTitle('Base', 'First', 'Second');
       expect(result).to.equal('Base | First | Second');
     });
 
-    it('generates valid title when single part used', function () {
+    it('generates valid title when single part used', () => {
       const result = generateTitle('Base');
       expect(result).to.equal('Base');
     });
 
-    it('returns empty string without args', function () {
+    it('returns empty string without args', () => {
       const result = generateTitle();
       expect(result).to.eq('');
     });
 
-    it('combines titles correctly', function () {
+    it('combines titles correctly', () => {
       const result = generateTitle('Title', 'Generated | Title');
       expect(result).to.eq('Title | Generated | Title');
     });
