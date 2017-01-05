@@ -6,12 +6,12 @@ describe('utils', () => {
   describe('.generateTitle()', () => {
     it('generates valid title', () => {
       const result = generateTitle('Base', 'First', 'Second');
-      expect(result).to.equal('Base | First | Second');
+      expect(result).to.eq('Base | First | Second');
     });
 
     it('generates valid title when single part used', () => {
       const result = generateTitle('Base');
-      expect(result).to.equal('Base');
+      expect(result).to.eq('Base');
     });
 
     it('returns empty string without args', () => {
