@@ -10,3 +10,4 @@ before_script:
   - npm install chai
   - npm install supertest
   - npm install cheerio
+  - npm install babel-register
