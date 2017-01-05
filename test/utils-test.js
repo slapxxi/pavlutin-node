@@ -4,22 +4,22 @@ const { generateTitle } = require('../lib/utils');
 
 describe('utils', function() {
   describe('.generateTitle()', function() {
-    it('should generate a valid title', function () {
+    it('generates valid title', function () {
       const result = generateTitle('Base', 'First', 'Second');
       expect(result).to.equal('Base | First | Second');
     });
 
-    it('should generate a valid title when some arguments missing', function () {
+    it('generates valid title when single part used', function () {
       const result = generateTitle('Base');
       expect(result).to.equal('Base');
     });
 
-    it('should return an empty string when all arguments missing', function () {
+    it('returns empty string without args', function () {
       const result = generateTitle();
       expect(result).to.eq('');
     });
 
-    it('should combine titles correctly', function () {
+    it('combines titles correctly', function () {
       const result = generateTitle('Title', 'Generated | Title');
       expect(result).to.eq('Title | Generated | Title');
     });
