@@ -1,10 +1,16 @@
-/**
- * Render a React component for testing.
- * @param  {Object} component React component
- * @return {String} Rendered component
- */
-function renderComponent(component) {
-  return 'component';
-}
+const { jsdom } = require('jsdom');
 
-module.exports = {renderComponent};
+
+// JSDom setup
+global.document = jsdom('');
+global.window = document.defaultView;
+
+Object.keys(document.defaultView).forEach((prop) => {
+  if (typeof global[prop] === 'undefined') {
+    global[prop] = document.defaultView[prop];
+  }
+});
+
+global.navigator = {
+  userAgent: 'node.js'
+};
