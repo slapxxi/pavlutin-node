@@ -10,6 +10,7 @@ const webpackConfig = require('./webpack.config');
 const browsersync = require('browser-sync');
 const util = require('gulp-util');
 const mocha = require('gulp-mocha');
+const babel = require('babel-core/register');
 
 
 const config = {
@@ -32,7 +33,7 @@ const config = {
 gulp.task('default', ['build'])
 
 gulp.task('watch', ['browsersync'], () => {
-  gulp.watch(config.patterns.js, ['build:js', 'test']);
+  gulp.watch(config.patterns.js, ['build:js']);
   gulp.watch(config.patterns.scss, ['build:css']);
   gulp.watch(config.patterns.img, ['build:img']);
   gulp.watch(config.patterns.test, ['test']);
@@ -65,8 +66,7 @@ gulp.task('build:js', ['clean:js'], () => {
   return gulp.src('src/js/index.js')
     .pipe(webpack(webpackConfig))
     .on('error', handleError)
-    .pipe(gulp.dest(config.dest.js))
-    .pipe(browsersync.stream());
+    .pipe(gulp.dest(config.dest.js));
 });
 
 gulp.task('build:img', ['clean:img'], () => {
@@ -102,7 +102,8 @@ gulp.task('test', () => {
   process.env.NODE_ENV = 'test';
   gulp.src('test/**/*.js', {read: false})
     .pipe(mocha({
-      growl: true
+      growl: true,
+      require: './test/test-helper'
     }))
     .on('error', util.log);
 });
