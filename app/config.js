@@ -1,6 +1,5 @@
 const path = require('path');
 const helpers = require('../lib/helpers');
-const _ = require('lodash');
 
 const OUTPUT_DIR = 'public';
 
@@ -17,7 +16,6 @@ module.exports = {
     stylesheets: path.join(OUTPUT_DIR, 'css')
   },
   locals: {
-    _,
     title: 'Slava Pavlutin',
     themeColor: '#212128',
     helpers: helpers
