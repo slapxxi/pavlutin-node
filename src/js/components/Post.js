@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React from 'react';
+import Icon from 'react-fontawesome';
 import { Link } from 'react-router';
 import { lorem } from '../../../lib/helpers';
 
@@ -38,6 +39,7 @@ function renderTitle({ title, slug }) {
 function renderMeta(post) {
   return (
     <div className="post__meta">
+      <Icon name="clock-o" /> {' '}
       { toHumanReadableDate(post.createdAt) }
     </div>
   );
