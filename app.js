@@ -4,6 +4,7 @@ const compression = require('compression');
 const mongoose = require('mongoose');
 
 const config = require('./app/config');
+const apiRouter = require('./app/routes/api-router');
 const pagesRouter = require('./app/routes/pages-router');
 const blogRouter = require('./app/routes/blog-router');
 const { pageNotFound } = require('./app/middleware/http');
@@ -32,15 +33,14 @@ if (ENV !== 'test') {
     console.log("Mongoose connection error", err);
   });
 
+  const { scripts, stylesheets, images } = config.outputDirs;
+
   app.use(morgan('dev'));
   app.use(compression());
+  app.use('/css', express.static(stylesheets));
+  app.use('/js', express.static(scripts));
+  app.use('/img', express.static(images));
 }
-
-const {scripts, stylesheets, images } = config.outputDirs;
-
-app.use('/css', express.static(stylesheets));
-app.use('/js', express.static(scripts));
-app.use('/img', express.static(images));
 
 app.use('/', pagesRouter);
 app.use('/blog', blogRouter);
@@ -48,6 +48,8 @@ app.use('/blog', blogRouter);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+app.use('/api/v1', apiRouter);
 
 app.use(pageNotFound());
 
