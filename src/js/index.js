@@ -1,36 +1,72 @@
+import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+import App from './components/App';
+import HomePage from './components/HomePage';
+import BlogPage from './components/BlogPage';
+import ProjectsPage from './components/ProjectsPage';
+import PostContainer from './components/PostContainer';
 import Menu from './components/Menu';
 import rootReducer from './reducers/root-reducer';
-import { MENU_HIDE } from './actions/actions';
+import { addPost, toggleMenu } from './actions';
 
 
-$(function() {
-  enableProgressiveEnhancement();
+const API_URL = '/api/v1/posts';
 
-  const store = createStore(rootReducer);
+const storeParams = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const store = createStore(rootReducer, storeParams);
 
-  store.subscribe(() => { subscribeMenu(store) });
-
-  // Not supported in IE < 10
-  $(window).on('resize.menu', function(e) {
-    const mq = window.matchMedia('(min-width: 600px)');
-    if (mq.matches) {
-      store.dispatch({type: MENU_HIDE})
-    }
+fetch(API_URL).then(res => res.json()).then((result) => {
+  result.posts.forEach((post) => {
+    store.dispatch(addPost(post));
   });
+}).catch(error => console.log('Error fetching and parsing data', error));
 
-  ReactDOM.render(<Provider store={store}><Menu/></Provider>, document.querySelector('.menu-container'));
+store.subscribe(() => {
+  updateMenuAppearance(store);
 });
 
-function enableProgressiveEnhancement() {
-  $('body').addClass('js');
-}
+const appProvider = (
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={HomePage} />
 
-function subscribeMenu(store) {
+        <Route path="/blog" component={BlogPage} />
+        <Route path="/blog/(:slug)" component={PostContainer} />
+
+        <Route path="/projects" component={ProjectsPage} />
+      </Route>
+    </Router>
+  </Provider>
+);
+
+const menuProvider = (
+  <Provider store={store}>
+    <Menu />
+  </Provider>
+);
+
+$(() => {
+  $('body').addClass('js');
+
+  ReactDOM.render(appProvider, document.querySelector('.app'));
+  ReactDOM.render(menuProvider, document.querySelector('.menu-container'));
+
+  // Not supported in IE < 10
+  $(window).on('resize.menu', () => {
+    const mq = window.matchMedia('(min-width: 600px)');
+    if (mq.matches) {
+      store.dispatch(toggleMenu());
+    }
+  });
+});
+
+function updateMenuAppearance(store) {
   const { isMenuActive } = store.getState();
   const $header = $('.header');
   if (isMenuActive) {
