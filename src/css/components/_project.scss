@@ -1,0 +1,11 @@
+.projects {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project {
+  padding: 1em;
+  border: 1px solid var(--color-text-light);
+  border-radius: 4px;
+}

@@ -1,3 +1,12 @@
+a.button {
+  color: var(--color-text);
+
+  &:hover {
+    border-color: var(--color-text-em);
+    color: var(--color-text-em);
+  }
+}
+
 .btn-menu {
   display: block;
   background: transparent;
