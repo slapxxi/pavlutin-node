@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 const { generateTitle } = require('../lib/utils');
+const { combineClassNames, currentYear } = require('../src/js/utils');
 
 
 describe('utils', () => {
@@ -22,6 +23,30 @@ describe('utils', () => {
     it('combines titles correctly', () => {
       const result = generateTitle('Title', 'Generated | Title');
       expect(result).to.eq('Title | Generated | Title');
+    });
+  });
+
+  describe('.combineClassNames()', () => {
+    it('combines class names', () => {
+      const result = combineClassNames('nav', 'active');
+      expect(result).to.eq('active nav');
+    });
+
+    it('ignores undefined values', () => {
+      const result = combineClassNames(undefined, 'active');
+      expect(result).to.eq('active');
+    });
+
+    it('ignores empty strings', () => {
+      const result = combineClassNames('', 'active');
+      expect(result).to.eq('active');
+    });
+  });
+
+  describe('.currentYear()', () => {
+    it('returns current year', () => {
+      const result = currentYear();
+      expect(result).to.eq(2017);
     });
   });
 });
