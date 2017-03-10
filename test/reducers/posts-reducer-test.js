@@ -17,10 +17,4 @@ describe('postsReducer', () => {
     const result = postsReducer([], addPost(post));
     expect(result).to.include(post);
   });
-
-  it('sorts posts', () => {
-    const result = postsReducer([secondPost, post], sortPosts(post => post.title));
-    expect(result[0]).to.eq(post);
-    expect(result[1]).to.eq(secondPost);
-  });
 });
