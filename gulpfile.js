@@ -1,12 +1,10 @@
 const gulp = require('gulp');
 const del = require('del');
-const webpack = require('webpack-stream');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('gulp-cssnano');
 const imagemin = require('gulp-imagemin');
 const stylelint = require('gulp-stylelint');
-const webpackConfig = require('./webpack.config');
 const browsersync = require('browser-sync');
 const util = require('gulp-util');
 const mocha = require('gulp-mocha');
@@ -28,12 +26,11 @@ const config = {
     img: 'public/img'
   },
   production: !!util.env.production
-}
+};
 
 gulp.task('default', ['build'])
 
 gulp.task('watch', ['browsersync'], () => {
-  gulp.watch(config.patterns.js, ['build:js']);
   gulp.watch(config.patterns.scss, ['build:css']);
   gulp.watch(config.patterns.img, ['build:img']);
   gulp.watch(config.patterns.test, ['test']);
@@ -42,7 +39,7 @@ gulp.task('watch', ['browsersync'], () => {
   });
 });
 
-gulp.task('build', ['build:css', 'build:js', 'build:img']);
+gulp.task('build', ['build:css', 'build:img']);
 
 gulp.task('build:css', ['clean:css'], () => {
   const postcssProcessors = [
@@ -62,13 +59,6 @@ gulp.task('build:css', ['clean:css'], () => {
     .pipe(browsersync.stream());
 });
 
-gulp.task('build:js', ['clean:js'], () => {
-  return gulp.src('src/js/index.js')
-    .pipe(webpack(webpackConfig))
-    .on('error', handleError)
-    .pipe(gulp.dest(config.dest.js));
-});
-
 gulp.task('build:img', ['clean:img'], () => {
   gulp.src(config.patterns.img)
     .pipe(imagemin())
@@ -77,10 +67,6 @@ gulp.task('build:img', ['clean:img'], () => {
 
 gulp.task('clean:css', () => {
   return del([config.dest.css]);
-});
-
-gulp.task('clean:js', () => {
-  return del([config.dest.js]);
 });
 
 gulp.task('clean:img', () => {
