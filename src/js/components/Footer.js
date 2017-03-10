@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-fontawesome';
 import Navigation from './Navigation';
 import { combineClassNames, currentYear } from '../utils';
 
@@ -8,8 +9,14 @@ function Footer({ className }) {
   return (
     <footer className={clsName}>
       <Navigation>
-        <a href="https://twitter.com/SlavaPavlutin">Twitter</a>
-        <a href="https://github.com/slavapavlutin">GitHub</a>
+        <a href="https://twitter.com/SlavaPavlutin">
+          <Icon name="twitter" /> {' '}
+          Twitter
+        </a>
+        <a href="https://github.com/slavapavlutin">
+          <Icon name="github" /> {' '}
+          GitHub
+        </a>
       </Navigation>
 
       <p>
