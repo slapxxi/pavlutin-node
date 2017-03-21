@@ -3,9 +3,6 @@ import Header from './Header';
 import Footer from './Footer';
 
 
-// TODO: Markdown Support
-// TODO: Persistent Session
-// TODO: Authentication
 function App({ children }) {
   return (
     <div className="app">
