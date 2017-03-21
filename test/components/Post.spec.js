@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import { Post } from '../../src/js/components/Post';
 
@@ -21,7 +21,7 @@ describe('<Post/>', () => {
   });
 
   it('renders post metadata', () => {
-    const result = shallow(<Post post={post} />);
-    expect(result.find('.post__meta').text()).to.eq('a few seconds ago');
+    const result = mount(<Post post={post} />);
+    expect(result.find('.post__meta').text()).to.eq('  a few seconds ago');
   });
 });
