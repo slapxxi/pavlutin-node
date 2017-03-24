@@ -1,0 +1,13 @@
+{
+  "plugins": [
+   "stylelint-scss"
+ ],
+ "rules": {
+   "at-rule-blacklist": ["debug"],
+   "selector-class-pattern": null,
+   "string-quotes": "double",
+   "color-hex-case": "upper",
+   "color-hex-length": "long",
+   "font-weight-notation": "numeric"
+ },
+}
