@@ -51,6 +51,10 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1', apiRouter);
 
+app.get('*', (req, res) => {
+  res.render('index');
+});
+
 app.use(pageNotFound());
 
 if (ENV !== 'test') {
