@@ -59,7 +59,7 @@ app.use(pageNotFound());
 
 if (ENV !== 'test') {
   const server = app.listen(config.port, (err) => {
-    if (err) { throw err }
+    if (err) { throw err; }
     console.log('Starting app on port', server.address().port);
   });
 }
