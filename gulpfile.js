@@ -8,7 +8,7 @@ const stylelint = require('gulp-stylelint');
 const browsersync = require('browser-sync').create();
 const util = require('gulp-util');
 const mocha = require('gulp-mocha');
-const babel = require('babel-core/register');
+const sass = require('gulp-sass');
 
 
 const config = {
@@ -43,14 +43,15 @@ gulp.task('build', ['build:css', 'build:img']);
 
 gulp.task('build:css', ['clean:css'], () => {
   const postcssProcessors = [
-    require('precss')({
-      import: {extension: 'scss'}
-    }),
-    require('postcss-cssnext')
+    require('postcss-cssnext'),
   ];
 
   return gulp.src(config.patterns.css)
     .pipe(sourcemaps.init())
+    .pipe(sass({
+      includePaths: ['node_modules/susy/sass'],
+    }))
+    .on('error', handleError)
     .pipe(postcss(postcssProcessors))
     .on('error', handleError)
     .pipe(config.production ? cssnano({ discardComments: { removeAll: true } }) : util.noop())
