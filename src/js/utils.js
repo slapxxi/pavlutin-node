@@ -5,7 +5,7 @@
  * @return {String} className compatible string
  */
 function combineClassNames(...classNames) {
-  return classNames.reduce((name, acc: any) => {
+  return classNames.reduce((name, acc) => {
     if (name && name !== '') {
       return `${acc} ${name}`;
     }
@@ -17,8 +17,27 @@ function combineClassNames(...classNames) {
  * Returns a current year;
  * @return {Number} Current year
  */
-function currentYear(): number {
+function currentYear() {
   return new Date().getFullYear();
 }
 
-export { combineClassNames, currentYear };
+/**
+ * Returns a function that cycles through
+ * a collection indefinitely.
+ * @param  {Any} collection
+ * @return {Function}
+ */
+function cycle(collection) {
+  let index = 0;
+  return function () {
+    const result = collection[index];
+    if ((index + 1) === collection.length) {
+      index = 0;
+    } else {
+      index += 1;
+    }
+    return result;
+  };
+}
+
+export { combineClassNames, currentYear, cycle };
