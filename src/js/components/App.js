@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
-
 function App({ children }) {
   return (
     <div className="app">

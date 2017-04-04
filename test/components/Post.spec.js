@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { Post } from '../../src/js/components/Post';
 
-
 describe('<Post/>', () => {
   const post = {
     id: 0,

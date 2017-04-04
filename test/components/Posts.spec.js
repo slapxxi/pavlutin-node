@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import Posts from '../../src/js/components/Posts';
 
-
 describe('<Posts/>', () => {
   const posts = [
     { id: 0, title: 'First Post' },

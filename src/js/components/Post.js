@@ -4,7 +4,6 @@ import Icon from 'react-fontawesome';
 import { Link } from 'react-router';
 import { lorem } from '../../../lib/helpers';
 
-
 function Post({ post }) {
   return (
     <div className="post">
