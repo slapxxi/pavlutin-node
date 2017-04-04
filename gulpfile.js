@@ -5,7 +5,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('gulp-cssnano');
 const imagemin = require('gulp-imagemin');
 const stylelint = require('gulp-stylelint');
-const browsersync = require('browser-sync');
+const browsersync = require('browser-sync').create();
 const util = require('gulp-util');
 const mocha = require('gulp-mocha');
 const babel = require('babel-core/register');
@@ -18,17 +18,17 @@ const config = {
     scss: 'src/**/*.{css,scss}',
     img: 'src/**/*.{png,ico,jpeg,jpg,svg}',
     html: 'views/**/*.pug',
-    test: ['test/**/*.js', 'app/**/*.js']
+    test: ['test/**/*.js', 'app/**/*.js'],
   },
   dest: {
     js: 'public/js',
     css: 'public/css',
-    img: 'public/img'
+    img: 'public/img',
   },
-  production: !!util.env.production
+  production: !!util.env.production,
 };
 
-gulp.task('default', ['build'])
+gulp.task('default', ['build']);
 
 gulp.task('watch', ['browsersync'], () => {
   gulp.watch(config.patterns.scss, ['build:css']);
@@ -53,43 +53,36 @@ gulp.task('build:css', ['clean:css'], () => {
     .pipe(sourcemaps.init())
     .pipe(postcss(postcssProcessors))
     .on('error', handleError)
-    .pipe(config.production ? cssnano({discardComments: {removeAll: true}}) : util.noop())
+    .pipe(config.production ? cssnano({ discardComments: { removeAll: true } }) : util.noop())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('public'))
-    .pipe(browsersync.stream());
 });
 
 gulp.task('build:img', ['clean:img'], () => {
   gulp.src(config.patterns.img)
     .pipe(imagemin())
+    .on('error', handleError)
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('clean:css', () => {
-  return del([config.dest.css]);
-});
+gulp.task('clean:css', () => del([config.dest.css]));
 
-gulp.task('clean:img', () => {
-  return del([config.dest.img]);
-});
-
-gulp.task('lint:css', () => {
-  return gulp.src(config.patterns.scss)
-    .pipe(stylelint({reporters: [{formatter: 'string', console: true}]}));
-});
+gulp.task('clean:img', () => del([config.dest.img]));
 
 gulp.task('browsersync', () => {
   browsersync.init({
-    proxy: 'localhost:8000'
+    files: 'public/**/*.css',
+    proxy: 'localhost:8000',
+    notify: false,
   });
 });
 
 gulp.task('test', () => {
   process.env.NODE_ENV = 'test';
-  gulp.src('test/**/*.js', {read: false})
+  gulp.src('test/**/*.js', { read: false })
     .pipe(mocha({
       growl: true,
-      require: './test/test-helper'
+      require: './test/test-helper',
     }))
     .on('error', util.log);
 });
