@@ -22,15 +22,15 @@ if (ENV !== 'test') {
   mongoose.connect(config.db.URI);
 
   mongoose.connection.on('connected', () => {
-    console.log("Mongoose connected to", config.db.URI);
+    console.log('Mongoose connected to', config.db.URI);
   });
 
   mongoose.connection.on('disconnected', () => {
-    console.log("Mongoose disconnected");
+    console.log('Mongoose disconnected');
   });
 
   mongoose.connection.on('error', (err) => {
-    console.log("Mongoose connection error", err);
+    console.log('Mongoose connection error', err);
   });
 
   const { scripts, stylesheets, images } = config.outputDirs;
