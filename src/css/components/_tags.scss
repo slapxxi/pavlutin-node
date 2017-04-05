@@ -13,8 +13,7 @@
 
   & > a {
     display: inline-block;
-    padding: 0.1em 0.5em;
-    padding-left: 1.3em;
+    padding: 0.1em 0.8em 0.1em 1.1em;
     text-decoration: none;
     color: var(--color-text-middle);
   }
@@ -36,8 +35,8 @@
     display: block;
     position: absolute;
     top: 50%;
-    top: calc(50% - 2.5px);
-    left: 5px;
+    top: calc(50% - 2px);
+    left: 6px;
     width: 4px;
     height: 4px;
     border: 1px solid var(--color-text-light);
