@@ -2,21 +2,14 @@ const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
 const mongoose = require('mongoose');
-
 const config = require('./app/config');
 const apiRouter = require('./app/routes/api-router');
-const pagesRouter = require('./app/routes/pages-router');
-const blogRouter = require('./app/routes/blog-router');
-const { pageNotFound } = require('./app/middleware/http');
-
 
 const ENV = config.env;
 const app = express();
 
-app.locals = Object.assign({}, app.locals, config.locals);
-
-app.set('env', ENV);
 app.set('view engine', config.viewEngine);
+app.set('env', ENV);
 
 if (ENV !== 'test') {
   mongoose.connect(config.db.URI);
@@ -42,20 +35,13 @@ if (ENV !== 'test') {
   app.use('/img', express.static(images));
 }
 
-app.use('/', pagesRouter);
-app.use('/blog', blogRouter);
-
 app.get('/', (req, res) => {
   res.render('index');
 });
-
 app.use('/api/v1', apiRouter);
-
 app.get('*', (req, res) => {
   res.render('index');
 });
-
-app.use(pageNotFound());
 
 if (ENV !== 'test') {
   const server = app.listen(config.port, (err) => {

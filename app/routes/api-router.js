@@ -1,9 +1,13 @@
 const express = require('express');
-const postsRouter = require('./posts-router');
-
+const Post = require('../models/post');
 
 const apiRouter = express.Router();
 
-apiRouter.use('/posts', postsRouter);
+apiRouter.get('/posts', (req, res, next) => {
+  Post.find((err, posts) => {
+    if (err) next(err);
+    return res.json({ posts });
+  });
+});
 
 module.exports = apiRouter;
