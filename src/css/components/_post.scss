@@ -1,5 +1,27 @@
+.posts,
+.posts__post {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.posts__post {
+  border-bottom: 1px solid var(--color-text-light);
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.post__image {
+  margin: $grid-offset-vertical auto;
+  width: 100%;
+  max-width: 35em;
+}
+
 .post_preview {
-  .post__title, .post__meta, .post__description {
+  .post__title,
+  .post__meta,
+  .post__description {
     text-align: left;
   }
 
@@ -31,15 +53,22 @@
 
 .post__tags {
   font-size: 0.9em;
-  margin-top: 1em;
 }
 
 .post__description {
-  text-align: center;
-  margin: 1.5em 0;
   font-style: italic;
+  font-size: 1.1em;
   font-family: Georgia, serif;
-  font-size: 1.17em;
   font-weight: 400;
-  color: var(--color-text);
+  color: var(--color-text-dark);
+
+  @media (--screen-medium) {
+    font-size: 1.2em;
+  }
+}
+
+.post__content {
+  img {
+    max-width: 100%;
+  }
 }
