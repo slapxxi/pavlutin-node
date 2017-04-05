@@ -5,7 +5,7 @@ describe('utils', () => {
   describe('combineClassNames', () => {
     it('combines class names', () => {
       const result = combineClassNames('nav', 'active');
-      expect(result).to.eq('active nav');
+      expect(result).to.eq('nav active');
     });
 
     it('ignores undefined values', () => {
