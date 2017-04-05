@@ -1,5 +1,7 @@
+require('babel-core/register')({
+  ignore: /node_modules/,
+});
 const { jsdom } = require('jsdom');
-
 
 // JSDom setup
 global.document = jsdom('');
@@ -12,5 +14,11 @@ Object.keys(document.defaultView).forEach((prop) => {
 });
 
 global.navigator = {
-  userAgent: 'node.js'
+  userAgent: 'node.js',
+};
+
+module.exports = {
+  singleLine(params) {
+    return params[0].trim().replace(/\n */g, '');
+  },
 };
