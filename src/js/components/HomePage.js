@@ -36,7 +36,6 @@ class HomePage extends React.Component {
           <Title className="homepage__title">
             <Type speed={75} text={this.state.title} />
           </Title>
-          <p>I love solving problems and solve them well.</p>
         </header>
       </section>
     );
