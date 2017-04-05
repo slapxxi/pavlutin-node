@@ -8,11 +8,11 @@ function Footer({ className }) {
   return (
     <footer className={className}>
       <SocialLinks />
-      <p>
+      <div>
         <small className="footer__copy">
           Slava Pavlutin &copy; 2016-{ currentYear() }
         </small>
-      </p>
+      </div>
     </footer>
   );
 }
