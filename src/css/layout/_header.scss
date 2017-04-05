@@ -1,56 +1,38 @@
-/* Theme */
-
 .header {
-  font-family: var(--font-caps);
-  background-color: var(--color-bg);
-  color: var(--color-text-light);
-}
-
-.header_theme_inverse {
-  background-color: var(--color-bg-dark);
-  color: var(--white);
-
-  & .header__menu:after, .header__menu:before {
-    background-color: var(--color-bg);
-  }
-
-  & .header__logo {
-    & a:link, & a:visited {
-      color: var(--color-text-lightest);
-    }
-
-    & a:hover, & a:active {
-      color: var(--color-text-em);
-    }
-  }
-
-  & .header__nav {
-    & a:link, & a:visited {
-      color: var(--color-text-lightest);
-    }
-
-    & a:hover, & a:active {
-      color: var(--color-text-em);
-    }
-  }
-}
-
-.header__logo {
-  color: var(--color-text-light);
-}
-
-/* Display */
-
-.header {
+  box-sizing: border-box;
   overflow: auto;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  text-transform: uppercase;
+  margin-left: $grid-gutter;
+  margin-right: $grid-gutter;
   font-size: 0.9em;
+  font-family: var(--font-caps);
+  background: var(--color-bg);
+  color: var(--color-text-light);
+}
+
+.header__menu {
+  float: left;
+  width: grid-col(6);
+  line-height: 1;
+  text-align: right;
+  color: var(--color-text);
+
+  @media (--screen-medium) {
+    width: grid-col(2);
+  }
+}
+
+.header__menu__icon {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-text-em);
+  }
 }
 
 .header__nav {
-  clear: both;
+  display: none;
   line-height: 1;
 
   :--link {
@@ -60,40 +42,28 @@
   :--link-active {
     color: var(--color-text-em);
   }
+
+  @media (--screen-medium) {
+    display: block;
+    float: left;
+    width: grid-col(6);
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: right;
+  }
 }
 
 .header__logo {
   float: left;
-  text-align: right;
+  width: grid-col(6);
+  color: var(--color-text-light);
+
+  & > a {
+    display: inline-block;
+    padding: 1.5em 0;
+  }
 
   @media (--screen-medium) {
-    float: left;
-
-    & > a {
-      display: block;
-      padding: 1.25em 0;
-    }
-  }
-}
-
-
-@media (--screen-medium) {
-  .header {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .header__nav {
-    float: right;
-    clear: none;
-  }
-
-  .js {
-    .header__nav {
-      display: block;
-      transform: none;
-      width: auto;
-      height: auto;
-    }
+    width: grid-col(4);
   }
 }
