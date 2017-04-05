@@ -1,30 +1,23 @@
 :root {
   --color-accent: var(--white-dimmed);
-
   --color-bg: var(--white);
   --color-bg-dark: var(--grey-dark);
   --color-bg-light: var(--cyan);
-
-  --color-link: var(--cyan);
+  --color-link: var(--mint-dark);
   --color-link-active: var(--cyan);
-
   --color-text-dark: var(--grey);
   --color-text: var(--grey-middle);
+  --color-text-middle: var(--grey-middle-light);
   --color-text-light: var(--grey-light);
-  --color-text-middle-light: var(--grey-middle-light);
   --color-text-lightest: var(--white);
-
   --color-text-em-dark: var(--cyan);
-  --color-text-em: var(--cyan);
+  --color-text-em: var(--mint-dark);
   --color-text-em-light: var(--cyan);
-
-  --color-selection: var(--cyan);
-  --color-selection-fg: var(--white);
-
+  --color-selection: var(--mint-dark);
+  --color-selection-fg: var(--black);
   --font-main: "Open Sans", "Helvetica Neue", sans-serif;
   --font-secondary: "Montserrat", Georgia, serif;
   --font-caps: "Raleway", Helvetica, sans-serif;
-
   --layout-gutter: 2.3rem;
   --layout-spacing: 5%;
   --layout-width-max: 1096px;
@@ -35,4 +28,15 @@
   @custom-selector :--heading h1,h2,h3,h4,h5,h6;
   @custom-selector :--link a:link, a:visited;
   @custom-selector :--link-active a:hover, a:focus, a:active;
+}
+
+$grid-size: 100%;
+$grid-gutter: 5%;
+$grid-offset: 5%;
+$grid-offset-vertical: 2em;
+$grid-cols: 12;
+$grid-col: $grid-size / $grid-cols;
+
+@function grid-col($n) {
+  @return $grid-col * $n;
 }
