@@ -1,4 +1,8 @@
 ::selection {
   background-color: var(--color-selection);
-  color: var(--color-selection-fg);
+  color: var(--color-text-lightest);
+}
+
+::placeholder {
+  color: var(--color-text-middle);
 }
