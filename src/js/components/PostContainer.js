@@ -1,14 +1,18 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import Post from './Post';
+import { Post } from './Post';
 
 
-function PostContainer({ posts, params }) {
-  const { slug } = params;
+function PostContainer({ posts, match }) {
+  const { slug } = match.params;
   const post = _.find(posts, p => p.slug === slug);
   if (post) {
-    return <Post post={post} />;
+    return (
+      <section className="blogpage">
+        <Post post={post} />
+      </section>
+    );
   }
   return null;
 }

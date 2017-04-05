@@ -1,6 +1,4 @@
 import React from 'react';
-import Project from './Project';
-
 
 function Projects({ projects }) {
   if (projects.length === 0) {
@@ -8,16 +6,12 @@ function Projects({ projects }) {
   }
   return (
     <ul className="projects">
-      { projects.map(mapProjectToListItem) }
+      {
+        projects.map(p => <li className="projects__project">
+          <h1>{p.title}</h1>
+        </li>)
+      }
     </ul>
-  );
-}
-
-function mapProjectToListItem(project) {
-  return (
-    <li className="projects__project">
-      <Project project={project} />
-    </li>
   );
 }
 

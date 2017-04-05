@@ -1,22 +1,46 @@
 import React from 'react';
+import Icon from 'react-fontawesome';
 import { connect } from 'react-redux';
-import { searchTerm } from '../actions';
+import { changeSearchTerm } from '../actions';
 
 
-function Search({ searchTerm, onChange }) {
-  return (<input
-    className="search"
-    type="search"
-    placeholder="Search"
-    value={searchTerm}
-    onChange={handleChange(onChange)}
-  />);
-}
+class Search extends React.Component {
+  constructor() {
+    super();
+    this.state = { inFocus: false };
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-function handleChange(update) {
-  return function handleOnChange(event) {
-    update(event.target.value);
-  };
+  handleFocus() {
+    this.setState({ inFocus: !this.state.inFocus });
+  }
+
+  handleChange(event) {
+    this.props.onChange(event.target.value);
+  }
+
+  render() {
+    const clsName = this.state.inFocus ? 'search search_focus' : 'search';
+    return (
+      <div className={clsName}>
+        <label htmlFor="search" className="search__icon">
+          <Icon name="search" />
+        </label>
+
+        <input
+          id="search"
+          type="search"
+          className="search__input"
+          placeholder="Search"
+          value={this.props.searchTerm}
+          onFocus={this.handleFocus}
+          onBlur={this.handleFocus}
+          onChange={this.handleChange}
+        />
+      </div>
+    );
+  }
 }
 
 function mapStateToProps({ searchTerm }) {
@@ -25,7 +49,7 @@ function mapStateToProps({ searchTerm }) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onChange(term) { dispatch(searchTerm(term)); },
+    onChange(term) { dispatch(changeSearchTerm(term)); },
   };
 }
 

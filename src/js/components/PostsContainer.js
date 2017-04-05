@@ -1,18 +1,21 @@
-import _ from 'lodash';
+import { find } from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-
 import Posts from './Posts';
 import Search from './Search';
 
-
-function PostsContainer({ posts, searchTerm }) {
+function PostsContainer({ posts, searchTerm, tag }) {
+  const postsByTag = filterByTag(posts, tag);
   return (
     <div>
       <Search />
-      <Posts posts={filterPosts(posts, searchTerm)} />
+      <Posts posts={filterPosts(postsByTag, searchTerm)} />
     </div>
   );
+}
+
+function filterByTag(posts, tag) {
+  return !tag ? posts : posts.filter(p => p.tags.includes(tag));
 }
 
 function filterPosts(posts, searchTerm) {
@@ -26,18 +29,8 @@ function searchPosts(posts, searchTerm) {
   const terms = searchTerm.trim().split(' ').map(term => new RegExp(term, 'i'));
   return posts.filter((post) => {
     const description = post.description || '';
-    const tags = post.tags || [];
-    return !!_.find(terms, term => post.title.match(term) || description.match(term) || _.find(tags, t => t.match(term)));
+    return !!find(terms, term => post.title.match(term) || description.match(term));
   });
-}
-
-function sortPosts(posts, field) {
-  switch (field) {
-    case 'date': return _.sortBy(posts, p => p.createdAt).reverse();
-    case 'title': return _.sortBy(posts, p => p.title);
-    case 'author': return _.sortBy(posts, p => p.author);
-    default: return posts;
-  }
 }
 
 function mapStateToProps({ posts, searchTerm }) {

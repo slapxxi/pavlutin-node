@@ -1,12 +1,12 @@
 import React from 'react';
 import SocialLinks from './SocialLinks';
-import { combineClassNames, currentYear } from '../utils';
+import { withClassName } from './HOC';
+import { currentYear } from '../utils';
 
 
 function Footer({ className }) {
-  const clsName = combineClassNames(className, 'footer');
   return (
-    <footer className={clsName}>
+    <footer className={className}>
       <SocialLinks />
       <p>
         <small className="footer__copy">
@@ -17,4 +17,4 @@ function Footer({ className }) {
   );
 }
 
-export default Footer;
+export default withClassName('footer')(Footer);

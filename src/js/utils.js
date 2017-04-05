@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 /**
  * Concatenates class names given as an array of strings or
  * undefined values into a string compatible with "className" property.
@@ -40,4 +42,8 @@ function cycle(collection) {
   };
 }
 
-export { combineClassNames, currentYear, cycle };
+function toHumanReadableDate(timestamp) {
+  return moment(timestamp).fromNow();
+}
+
+export { combineClassNames, currentYear, cycle, toHumanReadableDate };

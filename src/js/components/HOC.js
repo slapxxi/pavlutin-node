@@ -1,5 +1,5 @@
 import React, { Children } from 'react';
-
+import { combineClassNames } from '../utils';
 
 /**
  * Higher order component that requires children to exist
@@ -18,5 +18,16 @@ function requireChildren(Component) {
   return RequireChildren;
 }
 
-export { requireChildren };
+function withClassName(clsName) {
+  return function withClassNameSaved(Component) {
+    function WithClassName(props) {
+      const result = combineClassNames(clsName, props.className);
+      return <Component {...props} className={result} />;
+    }
+    WithClassName.displayName = `WithClassName(${Component.name})`;
+    return WithClassName;
+  };
+}
+
+export { requireChildren, withClassName };
 export default requireChildren;

@@ -1,15 +1,46 @@
-const React = require('react');
-const { v4 } = require('node-uuid');
-const { lorem } = require('../../../lib/helpers');
+import React from 'react';
+import Title from './Title';
+import Type from './Type';
+import { cycle } from '../utils';
 
+class HomePage extends React.Component {
+  static titles = [
+    "I'm a frontend developer.",
+    'I love my work.',
+    "I'm a professional.",
+  ];
 
-function HomePage() {
-  return (
-    <div>
-      <h1>Home Page</h1>
-      { lorem(3).map(t => <p key={v4()}>{t}</p>)}
-    </div>
-  );
+  constructor() {
+    super();
+    this.index = 0;
+    this.nextTitle = cycle(HomePage.titles);
+    this.state = { title: this.nextTitle() };
+  }
+
+  componentDidMount() {
+    this.intervalID = setInterval(() => {
+      const title = this.nextTitle();
+      this.setState({ title });
+    }, 4500);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  render() {
+    return (
+      <section className="homepage">
+        <header className="homepage__header">
+          <img src="/img/developer.svg" alt="developer" />
+          <Title className="homepage__title">
+            <Type speed={75} text={this.state.title} />
+          </Title>
+          <p>I love solving problems and solve them well.</p>
+        </header>
+      </section>
+    );
+  }
 }
 
-module.exports = HomePage;
+export default HomePage;

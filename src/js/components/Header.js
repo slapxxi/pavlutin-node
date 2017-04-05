@@ -1,8 +1,13 @@
+import $ from 'jquery';
 import React from 'react';
-import { Link } from 'react-router';
+import {
+  NavLink as Link,
+} from 'react-router-dom';
+import Icon from 'react-fontawesome';
 import Logo from './Logo';
+import Overlay from './Overlay';
 import Navigation from './Navigation';
-import { combineClassNames } from '../utils';
+import { withClassName } from './HOC';
 
 
 const activeStyle = {
@@ -12,20 +17,49 @@ const activeStyle = {
   color: 'black',
 };
 
-function Header({ className }) {
-  const clsName = combineClassNames(className, 'header');
-  return (
-    <header className={clsName}>
-      <Logo className="header__logo">
-        <Link to="/">Slava Pavlutin</Link>
-      </Logo>
+class Header extends React.Component {
+  constructor() {
+    super();
+    this.$html = $('html, body');
+    this.state = { isOverlayOpen: false };
+    this.openOverlay = this.openOverlay.bind(this);
+    this.closeOverlay = this.closeOverlay.bind(this);
+  }
 
-      <Navigation className="header__nav">
-        <Link activeStyle={activeStyle} to="/blog">Blog</Link>
-        <Link activeStyle={activeStyle} to="/projects">Projects</Link>
-      </Navigation>
-    </header>
-  );
+  openOverlay() {
+    this.$html.addClass('no-scroll');
+    this.setState({ isOverlayOpen: true });
+  }
+
+  closeOverlay() {
+    this.$html.removeClass('no-scroll');
+    this.setState({ isOverlayOpen: false });
+  }
+
+  render() {
+    return (
+      <header className={this.props.className}>
+        <Logo className="header__logo">
+          <Link to="/">Slava Pavlutin</Link>
+        </Logo>
+
+        <Navigation className="header__nav">
+          <Link activeStyle={activeStyle} to="/blog">Blog</Link>
+          <Link activeStyle={activeStyle} to="/projects">Projects</Link>
+          <Link activeStyle={activeStyle} to="/contact">Contact</Link>
+        </Navigation>
+
+        <div className="header__menu">
+          <Icon className="header__menu__icon" name="bars" onClick={this.openOverlay} />
+        </div>
+
+        <Overlay
+          isOpen={this.state.isOverlayOpen}
+          onClick={this.closeOverlay}
+        />
+      </header>
+    );
+  }
 }
 
-export default Header;
+export default withClassName('header')(Header);

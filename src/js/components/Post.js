@@ -1,17 +1,33 @@
-import moment from 'moment';
 import React from 'react';
 import Icon from 'react-fontawesome';
-import { Link } from 'react-router';
-import { lorem } from '../../../lib/helpers';
+import Markdown from 'react-markdown';
+import DisqusThread from 'react-disqus-thread';
+import { Link } from 'react-router-dom';
+import Tags from './Tags';
+import { toHumanReadableDate } from '../utils';
 
 function Post({ post }) {
+  const URL = `http://slavapavlutin.com/blog/${post.slug}`;
   return (
-    <div className="post">
+    <article className="post">
       { renderTitle(post) }
       { renderMeta(post) }
+
+      <div className="post__image">
+        <img src={`/img/${post.img}`} alt={`${post.title}`} />
+      </div>
+
       { renderDescription(post.description) }
       { renderContent(post.content) }
-    </div>
+
+      <DisqusThread
+        identifier={post.slug + post.id}
+        title={post.title}
+        url={URL}
+        category_id={post.id}
+        // shortname="slavapavlutin-com"
+      />
+    </article>
   );
 }
 
@@ -20,7 +36,7 @@ function PostPreview({ post }) {
     <div className="post post_preview">
       { renderTitle(post) }
       { renderMeta(post) }
-      { renderTags(post) }
+      <Tags tags={post.tags} className="post__tags" />
       { renderDescription(post.description) }
       { renderButton(post.slug) }
     </div>
@@ -45,40 +61,25 @@ function renderMeta(post) {
 }
 
 function renderDescription(description = 'There is no description.') {
-  return <p className="post__description">{ description }</p>;
+  return <div className="post__description"><Markdown source={description} /></div>;
 }
 
 function renderContent(content) {
   return (
     <div className="post__content">
-      { lorem(3).map(text => <p>{text}</p>)}
-    </div>
-  );
-}
-
-function renderTags({ tags }) {
-  if (!tags) {
-    return null;
-  }
-  return (
-    <div className="post__tags">
-      <ul className="tags">
-        { tags.map(t => <li className="tags__tag"><Link to={`/blog/tag/${t}`}>{t}</Link></li>) }
-      </ul>
+      <Markdown source={content.replace(/\\n/g, '\n')} />
     </div>
   );
 }
 
 function renderButton(slug) {
   return (
-    <p>
-      <Link className="button" to={`/blog/${slug}`}>Keep Reading</Link>
-    </p>
+    <div>
+      <Link className="button" to={`/blog/${slug}`}>
+        Keep Reading
+      </Link>
+    </div>
   );
-}
-
-function toHumanReadableDate(timestamp) {
-  return moment(timestamp).fromNow();
 }
 
 export { Post, PostPreview };
