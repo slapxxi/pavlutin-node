@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostPreview } from './Post';
+import PostPreview from './PostPreview';
 
 function Posts({ posts }) {
   if (posts.length === 0) {

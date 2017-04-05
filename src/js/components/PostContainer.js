@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Post } from './Post';
+import Post from './Post';
 
 
 function PostContainer({ posts, match }) {
