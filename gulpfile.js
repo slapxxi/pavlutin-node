@@ -9,7 +9,7 @@ const browsersync = require('browser-sync').create();
 const util = require('gulp-util');
 const mocha = require('gulp-mocha');
 const sass = require('gulp-sass');
-
+const rename = require('gulp-rename');
 
 const config = {
   patterns: {
@@ -39,7 +39,13 @@ gulp.task('watch', ['browsersync'], () => {
   });
 });
 
-gulp.task('build', ['build:css', 'build:img']);
+gulp.task('build', ['build:css', 'build:img', 'build:html']);
+
+gulp.task('build:html', () => {
+  gulp.src('views/index.pug')
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('public'));
+})
 
 gulp.task('build:css', ['clean:css'], () => {
   const postcssProcessors = [
