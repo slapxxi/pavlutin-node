@@ -7,21 +7,28 @@
 @import "components/post";
 @import "components/project";
 @import "components/tags";
-
+@import "components/overlay";
 
 .anchor {
   margin-left: 0.3em;
   text-decoration: none;
 
-  &:link, &:visited {
+  &:link,
+  &:visited {
     color: var(--color-text-light);
   }
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: var(--color-text-em);
   }
 }
 
 .link {
   display: inline-block;
+}
+
+.no-scroll {
+  height: 100%;
+  overflow: hidden;
 }
