@@ -7,7 +7,7 @@ const types = require('./types');
  * @return {object} Action
  */
 function addPost(post) {
-  return {type: types.POSTS_ADD, payload: post};
+  return { type: types.POSTS_ADD, payload: post };
 }
 
 /**
@@ -16,7 +16,7 @@ function addPost(post) {
  * @return {object} Action
  */
 function sortPostsBy(field) {
-  return {type: types.POSTS_SORT_BY, payload: field};
+  return { type: types.POSTS_SORT_BY, payload: field };
 }
 
 /**
@@ -24,8 +24,8 @@ function sortPostsBy(field) {
  * @param  {string} value Search term value
  * @return {object} Action
  */
-function searchTerm(value) {
-  return {type: types.SEARCH_TERM, payload: value};
+function changeSearchTerm(value) {
+  return { type: types.SEARCH_TERM, payload: value };
 }
 
 /**
@@ -33,7 +33,7 @@ function searchTerm(value) {
  * @return {object} Action
  */
 function toggleMenu() {
-  return {type: types.MENU_TOGGLE};
+  return { type: types.MENU_TOGGLE };
 }
 
-module.exports = {addPost, sortPostsBy, searchTerm, toggleMenu};
+module.exports = { addPost, sortPostsBy, changeSearchTerm, toggleMenu };
