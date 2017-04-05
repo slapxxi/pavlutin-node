@@ -1,26 +1,121 @@
-@import 'layout/header';
-@import 'layout/content';
-@import 'layout/footer';
+@import "layout/header";
+@import "layout/content";
+@import "layout/footer";
 
-
-.container, .container_fill {
-  box-sizing: content-box;
-  padding-left: 5%;
-  padding-right: 5%;
-  margin: 0 auto;
-  max-width: var(--layout-width-max);
+.container {
+  @include container;
 }
 
-@media (--screen-medium) {
-  .container, .container_fill {
-    padding-left: 10%;
-    padding-right: 10%;
+.blogpage {
+  @include container-with-limit;
+}
+
+.page-projects {
+  @include container;
+}
+
+.homepage {
+  position: relative;
+  margin-top: $grid-offset-vertical;
+  margin-bottom: $grid-offset-vertical;
+}
+
+.homepage__header {
+  text-align: center;
+
+  img {
+    width: 100%;
+    max-width: 960px;
+  }
+
+  p {
+    font-family: var(--font-secondary);
   }
 }
 
-@media (--screen-large) {
-  .container_fill {
-    padding-left: calc((100% - var(--layout-width-max)) / 2);
-    padding-right: calc((100% - var(--layout-width-max)) / 2);
+.homepage__title {
+  min-height: 2.4em;
+  min-height: calc(2em * 1.2);
+  margin-top: 1.5em;
+  margin-bottom: 0.1em;
+  text-align: center;
+
+  &::after {
+    content: "|";
+    font-weight: 300;
+    color: var(--color-text-em);
+    animation-name: blink;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.homepage__content {
+  margin-top: 5em;
+  text-align: center;
+}
+
+.homepage__section {
+  margin: 5em auto;
+
+  h2 {
+    width: 80%;
+    max-width: 200px;
+    margin: 1em auto;
+    padding: 0.45em 0;
+    border-bottom: 3px solid var(--mint);
+  }
+
+  p {
+    max-width: 40em;
+    margin: auto;
+    color: var(--color-text-middle);
+  }
+}
+
+.homepage__customers {
+  @include clearfix;
+  @include container;
+
+  padding-top: $grid-offset-vertical;
+  padding-bottom: $grid-offset-vertical;
+  margin: $grid-offset-vertical auto;
+  background: var(--color-bg-dark);
+  color: var(--color-text-lightest);
+
+  h2 {
+    float: right;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--mint);
+    text-decoration-style: solid;
+    text-decoration-style: dotted;
+    text-transform: uppercase;
+    color: var(--color-text-lightest);
+  }
+
+  .nav {
+    margin-top: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  49% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
