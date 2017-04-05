@@ -1,55 +1,39 @@
 a.button {
-  color: var(--color-text);
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-width: 2px;
+  text-decoration: none;
+  height: auto;
+  color: var(--color-text-middle);
+  transition: 0.4s;
+  transition-delay: 0.25s;
 
   &:hover {
-    border-color: var(--color-text-em);
-    color: var(--color-text-em);
-  }
-}
+    border-color: var(--color-text);
+    color: var(--color-text-lightest);
+    transition: none;
 
-.btn-menu {
-  display: block;
-  background: transparent;
-  position: relative;
-  width: 2.3em;
-  height: 1.7em;
-  padding: 0;
-  border: 0;
-  margin: 0;
-  color: transparent;
-  cursor: pointer;
-
-  &:before, &:after {
-    background: var(--color-text);
-    backface-visibility: hidden;
-    content: '';
-    width: 2.3em;
-    height: 2px;
-    left: 0;
-    transition: 0.35s;
+    &::after {
+      width: 128%;
+    }
   }
 
-  &:before {
+  &::after {
+    z-index: -1;
+    content: "";
     position: absolute;
-    box-shadow: var(--color-text) 0 0.72em 0 0;
     top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background: var(--color-text);
+    transition: 0.4s;
+    transform: skewX(45deg);
+    transform-origin: bottom left;
   }
 
-  &:after {
-    position: absolute;
-    top: calc(100% - 3px);
-  }
-
-  &.btn-menu_active {
-    &:before {
-      box-shadow: transparent 0 0 0 0;
-      top: 41%;
-      transform: rotate(225deg);
-    }
-
-    &:after {
-      top: 41%;
-      transform: rotate(315deg);
-    }
+  @media (--screen-medium) {
+    display: inline-block;
   }
 }
