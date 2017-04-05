@@ -13,9 +13,12 @@ function Post({ post }) {
       { renderTitle(post) }
       { renderMeta(post) }
 
-      <div className="post__image">
-        <img src={`/img/${post.img}`} alt={`${post.title}`} />
-      </div>
+      { post.img ? (
+        <div className="post__image">
+          <img src={`/img/${post.img}`} alt={`${post.title}`} />
+        </div>
+        ) : null
+      }
 
       { renderDescription(post.description) }
       { renderContent(post.content) }
