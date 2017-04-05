@@ -7,12 +7,12 @@ import moment from 'moment';
  * @return {String} className compatible string
  */
 function combineClassNames(...classNames) {
-  return classNames.reduce((name, acc) => {
-    if (name && name !== '') {
-      return `${acc} ${name}`;
+  return classNames.reduce((acc, name) => {
+    if (name === '' || name === undefined) {
+      return acc;
     }
-    return acc;
-  }, '');
+    return `${acc} ${name}`;
+  }, '').trim();
 }
 
 /**
