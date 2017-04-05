@@ -1,13 +1,13 @@
 .logo {
   padding: 0;
   margin: 0;
-  font-family: var(--font-caps);
+  font: 400 1em var(--font-caps);
   letter-spacing: 0.2rem;
+  line-height: 1;
   text-transform: uppercase;
-  font-size: 1.1em;
-  font-weight: 400;
 
   & > a {
+    display: inline-block;
     text-decoration: none;
     color: var(--color-text);
 
