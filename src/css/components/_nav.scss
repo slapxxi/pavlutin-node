@@ -12,36 +12,32 @@
 .nav__item {
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid var(--color-text-light);
 
   &:last-child {
     border: 0;
   }
 
-  & a {
+  & > a {
     display: inline-block;
-    padding: 2em 0;
+    padding: 0.5em 0;
     text-decoration: none;
 
     &:hover {
       color: var(--color-text);
     }
   }
-}
 
-@media (--screen-medium) {
-  .nav__item {
+  @media (--screen-medium) {
     display: inline-block;
     border: 0;
-    margin-left: 1.7em;
+    margin-right: 1.7em;
 
-    &:first-child {
-      margin-left: 0;
+    &:last-child {
+      margin-right: 0;
     }
 
     & > a {
-      padding: 1em 0;
-      line-height: 1.9;
+      padding: 1.5em 0;
     }
   }
 }
