@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import React from 'react';
 import Posts from '../../src/js/components/Posts';
+import PostPreview from '../../src/js/components/PostPreview';
 
 describe('<Posts/>', () => {
   const posts = [
@@ -11,11 +12,11 @@ describe('<Posts/>', () => {
 
   it('renders list of posts', () => {
     const result = shallow(<Posts posts={posts} />);
-    expect(result.find('li').length).to.eq(2);
+    expect(result.find(PostPreview).length).to.eq(2);
   });
 
   it('renders message when there are no posts', () => {
     const result = shallow(<Posts posts={[]} />);
-    expect(result.first('p').text()).to.eq('No posts found.');
+    expect(result.contains(<p>No posts found.</p>)).to.eq(true);
   });
 });
