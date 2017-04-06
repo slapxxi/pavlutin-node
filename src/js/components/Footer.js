@@ -7,7 +7,7 @@ import { currentYear } from '../utils';
 function Footer({ className }) {
   return (
     <footer className={className}>
-      <SocialLinks />
+      <SocialLinks className="footer__nav" />
       <div>
         <small className="footer__copy">
           Slava Pavlutin &copy; 2016-{ currentYear() }
