@@ -1,21 +1,11 @@
 import $ from 'jquery';
 import React from 'react';
-import {
-  NavLink as Link,
-} from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 import Icon from 'react-fontawesome';
 import Logo from './Logo';
 import Overlay from './Overlay';
 import Navigation from './Navigation';
 import { withClassName } from './HOC';
-
-
-const activeStyle = {
-  textDecoration: 'none',
-  fontWeight: 'bold',
-  cursor: 'default',
-  color: 'black',
-};
 
 class Header extends React.Component {
   constructor() {
@@ -44,9 +34,9 @@ class Header extends React.Component {
         </Logo>
 
         <Navigation className="header__nav">
-          <Link activeStyle={activeStyle} to="/blog">Blog</Link>
-          <Link activeStyle={activeStyle} to="/projects">Projects</Link>
-          <Link activeStyle={activeStyle} to="/contact">Contact</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/contact">Contact</Link>
         </Navigation>
 
         <div className="header__menu">

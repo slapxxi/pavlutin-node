@@ -35,12 +35,26 @@
   display: none;
   line-height: 1;
 
-  :--link {
+  a:link,
+  a:visited {
     color: var(--color-text);
   }
 
-  :--link-active {
+  a:hover,
+  a:active,
+  a:focus {
     color: var(--color-text-em);
+  }
+
+  a.active {
+    font-weight: 600;
+    cursor: default;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: var(--color-text);
+    }
   }
 
   @media (--screen-medium) {
