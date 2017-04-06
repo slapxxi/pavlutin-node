@@ -1,12 +1,9 @@
 import React, { Children } from 'react';
-import { requireChildren } from './HOC';
-import { combineClassNames } from '../utils';
-
+import { requireChildren, withClassName } from './HOC';
 
 function Navigation({ children, className }) {
-  const clsName = combineClassNames(className, 'nav');
   return (
-    <nav className={clsName}>
+    <nav className={className}>
       <ul>
         {Children.map(children, child => <li className="nav__item">{child}</li>)}
       </ul>
@@ -14,4 +11,4 @@ function Navigation({ children, className }) {
   );
 }
 
-export default requireChildren(Navigation);
+export default withClassName('nav')(requireChildren(Navigation));
