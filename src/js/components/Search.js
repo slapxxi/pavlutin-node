@@ -30,6 +30,7 @@ class Search extends React.Component {
 
         <input
           id="search"
+          autoComplete="off"
           type="search"
           className="search__input"
           placeholder="Search"
