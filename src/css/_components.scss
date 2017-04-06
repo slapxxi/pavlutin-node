@@ -1,33 +1,12 @@
-@import "components/list";
 @import "components/logo";
 @import "components/nav";
 @import "components/buttons";
 @import "components/title";
-@import "components/hero";
 @import "components/post";
 @import "components/project";
 @import "components/tags";
 @import "components/search";
 @import "components/overlay";
-
-.anchor {
-  margin-left: 0.3em;
-  text-decoration: none;
-
-  &:link,
-  &:visited {
-    color: var(--color-text-light);
-  }
-
-  &:hover,
-  &:active {
-    color: var(--color-text-em);
-  }
-}
-
-.link {
-  display: inline-block;
-}
 
 .no-scroll {
   height: 100%;
