@@ -79,7 +79,7 @@ gulp.task('clean:img', () => del([config.dest.img]));
 gulp.task('browsersync', () => {
   browsersync.init({
     files: 'public/**/*.css',
-    proxy: 'localhost:8000',
+    proxy: 'localhost:3000',
     notify: false,
   });
 });
