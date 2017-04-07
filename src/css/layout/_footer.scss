@@ -1,6 +1,7 @@
 .footer {
   @include container;
 
+  clear: both;
   margin-bottom: 0.5em;
   color: var(--color-text);
 
