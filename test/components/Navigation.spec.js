@@ -4,7 +4,6 @@ import { shallow, mount } from 'enzyme';
 import React from 'react';
 import Navigation from '../../src/js/components/Navigation';
 
-
 describe('<Navigation/>', () => {
   it('renders children as nav items', () => {
     const nav = (
@@ -18,6 +17,6 @@ describe('<Navigation/>', () => {
 
   it('does not render if there are no children', () => {
     const result = shallow(<Navigation />);
-    expect(result.html()).to.be.null;
+    expect(result.html()).to.eq('');
   });
 });
