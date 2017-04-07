@@ -1,10 +1,12 @@
-const _ = require('lodash');
 const webpack = require('webpack');
 
-
 function config(baseConfig) {
-  baseConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
-  return baseConfig;
+  const conf = {
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin(),
+    ],
+  };
+  return Object.assign({}, baseConfig, conf);
 }
 
 module.exports = config;

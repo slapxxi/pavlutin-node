@@ -3,11 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
+import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
 import rootReducer from './reducers/root-reducer';
 import { addPost } from './actions';
-
 
 const API_URL = '/api/v1/posts';
 
@@ -22,13 +21,27 @@ fetch(API_URL).then(res => res.json()).then((result) => {
 }).catch(error => console.log('Error fetching and parsing data', error));
 
 const appProvider = (
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <AppContainer>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </AppContainer>
 );
+
+ReactDOM.render(appProvider, document.querySelector('.app'));
+
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    ReactDOM.render(
+      <AppContainer>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </AppContainer>, document.querySelector('.app'),
+    );
+  });
+}
 
 $(() => {
   $('body').addClass('js');
-
-  ReactDOM.render(appProvider, document.querySelector('.app'));
 });

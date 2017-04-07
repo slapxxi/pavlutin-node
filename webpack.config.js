@@ -1,18 +1,17 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-
+const productionConfig = require('./webpack.config.prod');
+const devConfig = require('./webpack.config.dev');
 
 const baseConfig = {
-  context: resolve(__dirname, 'src'),
-
   entry: [
-    './js/index.js',
+    './src/js/index.js',
   ],
 
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'public', 'js'),
-    publicPath: '/',
+    publicPath: '/js/',
   },
 
   module: {
@@ -40,9 +39,9 @@ const baseConfig = {
 
 function config(env) {
   if (env && env.prod) {
-    return require('./webpack.config.prod')(baseConfig);
+    return productionConfig(baseConfig);
   }
-  return require('./webpack.config.dev')(baseConfig);
+  return devConfig(baseConfig);
 }
 
 module.exports = config;
