@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { MemoryRouter as Router, Link } from 'react-router-dom';
 import React from 'react';
 import PostPreview from '../../src/js/components/PostPreview';
@@ -23,7 +23,7 @@ describe('<PostPreview/>', () => {
   );
 
   it('renders tags', () => {
-    const tags = <Tags tags={post.tags} className="post__tags" />;
+    const tags = <Tags activeTag={undefined} tags={post.tags} className="post__tags" />;
     expect(wrapper.contains(tags)).to.eq(true);
   });
 

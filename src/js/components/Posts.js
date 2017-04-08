@@ -1,7 +1,7 @@
 import React from 'react';
 import PostPreview from './PostPreview';
 
-function Posts({ posts }) {
+function Posts({ posts, tag }) {
   if (posts.length === 0) {
     return <section className="posts"><p>No posts found.</p></section>;
   }
@@ -11,7 +11,7 @@ function Posts({ posts }) {
         {
           posts.map(p => (
             <li key={p.id} className="posts__post">
-              <PostPreview post={p} />
+              <PostPreview post={p} activeTag={tag} />
             </li>
           ))
         }

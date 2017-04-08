@@ -9,7 +9,7 @@ function PostsContainer({ posts, searchTerm, tag }) {
   return (
     <div>
       <Search />
-      <Posts posts={filterPosts(postsByTag, searchTerm)} />
+      <Posts posts={filterPosts(postsByTag, searchTerm)} tag={tag} />
     </div>
   );
 }

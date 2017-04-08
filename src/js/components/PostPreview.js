@@ -5,7 +5,7 @@ import Icon from 'react-fontawesome';
 import Tags from './Tags';
 import { toHumanReadableDate } from '../utils';
 
-function PostPreview({ post }) {
+function PostPreview({ post, activeTag }) {
   const URL = `/blog/${post.slug}`;
   return (
     <div className="post post_preview">
@@ -21,7 +21,7 @@ function PostPreview({ post }) {
         <Icon name="clock-o" /> {' '}
         {toHumanReadableDate(post.createdAt)}
       </div>
-      <Tags tags={post.tags} className="post__tags" />
+      <Tags activeTag={activeTag} tags={post.tags} className="post__tags" />
       <div className="post__description">
         <Markdown source={post.description || "There's no description."} />
       </div>
