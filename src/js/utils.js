@@ -46,4 +46,15 @@ function toHumanReadableDate(timestamp) {
   return moment(timestamp).fromNow();
 }
 
-export { combineClassNames, currentYear, cycle, toHumanReadableDate };
+function setTitle(title, baseTitle = 'Slava Pavlutin') {
+  if (typeof document === 'undefined') return;
+  document.title = (title ? `${title} | ${baseTitle}` : baseTitle);
+}
+
+export {
+  combineClassNames,
+  currentYear,
+  cycle,
+  toHumanReadableDate,
+  setTitle,
+};

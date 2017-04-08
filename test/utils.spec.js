@@ -1,5 +1,10 @@
 import { expect } from 'chai';
-import { combineClassNames, currentYear, cycle } from '../src/js/utils';
+import {
+  combineClassNames,
+  currentYear,
+  cycle,
+  setTitle,
+} from '../src/js/utils';
 
 describe('utils', () => {
   describe('combineClassNames', () => {
@@ -33,6 +38,18 @@ describe('utils', () => {
       expect(fn()).to.eq(2);
       expect(fn()).to.eq(3);
       expect(fn()).to.eq(1);
+    });
+  });
+
+  describe('setTitle', () => {
+    it('sets document title', () => {
+      setTitle('Test', 'Base');
+      expect(document.title).to.eq('Test | Base');
+    });
+
+    it('sets to default title', () => {
+      setTitle();
+      expect(document.title).to.eq('Slava Pavlutin');
     });
   });
 });

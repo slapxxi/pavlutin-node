@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from './Title';
 import Type from './Type';
-import { cycle } from '../utils';
+import { cycle, setTitle } from '../utils';
 
 class HomePage extends React.Component {
   static titles = [
@@ -18,6 +18,7 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
+    setTitle();
     this.intervalID = setInterval(() => {
       const title = this.nextTitle();
       this.setState({ title });
