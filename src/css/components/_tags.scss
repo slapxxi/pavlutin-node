@@ -43,3 +43,15 @@
     border-radius: 100px;
   }
 }
+
+.tags__tag_active {
+  border-color: var(--color-bg-dark);
+
+  & > a {
+    color: var(--color-bg-dark);
+  }
+
+  &::after {
+    border-color: var(--color-bg-dark);
+  }
+}
