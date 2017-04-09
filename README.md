@@ -4,6 +4,12 @@
 
 A personal website developed with Node.
 
+## Start
+
+1. Run `node app.js` to launch main server
+2. Run `webpack-dev-server` to launch Webpack dev server with HMR
+3. Run `gulp watch` to build assets and run tests on change
+
 ## Build
 
 Use `gulp build` to build assets.
