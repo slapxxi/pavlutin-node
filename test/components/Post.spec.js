@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import Post from '../../src/js/components/Post';
 
@@ -15,7 +15,7 @@ describe('<Post/>', () => {
   };
 
   it('renders post title', () => {
-    const result = mount(<Post post={post} />);
+    const result = shallow(<Post post={post} />);
     expect(result.find('.post__title').text()).to.eq('Test Post');
   });
 
@@ -26,7 +26,7 @@ describe('<Post/>', () => {
 
   it('renders post image', () => {
     const postWithImage = { ...post, img: 'image.png' };
-    const result = mount(<Post post={postWithImage} />);
+    const result = shallow(<Post post={postWithImage} />);
     expect(result.find('.post__image').length).to.eq(1);
   });
 
