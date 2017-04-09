@@ -29,8 +29,8 @@ function Post({ post }) {
         identifier={post.slug + post.id}
         title={post.title}
         url={URL}
-        category_id={post.id}
-        // shortname="slavapavlutin-com"
+        category_id={post.id.toString()}
+        shortname="slavapavlutin-com"
       />
     </article>
   );
