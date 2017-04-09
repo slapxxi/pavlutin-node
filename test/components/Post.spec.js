@@ -23,4 +23,15 @@ describe('<Post/>', () => {
     const result = mount(<Post post={post} />);
     expect(result.find('.post__meta').text()).to.eq('  a few seconds ago');
   });
+
+  it('renders post image', () => {
+    const postWithImage = { ...post, img: 'image.png' };
+    const result = mount(<Post post={postWithImage} />);
+    expect(result.find('.post__image').length).to.eq(1);
+  });
+
+  it('renders no image if missing', () => {
+    const result = mount(<Post post={post} />);
+    expect(result.find('.post__image').length).to.eq(0);
+  });
 });
