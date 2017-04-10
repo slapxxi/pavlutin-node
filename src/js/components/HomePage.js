@@ -33,7 +33,6 @@ class HomePage extends React.Component {
     return (
       <section className="homepage">
         <header className="homepage__header">
-          <img src="/img/developer.svg" alt="developer" />
           <Title className="homepage__title">
             <Type speed={75} text={this.state.title} />
           </Title>
