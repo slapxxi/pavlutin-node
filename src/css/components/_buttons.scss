@@ -10,7 +10,7 @@ a.button {
   transition-delay: 0.25s;
 
   &:hover {
-    border-color: var(--color-text);
+    border-color: var(--color-text-dark);
     color: var(--color-text-lightest);
     transition: none;
 
@@ -27,7 +27,7 @@ a.button {
     bottom: 0;
     left: 0;
     width: 0;
-    background: var(--color-text);
+    background: var(--color-text-dark);
     transition: 0.4s;
     transform: skewX(45deg);
     transform-origin: bottom left;
