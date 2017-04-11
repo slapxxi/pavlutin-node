@@ -2,10 +2,12 @@ import React from 'react';
 import Icon from 'react-fontawesome';
 import Markdown from 'react-markdown';
 import DisqusThread from 'react-disqus-thread';
+import CodeBlock from './CodeBlock';
 import { toHumanReadableDate } from '../utils';
 
 function Post({ post }) {
   const URL = `http://slavapavlutin.com/blog/${post.slug}`;
+  const content = post.content.replace(/\\n/g, '\n');
   return (
     <article className="post">
       <h1 className="post__title">{post.title}</h1>
@@ -23,7 +25,7 @@ function Post({ post }) {
         <Markdown source={post.description || ''} />
       </div>
       <div className="post__content">
-        <Markdown source={post.content.replace(/\\n/g, '\n')} />
+        <Markdown source={content} renderers={{ CodeBlock }} />
       </div>
       <DisqusThread
         identifier={post.slug + post.id}
