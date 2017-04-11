@@ -21,6 +21,14 @@ function SocialLinks({ className }) {
         <Icon name="github" /> {' '}
         GitHub
       </a>
+      <a
+        href="https://dribbble.com/slavapavlutin"
+        rel="external noopener noreferrer"
+        target="_blank"
+      >
+        <Icon name="dribbble" /> {' '}
+        Dribbble
+      </a>
     </Navigation>
   );
 }
