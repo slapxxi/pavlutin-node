@@ -27,3 +27,9 @@
   left: 0;
   transform: translateY(-50%);
 }
+
+@mixin box {
+  border: 1px solid var(--color-text-very-light);
+  border-radius: 3px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
