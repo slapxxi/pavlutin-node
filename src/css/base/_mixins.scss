@@ -13,7 +13,7 @@
 }
 
 @mixin container-with-limit {
-  max-width: 55em;
+  max-width: 50em;
   padding-left: $grid-offset;
   padding-right: $grid-offset;
   margin-left: auto;
