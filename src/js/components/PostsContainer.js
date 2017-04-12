@@ -26,7 +26,11 @@ function searchPosts(posts, searchTerm) {
   if (searchTerm === '') {
     return posts;
   }
-  const terms = searchTerm.trim().split(' ').map(term => new RegExp(term, 'i'));
+  const terms = searchTerm
+    .trim()
+    .split(' ')
+    .filter(t => t.length >= 3)
+    .map(term => new RegExp(term, 'i'));
   return posts.filter((post) => {
     const description = post.description || '';
     return !!find(terms, term => post.title.match(term) || description.match(term));
