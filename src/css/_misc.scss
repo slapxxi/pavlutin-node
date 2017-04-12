@@ -14,7 +14,7 @@ pre[class*="language-"] {
   border: 0;
   color: var(--color-text-middle);
   background: none;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: var(--font-code);
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -36,7 +36,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: var(--white);
+  background: var(--grey-dark);
 }
 
 /* Inline code */
@@ -50,11 +50,11 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .token.punctuation {
-  color: var(--color-text-middle);
+  color: var(--white);
 }
 
 .namespace {
@@ -71,7 +71,7 @@ pre[class*="language-"] {
 
 .token.boolean,
 .token.number {
-  color: #AE81FF;
+  color: var(--cyan);
 }
 
 .token.selector,
@@ -80,8 +80,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  font-style: italic;
-  color: var(--blue);
+  color: var(--cyan);
 }
 
 .token.operator,
@@ -90,19 +89,19 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-  color: var(--cyan);
+  color: var(--white);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.function {
   font-weight: 600;
-  color: var(--black);
+  color: var(--white);
 }
 
 .token.keyword {
   font-weight: 600;
-  color: var(--black);
+  color: var(--blue);
 }
 
 .token.regex,
