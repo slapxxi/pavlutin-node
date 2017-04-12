@@ -3,8 +3,8 @@
   --color-bg: var(--white);
   --color-bg-dark: var(--grey-dark);
   --color-bg-light: var(--cyan);
-  --color-link: var(--mint-dark);
-  --color-link-active: var(--cyan);
+  --color-link: var(--color-text-em);
+  --color-link-active: var(--blue);
   --color-text-dark: var(--grey);
   --color-text: var(--grey-middle);
   --color-text-middle: var(--grey-middle-light);
@@ -12,11 +12,12 @@
   --color-text-very-light: var(--grey-very-light);
   --color-text-lightest: var(--white);
   --color-text-em-dark: var(--cyan);
-  --color-text-em: var(--mint-dark);
+  --color-text-em: var(--cyan);
   --color-text-em-light: var(--cyan);
-  --color-selection: var(--mint-dark);
+  --color-selection: var(--color-text-em);
   --color-selection-fg: var(--black);
   --font-main: "Open Sans", "Helvetica Neue", sans-serif;
+  --font-code: "Source Code Pro", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --font-secondary: "Montserrat", Georgia, serif;
   --font-caps: "Raleway", Helvetica, sans-serif;
   --layout-gutter: 2.3rem;
