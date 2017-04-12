@@ -22,7 +22,7 @@ class HomePage extends React.Component {
     this.intervalID = setInterval(() => {
       const title = this.nextTitle();
       this.setState({ title });
-    }, 4500);
+    }, 7500);
   }
 
   componentWillUnmount() {
