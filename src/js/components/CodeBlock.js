@@ -4,7 +4,7 @@ import 'prismjs/components/prism-jsx.min';
 
 function CodeBlock(props) {
   const { language, literal } = props;
-  const clsName = `language-${language}`;
+  const clsName = `language-${language || 'text'}`;
   let parsingLanguage;
   let markup;
   if (language === 'js') {
@@ -31,8 +31,8 @@ function CodeBlock(props) {
     );
   }
   return (
-    <pre>
-      <code>
+    <pre className={clsName}>
+      <code className={clsName}>
         { literal }
       </code>
     </pre>
