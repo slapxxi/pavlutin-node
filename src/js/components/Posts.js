@@ -11,8 +11,8 @@ function Posts({ posts, tag }) {
       <ul className="nav-list">
         <Transition
           transitionName="fade"
-          transitionEnterTimeout={300}
-          transitionLeaveTimeout={300}
+          transitionEnterTimeout={250}
+          transitionLeaveTimeout={250}
         >
           {
           posts.map(p => (

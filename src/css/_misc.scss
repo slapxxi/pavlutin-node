@@ -137,10 +137,10 @@ pre[class*="language-"] {
 
 .fade-leave {
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.25s;
 }
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity 0.25s;
 }
