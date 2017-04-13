@@ -7,10 +7,10 @@ env:
   - NODE_ENV=production
 before_script:
   - npm install -g mocha
-  - npm install chai
-  - npm install supertest
-  - npm install cheerio
-  - npm install enzyme
-  - npm install jsdom
+  - npm install chai@3.5.0
+  - npm install supertest@2.0.1
+  - npm install cheerio@0.22.0
+  - npm install enzyme@2.7.1
+  - npm install jsdom@9.9.1
   - npm install babel-register
   - npm install webpack@2.2.1
