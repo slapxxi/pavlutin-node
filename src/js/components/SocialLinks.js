@@ -29,6 +29,10 @@ function SocialLinks({ className }) {
         <Icon name="dribbble" /> {' '}
         Dribbble
       </a>
+      <a href="mailto://sl.pavlutin@gmail.com">
+        <Icon name="envelope-o" /> {' '}
+        Email
+      </a>
     </Navigation>
   );
 }
