@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import Post from './Post';
+import PageNotFound from './PageNotFound';
 import { setTitle } from '../utils';
 
 function PostContainer({ posts, match }) {
@@ -15,7 +16,7 @@ function PostContainer({ posts, match }) {
       </section>
     );
   }
-  return null;
+  return <PageNotFound />;
 }
 
 function mapStateToProps({ posts }) {
