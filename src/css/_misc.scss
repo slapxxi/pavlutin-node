@@ -128,3 +128,19 @@ pre[class*="language-"] {
 .token.entity {
   cursor: help;
 }
+
+// ReactTransitionGroup transitions
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-leave {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s;
+}

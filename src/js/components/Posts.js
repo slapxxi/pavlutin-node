@@ -1,4 +1,5 @@
 import React from 'react';
+import Transition from 'react-transition-group/CSSTransitionGroup';
 import PostPreview from './PostPreview';
 
 function Posts({ posts, tag }) {
@@ -8,13 +9,19 @@ function Posts({ posts, tag }) {
   return (
     <section className="posts">
       <ul className="nav-list">
-        {
+        <Transition
+          transitionName="fade"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+        >
+          {
           posts.map(p => (
             <li key={p.id} className="posts__post">
               <PostPreview post={p} activeTag={tag} />
             </li>
           ))
-        }
+          }
+        </Transition>
       </ul>
     </section>
   );
