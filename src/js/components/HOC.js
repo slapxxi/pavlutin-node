@@ -18,6 +18,12 @@ function requireChildren(Component) {
   return RequireChildren;
 }
 
+/**
+ * Higher order component which modifies className prop
+ * to include a specified class name.
+ * @param  {String} clsName Class to include in resulting className
+ * @return {React.Component} Wrapped component
+ */
 function withClassName(clsName) {
   return function withClassNameSaved(Component) {
     function WithClassName(props) {
