@@ -3,19 +3,23 @@ a.button {
   overflow: hidden;
   display: block;
   border-width: 2px;
+  border-color: var(--color-text-light);
   text-decoration: none;
+  font-weight: 400;
+  font-size: 0.7em;
   height: auto;
   color: var(--color-text-middle);
   transition: 0.4s;
   transition-delay: 0.25s;
 
+  &:focus,
   &:hover {
     border-color: var(--color-text-dark);
     color: var(--color-text-lightest);
     transition: none;
 
     &::after {
-      width: 128%;
+      width: 140%;
     }
   }
 
