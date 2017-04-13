@@ -17,8 +17,12 @@ describe('<Posts/>', () => {
   });
 
   it('passes tag to <PostPreview>', () => {
-    const result = mount(<Router><Posts tag="js" posts={posts} /></Router>);
-    expect(result.find('.tags__tag_active').text()).to.eq('js');
+    const result = mount(
+      <Router><Posts tag="js" posts={posts} /></Router>,
+    );
+    expect(result.contains(
+      <PostPreview activeTag="js" post={posts[0]} />,
+    )).to.eq(true);
   });
 
   it('renders message when there are no posts', () => {
