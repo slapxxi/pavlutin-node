@@ -1,0 +1,27 @@
+.spinner,
+.spinner::after {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+
+.spinner {
+  position: relative;
+  margin: 60px auto;
+  border: 0.7em solid rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.9);
+  font-size: 10px;
+  text-indent: -9999px;
+  transform: translateZ(0);
+  animation: spinner 0.65s infinite linear;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
