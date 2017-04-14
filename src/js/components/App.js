@@ -23,12 +23,10 @@ function App() {
             render={({ location }) => (
               <Transition
                 transitionName="fade"
-                transitionAppear
-                transitionAppearTimeout={250}
                 transitionEnterTimeout={250}
                 transitionLeave={false}
               >
-                <Switch key={location.key}>
+                <Switch key={location.pathname}>
                   <Route
                     exact path="/"
                     component={HomePage}
