@@ -11,8 +11,6 @@ function Posts({ posts, tag }) {
       <ul className="nav-list">
         <Transition
           transitionName="fade"
-          transitionAppear
-          transitionAppearTimeout={250}
           transitionEnterTimeout={250}
           transitionLeaveTimeout={250}
         >
