@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import SocialLinks from './SocialLinks';
 
-
 function Overlay({ isOpen, onClick }) {
   const clsName = isOpen ? 'overlay overlay_visible' : 'overlay';
   const primaryClsName = 'overlay__nav__item overlay__nav__item_primary';
@@ -33,13 +32,10 @@ function Overlay({ isOpen, onClick }) {
             <Link to="/projects" onClick={onClick}>Projects</Link>
           </li>
           <li className={secondaryClsName}>
-            <Link to="/" onClick={onClick}>Templates</Link>
+            <Link to="/about" onClick={onClick}>About</Link>
           </li>
           <li className={secondaryClsName}>
-            <Link to="/" onClick={onClick}>Portfolio</Link>
-          </li>
-          <li className={secondaryClsName}>
-            <Link to="/" onClick={onClick}>Contact</Link>
+            <Link to="/about#contact" onClick={onClick}>Contact</Link>
           </li>
         </ul>
       </nav>
