@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Title from './Title';
 import Type from './Type';
 import { cycle, setTitle } from '../utils';
@@ -36,6 +37,7 @@ class HomePage extends React.Component {
           <Title className="homepage__title">
             <Type speed={75} text={this.state.title} />
           </Title>
+          <Link className="button" to="/about">About Me</Link>
         </header>
       </section>
     );
