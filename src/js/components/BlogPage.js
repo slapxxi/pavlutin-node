@@ -3,11 +3,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setTitle } from '../utils';
 import { fetchPosts } from '../actions';
-import Post from './Post';
+import PostPage from './PostPage';
+import TagPage from './TagPage';
 import Posts from './Posts';
 import Spinner from './Spinner';
 import Search from './Search';
-import PageNotFound from './PageNotFound';
 
 class BlogPage extends React.Component {
   componentDidMount() {
@@ -16,44 +16,34 @@ class BlogPage extends React.Component {
     }
   }
 
-  filterByTag() {
-    const { match, posts } = this.props;
-    const { tag } = match.params;
-    return !tag ? posts : posts.filter(p => p.tags.includes(tag));
-  }
-
-  renderPost(slug) {
-    if (this.props.isFetching) {
-      return <Spinner />;
-    }
-    const { posts } = this.props;
-    const post = find(posts, p => p.slug === slug);
-    if (!post) {
-      return <PageNotFound />;
-    }
-    setTitle(post.title);
-    return (
-      <section className="postpage">
-        <Post post={post} />
-      </section>
-    );
-  }
-
   render() {
+    const { posts, isFetching } = this.props;
     const { tag, slug } = this.props.match.params;
     if (slug) {
-      return this.renderPost(slug);
+      return (
+        <PostPage
+          posts={posts}
+          slug={slug}
+          isFetching={isFetching}
+        />
+      );
     }
-    const { isFetching } = this.props;
-    const pageTitle = tag ? `Tag "${tag}"` : 'Blog';
-    const postsByTag = this.filterByTag();
-    setTitle(pageTitle);
+    if (tag) {
+      return (
+        <TagPage
+          posts={posts}
+          tag={tag}
+          isFetching={isFetching}
+        />
+      );
+    }
+    setTitle('Blog');
     return (
       <div className="blogpage">
-        <h1>{ pageTitle }</h1>
+        <h1>Blog</h1>
         <div>
           <Search />
-          {isFetching ? <Spinner /> : <Posts posts={postsByTag} tag={tag} />}
+          {this.props.isFetching ? <Spinner /> : <Posts posts={posts} />}
         </div>
       </div>
     );
