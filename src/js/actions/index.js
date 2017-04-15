@@ -13,10 +13,24 @@ function requestPosts() {
   };
 }
 
+function requestProjects() {
+  return {
+    type: 'REQUEST_PROJECTS',
+  };
+}
+
 function receivePosts(json) {
   return {
     type: 'RECEIVE_POSTS',
     posts: json.posts,
+    receivedAt: Date.now(),
+  };
+}
+
+function receiveProjects(json) {
+  return {
+    type: 'RECEIVE_PROJECTS',
+    projects: json.projects,
     receivedAt: Date.now(),
   };
 }
@@ -30,6 +44,15 @@ function fetchPosts() {
   };
 }
 
+function fetchProjects() {
+  return function fetchProjectsThunk(dispatch) {
+    dispatch(requestProjects());
+    return fetch('/api/v1/projects')
+      .then(r => r.json())
+      .then(json => dispatch(receiveProjects(json)));
+  };
+}
+
 function changeSearchTerm(value) {
   return {
     type: types.SEARCH_TERM,
@@ -37,4 +60,13 @@ function changeSearchTerm(value) {
   };
 }
 
-export { addPost, fetchPosts, changeSearchTerm };
+export {
+  addPost,
+  fetchPosts,
+  requestPosts,
+  receivePosts,
+  fetchProjects,
+  requestProjects,
+  receiveProjects,
+  changeSearchTerm,
+};

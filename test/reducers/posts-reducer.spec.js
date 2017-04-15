@@ -1,6 +1,10 @@
 import { expect } from 'chai';
 import postsReducer from '../../src/js/reducers/posts-reducer';
-import { addPost } from '../../src/js/actions';
+import {
+  addPost,
+  requestPosts,
+  receivePosts,
+} from '../../src/js/actions';
 
 describe('postsReducer', () => {
   const post = { title: 'A first post' };
@@ -19,8 +23,18 @@ describe('postsReducer', () => {
     expect(result.items).to.include(post);
   });
 
-  it('updates lastTimeUpdate when adding post', () => {
-    const result = postsReducer({ items: [] }, addPost(post));
+  it('receives posts', () => {
+    const result = postsReducer(
+      undefined,
+      receivePosts({ posts: [post] }),
+    );
+    expect(result.items).not.to.be.empty;
+    expect(result.isFetching).to.eq(false);
+    expect(result.lastUpdated).not.to.eq(0);
+  });
+
+  it('requests posts', () => {
+    const result = postsReducer({ items: [] }, requestPosts());
     expect(result.lastUpdated).not.to.eq(0);
   });
 });

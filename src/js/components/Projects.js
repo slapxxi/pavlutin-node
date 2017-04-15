@@ -7,7 +7,7 @@ function Projects({ projects }) {
   return (
     <ul className="projects">
       {
-        projects.map(p => <li className="projects__project">
+        projects.map(p => <li key={p.id} className="projects__project">
           <h1>{p.title}</h1>
         </li>)
       }
