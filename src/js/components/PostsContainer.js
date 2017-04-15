@@ -4,18 +4,22 @@ import { connect } from 'react-redux';
 import Posts from './Posts';
 import Search from './Search';
 
-function PostsContainer({ posts, searchTerm, tag }) {
+function PostsContainer({ posts, tag }) {
   const postsByTag = filterByTag(posts, tag);
   return (
     <div>
       <Search />
-      <Posts posts={filterPosts(postsByTag, searchTerm)} tag={tag} />
+      <Posts posts={postsByTag} tag={tag} />
     </div>
   );
 }
 
 function filterByTag(posts, tag) {
   return !tag ? posts : posts.filter(p => p.tags.includes(tag));
+}
+
+function mapStateToProps({ posts, searchTerm }) {
+  return { posts: filterPosts(posts, searchTerm) };
 }
 
 function filterPosts(posts, searchTerm) {
@@ -35,10 +39,6 @@ function searchPosts(posts, searchTerm) {
     const description = post.description || '';
     return !!find(terms, term => post.title.match(term) || description.match(term));
   });
-}
-
-function mapStateToProps({ posts, searchTerm }) {
-  return { posts, searchTerm };
 }
 
 export default connect(mapStateToProps)(PostsContainer);
