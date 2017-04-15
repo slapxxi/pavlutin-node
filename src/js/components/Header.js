@@ -36,7 +36,7 @@ class Header extends React.Component {
         <Navigation className="header__nav">
           <Link to="/blog">Blog</Link>
           <Link to="/projects">Projects</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/about">About</Link>
         </Navigation>
 
         <div className="header__menu">
