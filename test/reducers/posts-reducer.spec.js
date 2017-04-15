@@ -6,14 +6,21 @@ describe('postsReducer', () => {
   const post = { title: 'A first post' };
 
   it('returns initial state', () => {
-    const result = postsReducer(undefined, { type: '' });
-    expect(result).to.be.an('array');
-    expect(result.length).to.eq(0);
+    const result = postsReducer(undefined, {});
+    expect(result).to.eql({
+      isFetching: false,
+      lastUpdated: 0,
+      items: [],
+    });
   });
 
-  it('can add posts', () => {
-    const result = postsReducer([], addPost(post));
-    expect(result.length).to.eq(1);
-    expect(result).to.include(post);
+  it('adds post', () => {
+    const result = postsReducer({ items: [] }, addPost(post));
+    expect(result.items).to.include(post);
+  });
+
+  it('updates lastTimeUpdate when adding post', () => {
+    const result = postsReducer({ items: [] }, addPost(post));
+    expect(result.lastUpdated).not.to.eq(0);
   });
 });

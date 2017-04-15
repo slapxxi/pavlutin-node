@@ -1,11 +1,40 @@
 import types from './types';
 
 function addPost(post) {
-  return { type: types.POSTS_ADD, payload: post };
+  return {
+    type: types.ADD_POST,
+    post,
+  };
+}
+
+function requestPosts() {
+  return {
+    type: 'REQUEST_POSTS',
+  };
+}
+
+function receivePosts(json) {
+  return {
+    type: 'RECEIVE_POSTS',
+    posts: json.posts,
+    receivedAt: Date.now(),
+  };
+}
+
+function fetchPosts() {
+  return function fetchPostsThunk(dispatch) {
+    dispatch(requestPosts());
+    return fetch('/api/v1/posts')
+      .then(r => r.json())
+      .then(json => dispatch(receivePosts(json)));
+  };
 }
 
 function changeSearchTerm(value) {
-  return { type: types.SEARCH_TERM, payload: value };
+  return {
+    type: types.SEARCH_TERM,
+    payload: value,
+  };
 }
 
-export { addPost, changeSearchTerm };
+export { addPost, fetchPosts, changeSearchTerm };
