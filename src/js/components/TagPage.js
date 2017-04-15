@@ -8,7 +8,7 @@ function TagPage({ posts, tag, isFetching }) {
   if (isFetching) {
     return <Spinner />;
   }
-  const title = `Tag ${tag}`;
+  const title = `Tag "${tag}"`;
   const postsByTag = filterByTag(posts, tag);
   setTitle(title);
   return (
@@ -16,7 +16,7 @@ function TagPage({ posts, tag, isFetching }) {
       <h1>{title}</h1>
       <div>
         <Search />
-        {this.props.isFetching ? <Spinner /> : <Posts posts={postsByTag} tag={tag} />}
+        {isFetching ? <Spinner /> : <Posts posts={postsByTag} tag={tag} />}
       </div>
     </div>
   );

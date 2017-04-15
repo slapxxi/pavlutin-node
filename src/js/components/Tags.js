@@ -19,7 +19,7 @@ function Tags({ tags, activeTag, className }) {
           }
           return (
             <li key={t} className="tags__tag">
-              <Link to={`/tag/${t}`}>{t}</Link>
+              <Link to={`/blog/tag/${t}`}>{t}</Link>
             </li>
           );
         })

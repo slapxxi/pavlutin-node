@@ -1,6 +1,7 @@
 import { find } from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { setTitle } from '../utils';
 import { fetchPosts } from '../actions';
 import PostPage from './PostPage';
@@ -17,34 +18,35 @@ class BlogPage extends React.Component {
   }
 
   render() {
-    const { posts, isFetching } = this.props;
-    const { tag, slug } = this.props.match.params;
-    if (slug) {
-      return (
-        <PostPage
-          posts={posts}
-          slug={slug}
-          isFetching={isFetching}
-        />
-      );
-    }
-    if (tag) {
-      return (
-        <TagPage
-          posts={posts}
-          tag={tag}
-          isFetching={isFetching}
-        />
-      );
-    }
+    const { match, posts, isFetching } = this.props;
     setTitle('Blog');
     return (
-      <div className="blogpage">
-        <h1>Blog</h1>
-        <div>
-          <Search />
-          {this.props.isFetching ? <Spinner /> : <Posts posts={posts} />}
-        </div>
+      <div>
+        <Route
+          exact
+          path={`${match.url}`}
+          render={() =>
+            <div className="blogpage">
+              <h1>Blog</h1>
+              <Search />
+              {isFetching ? <Spinner /> : <Posts posts={posts} />}
+            </div>
+          }
+        />
+        <Route
+          exact
+          path={`${match.url}/:slug`}
+          render={({ match }) =>
+            <PostPage posts={posts} slug={match.params.slug} isFetching={isFetching} />
+          }
+        />
+        <Route
+          exact
+          path={`${match.url}/tag/:tag`}
+          render={({ match }) =>
+            <TagPage posts={posts} tag={match.params.tag} isFetching={isFetching} />
+          }
+        />
       </div>
     );
   }

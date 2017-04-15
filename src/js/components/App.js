@@ -24,12 +24,7 @@ function App() {
               >
                 <Switch key={location.pathname}>
                   <Route exact path="/" component={HomePage} />
-                  <Route exact path="/blog" component={BlogPage} />
-                  <Route
-                    exact path="/blog/:slug"
-                    component={BlogPage}
-                  />
-                  <Route exact path="/tag/:tag" component={BlogPage} />
+                  <Route path="/blog" component={BlogPage} />
                   <Route path="/projects" component={ProjectsPage} />
                   <Route path="/about" component={AboutPage} />
                   <Route location={location} component={PageNotFound} />
