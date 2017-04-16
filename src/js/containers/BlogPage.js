@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { setTitle } from '../utils';
 import { fetchPosts } from '../actions';
-import PostPage from './PostPage';
-import TagPage from './TagPage';
-import Posts from './Posts';
-import Spinner from './Spinner';
 import Search from './Search';
+import PostPage from '../components/PostPage';
+import TagPage from '../components/TagPage';
+import Posts from '../components/Posts';
+import Spinner from '../components/Spinner';
 
 class BlogPage extends React.Component {
   componentDidMount() {

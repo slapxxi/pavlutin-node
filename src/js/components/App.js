@@ -3,11 +3,11 @@ import Transition from 'react-transition-group/CSSTransitionGroup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import HomePage from './HomePage';
-import BlogPage from './BlogPage';
-import ProjectsPage from './ProjectsPage';
 import AboutPage from './AboutPage';
 import Footer from './Footer';
 import PageNotFound from './PageNotFound';
+import BlogPage from '../containers/BlogPage';
+import ProjectsPage from '../containers/ProjectsPage';
 
 function App() {
   return (

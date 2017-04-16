@@ -1,7 +1,7 @@
 import React from 'react';
 import Posts from './Posts';
-import Search from './Search';
 import Spinner from './Spinner';
+import Search from '../containers/Search';
 import { setTitle } from '../utils';
 
 function TagPage({ posts, tag, isFetching }) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Projects from './Projects';
-import Spinner from './Spinner';
+import Projects from '../components/Projects';
+import Spinner from '../components/Spinner';
 import { fetchProjects } from '../actions';
 import { setTitle } from '../utils';
 
