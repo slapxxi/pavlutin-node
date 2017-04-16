@@ -1,6 +1,6 @@
-import { REQUEST_PROJECTS, RECEIVE_PROJECTS } from '../actions/types';
+import types from '../actions/types';
 
-function projectsReducer(
+function projects(
   projects = {
     isFetching: false,
     lastUpdated: 0,
@@ -9,11 +9,11 @@ function projectsReducer(
   action,
 ) {
   switch (action.type) {
-    case REQUEST_PROJECTS:
+    case types.REQUEST_PROJECTS:
       return Object.assign({}, projects, {
         isFetching: true,
       });
-    case RECEIVE_PROJECTS:
+    case types.RECEIVE_PROJECTS:
       return Object.assign({}, projects, {
         items: action.projects.reverse(),
         lastUpdated: action.receivedAt,
@@ -24,4 +24,4 @@ function projectsReducer(
   }
 }
 
-export default projectsReducer;
+export default projects;

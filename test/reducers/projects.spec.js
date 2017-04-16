@@ -1,12 +1,15 @@
 import { expect } from 'chai';
-import projectsReducer from '../../src/js/reducers/projects-reducer';
-import { requestProjects, receiveProjects } from '../../src/js/actions';
+import projects from '../../src/js/store/reducers/projects';
+import {
+  requestProjects,
+  receiveProjects,
+} from '../../src/js/store/actions/projects';
 
-describe('projectsReducer', () => {
+describe('projects reducer', () => {
   const project = { title: 'test' };
 
   it('returns initial state', () => {
-    const result = projectsReducer(undefined, {});
+    const result = projects(undefined, {});
     expect(result).to.eql({
       isFetching: false,
       lastUpdated: 0,
@@ -15,7 +18,7 @@ describe('projectsReducer', () => {
   });
 
   it('receives projects', () => {
-    const result = projectsReducer(
+    const result = projects(
       undefined,
       receiveProjects({ projects: [project] }),
     );
@@ -25,7 +28,7 @@ describe('projectsReducer', () => {
   });
 
   it('requests projects', () => {
-    const result = projectsReducer(undefined, requestProjects());
+    const result = projects(undefined, requestProjects());
     expect(result.isFetching).to.eq(true);
   });
 });

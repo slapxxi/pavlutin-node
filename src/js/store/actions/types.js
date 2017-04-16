@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   ADD_POST: 'ADD_POST',
   FETCH_POSTS: 'FETCH_POSTS',
   REQUEST_POSTS: 'REQUEST_POSTS',

@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { setTitle } from '../utils';
-import { fetchPosts } from '../actions';
+import { fetchPosts } from '../store/actions/posts';
 import Search from './Search';
 import PostPage from '../components/PostPage';
 import TagPage from '../components/TagPage';

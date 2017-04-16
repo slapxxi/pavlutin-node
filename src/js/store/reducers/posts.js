@@ -1,6 +1,6 @@
-import { ADD_POST, REQUEST_POSTS, RECEIVE_POSTS } from '../actions/types';
+import types from '../actions/types';
 
-function postsReducer(
+function posts(
   posts = {
     isFetching: false,
     lastUpdated: 0,
@@ -9,16 +9,16 @@ function postsReducer(
   action,
 ) {
   switch (action.type) {
-    case ADD_POST:
+    case types.ADD_POST:
       return Object.assign({}, posts, {
         items: [...posts.items, action.post],
         lastUpdated: Date.now(),
       });
-    case REQUEST_POSTS:
+    case types.REQUEST_POSTS:
       return Object.assign({}, posts, {
         isFetching: true,
       });
-    case RECEIVE_POSTS:
+    case types.RECEIVE_POSTS:
       return Object.assign({}, posts, {
         items: action.posts.reverse(),
         lastUpdated: action.receivedAt,
@@ -29,4 +29,4 @@ function postsReducer(
   }
 }
 
-export default postsReducer;
+export default posts;

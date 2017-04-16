@@ -1,16 +1,16 @@
 import { expect } from 'chai';
-import postsReducer from '../../src/js/reducers/posts-reducer';
+import posts from '../../src/js/store/reducers/posts';
 import {
   addPost,
   requestPosts,
   receivePosts,
-} from '../../src/js/actions';
+} from '../../src/js/store/actions/posts';
 
-describe('postsReducer', () => {
+describe('posts reducer', () => {
   const post = { title: 'A first post' };
 
   it('returns initial state', () => {
-    const result = postsReducer(undefined, {});
+    const result = posts(undefined, {});
     expect(result).to.eql({
       isFetching: false,
       lastUpdated: 0,
@@ -19,12 +19,12 @@ describe('postsReducer', () => {
   });
 
   it('adds post', () => {
-    const result = postsReducer({ items: [] }, addPost(post));
+    const result = posts({ items: [] }, addPost(post));
     expect(result.items).to.include(post);
   });
 
   it('receives posts', () => {
-    const result = postsReducer(
+    const result = posts(
       undefined,
       receivePosts({ posts: [post] }),
     );
@@ -34,7 +34,7 @@ describe('postsReducer', () => {
   });
 
   it('requests posts', () => {
-    const result = postsReducer({ items: [] }, requestPosts());
+    const result = posts({ items: [] }, requestPosts());
     expect(result.lastUpdated).not.to.eq(0);
   });
 });
