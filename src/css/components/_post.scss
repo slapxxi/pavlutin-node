@@ -19,16 +19,29 @@
 }
 
 .posts__post {
-  &:last-child {
-    border: 0;
-  }
-
   @media (--screen-large) {
     box-sizing: border-box;
     float: left;
-    width: 33%;
     margin: 0;
-    padding-right: 3%;
+    padding-left: 3%;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:first-child:last-child,
+    &:first-child:nth-last-child(2) {
+      width: grid-col(8);
+    }
+
+    &:first-child:nth-last-child(2) ~ & {
+      width: grid-col(4);
+    }
+
+    &:first-child:nth-last-child(3),
+    &:first-child:nth-last-child(3) ~ & {
+      width: grid-col($grid-cols / 3);
+    }
   }
 }
 
