@@ -2,7 +2,10 @@
   @include container;
 
   clear: both;
-  margin-bottom: 0.5em;
+  box-sizing: border-box;
+  min-height: calc(10vh - 10px);
+  padding-top: 2em;
+  padding-bottom: 0.5em;
   color: var(--color-text);
 
   :--heading {
@@ -11,11 +14,15 @@
   }
 
   .nav__item {
+    font-size: 0.9em;
+
     a {
-      color: var(--color-text);
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      color: var(--color-text-light);
 
       &:hover {
-        color: var(--color-link);
+        color: var(--color-text);
       }
     }
   }
@@ -24,9 +31,10 @@
 .footer__copy {
   clear: both;
   display: block;
+  margin-top: 1em;
   font-size: 0.7em;
   letter-spacing: 0.2em;
   text-align: center;
   text-transform: uppercase;
-  color: var(--color-text-light);
+  color: var(--color-text-very-light);
 }

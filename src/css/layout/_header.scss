@@ -1,8 +1,7 @@
 .header {
   box-sizing: border-box;
-  overflow: auto;
-  margin-left: $grid-gutter;
-  margin-right: $grid-gutter;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
   font-size: 0.9em;
   font-family: var(--font-caps);
   color: var(--color-text-light);

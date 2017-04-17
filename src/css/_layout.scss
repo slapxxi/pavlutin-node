@@ -1,74 +1,45 @@
 @import "layout/header";
 @import "layout/content";
 @import "layout/footer";
+@import "layout/homepage";
+@import "layout/blogpage";
+@import "layout/postpage";
+@import "layout/projectspage";
+
+body {
+  background: var(--black);
+}
 
 .container {
   @include container;
 }
 
-.blogpage {
-  @include container-with-limit;
+.app {
+  display: flex;
+  box-sizing: border-box;
+  min-height: 100vh;
+  border: 3px solid var(--black);
+  background: var(--white);
+  flex-direction: column;
 }
 
-.postpage {
-  $padding: 3em;
-
-  @include container-with-limit;
-
-  padding-top: $padding;
-  padding-bottom: $padding;
+.app__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.page-projects {
-  @include container;
+// ReactTransitionGroup
+.app__content > span {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.homepage {
-  position: relative;
-  margin-top: $grid-offset-vertical;
-  margin-bottom: $grid-offset-vertical;
-}
-
-.homepage__header {
-  text-align: center;
-
-  img {
-    width: 100%;
-    max-width: 960px;
-  }
-}
-
-.homepage__title {
-  min-height: 2.4em;
-  min-height: calc(2em * 1.2);
-  margin-top: 1.5em;
-  margin-bottom: 0.1em;
-  text-align: center;
-
-  &::after {
-    content: "|";
-    font-weight: 300;
-    color: var(--color-text-em);
-    animation-name: blink;
-    animation-duration: 1.2s;
-    animation-iteration-count: infinite;
-  }
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-
-  49% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
+.app__header,
+.app__content,
+.app__footer {
+  box-sizing: border-box;
+  overflow: auto;
+  overflow-y: hidden;
 }

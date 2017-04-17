@@ -1,5 +1,6 @@
 .overlay {
-  z-index: 1;
+  border-top: 5px solid transparent;
+  z-index: 2;
   position: fixed;
   padding-left: $grid-gutter;
   padding-right: $grid-gutter;

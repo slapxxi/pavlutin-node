@@ -1,14 +1,34 @@
-.posts,
+.posts {
+  @include clearfix;
+  @include container-with-limit;
+
+  padding: 0;
+
+  @media (--screen-large) {
+    max-width: none;
+  }
+}
+
+.posts__row {
+  @include clearfix;
+}
+
 .posts__post {
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
 .posts__post {
-  border-bottom: 1px solid var(--color-text-light);
-
   &:last-child {
     border: 0;
+  }
+
+  @media (--screen-large) {
+    box-sizing: border-box;
+    float: left;
+    width: 33%;
+    margin: 0;
+    padding-right: 3%;
   }
 }
 
@@ -26,6 +46,7 @@
   }
 
   .post__description {
+    margin: inherit;
     font-style: normal;
     font-family: inherit;
     font-size: 1em;
@@ -56,6 +77,7 @@
 }
 
 .post__description {
+  margin: 2em 1em;
   text-align: center;
   font-style: italic;
   font-size: 1.1em;

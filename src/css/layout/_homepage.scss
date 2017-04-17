@@ -1,0 +1,22 @@
+.homepage {
+  @include container;
+
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  flex: 1;
+}
+
+.homepage__header {
+  width: 100%;
+  text-align: center;
+  align-self: center;
+}
+
+.homepage__title {
+  @include cursor;
+
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}

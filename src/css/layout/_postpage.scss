@@ -1,0 +1,8 @@
+.postpage {
+  $padding: 3em;
+
+  @include container-with-limit;
+
+  padding-top: $padding;
+  padding-bottom: $padding;
+}

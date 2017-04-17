@@ -1,3 +1,4 @@
+import { chunk } from 'lodash';
 import React from 'react';
 import Transition from 'react-transition-group/CSSTransitionGroup';
 import PostPreview from './PostPreview';
@@ -15,10 +16,14 @@ function Posts({ posts, tag }) {
           transitionLeaveTimeout={250}
         >
           {
-          posts.map(p => (
-            <li key={p.id} className="posts__post">
-              <PostPreview post={p} activeTag={tag} />
-            </li>
+          chunk(posts, 3).map(ch => (
+            <div className="posts__row">
+              { ch.map(p => (
+                <li key={p.id} className="posts__post">
+                  <PostPreview post={p} activeTag={tag} />
+                </li>
+              ))}
+            </div>
           ))
           }
         </Transition>

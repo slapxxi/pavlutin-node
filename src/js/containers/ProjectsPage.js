@@ -16,7 +16,7 @@ class ProjectsPage extends React.Component {
     const { projects, isFetching } = this.props;
     setTitle('Projects');
     return (
-      <section className="page-projects">
+      <section className="projectspage">
         <h1>Projects</h1>
         {isFetching ? <Spinner /> : <Projects projects={projects} />}
       </section>
