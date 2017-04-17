@@ -25,7 +25,7 @@ const appProvider = (
   </AppContainer>
 );
 
-ReactDOM.render(appProvider, document.querySelector('.app'));
+ReactDOM.render(appProvider, document.querySelector('.react-app'));
 
 if (module.hot) {
   module.hot.accept('./components/App', () => {
