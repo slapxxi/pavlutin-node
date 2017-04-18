@@ -9,8 +9,10 @@ function requestProjects() {
 function receiveProjects(json) {
   return {
     type: types.RECEIVE_PROJECTS,
-    projects: json.projects,
-    receivedAt: Date.now(),
+    payload: json.projects,
+    meta: {
+      receivedAt: Date.now(),
+    },
   };
 }
 

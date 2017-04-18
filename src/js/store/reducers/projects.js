@@ -15,8 +15,8 @@ function projects(
       });
     case types.RECEIVE_PROJECTS:
       return Object.assign({}, projects, {
-        items: action.projects.reverse(),
-        lastUpdated: action.receivedAt,
+        items: action.payload.reverse(),
+        lastUpdated: action.meta.receivedAt,
         isFetching: false,
       });
     default:
