@@ -1,9 +1,7 @@
 .overlay {
-  border-top: 5px solid transparent;
+  border-top: 3px solid transparent;
   z-index: 2;
   position: fixed;
-  padding-left: $grid-gutter;
-  padding-right: $grid-gutter;
   top: 0;
   left: 100%;
   right: -100%;
@@ -15,13 +13,19 @@
   transition-timing-function: cubic-bezier(0.8, 0.4, 0.4, 0.8);
 }
 
+.overlay__wrapper {
+  @include container;
+
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
 .overlay__header {
-  overflow: auto;
+  overflow: visible;
 }
 
 .overlay__footer {
-  max-width: 50em;
-  margin: auto;
   opacity: 0;
   transition-property: opacity;
   transition-duration: 0.45s;
@@ -111,9 +115,11 @@
 }
 
 .overlay__nav {
-  max-width: 50em;
-  margin-left: auto;
-  margin-right: auto;
+  flex: 1;
+  width: 100%;
+  max-width: 55em;
+  padding-top: 1.8em;
+  margin: 0 auto;
   font-family: var(--font-secondary);
   font-weight: 400;
 
@@ -121,6 +127,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  @media (--screen-medium) {
+    padding-top: 2.6em;
   }
 }
 
@@ -135,7 +145,7 @@
   margin-top: 0.3em;
   margin-bottom: 0.3em;
   font-weight: 500;
-  font-size: 2.5em;
+  font-size: 3rem;
 
   a {
     text-decoration: none;
@@ -148,6 +158,10 @@
 
   &:first-child {
     margin-top: 0;
+  }
+
+  @media (--screen-medium) {
+    font-size: 2.5em;
   }
 }
 
