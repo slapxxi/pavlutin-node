@@ -3,7 +3,7 @@ import types from './types';
 function addPost(post) {
   return {
     type: types.ADD_POST,
-    post,
+    payload: post,
   };
 }
 
@@ -16,8 +16,10 @@ function requestPosts() {
 function receivePosts(json) {
   return {
     type: types.RECEIVE_POSTS,
-    posts: json.posts,
-    receivedAt: Date.now(),
+    payload: json.posts,
+    meta: {
+      receivedAt: Date.now(),
+    },
   };
 }
 

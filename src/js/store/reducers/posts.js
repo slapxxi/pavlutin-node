@@ -11,7 +11,7 @@ function posts(
   switch (action.type) {
     case types.ADD_POST:
       return Object.assign({}, posts, {
-        items: [...posts.items, action.post],
+        items: [...posts.items, action.payload],
         lastUpdated: Date.now(),
       });
     case types.REQUEST_POSTS:
@@ -20,8 +20,8 @@ function posts(
       });
     case types.RECEIVE_POSTS:
       return Object.assign({}, posts, {
-        items: action.posts.reverse(),
-        lastUpdated: action.receivedAt,
+        items: action.payload.reverse(),
+        lastUpdated: action.meta.receivedAt,
         isFetching: false,
       });
     default:
