@@ -3,6 +3,7 @@ import posts from '../../src/js/store/reducers/posts';
 import {
   addPost,
   requestPosts,
+  requestPostsError,
   receivePosts,
 } from '../../src/js/store/actions/posts';
 
@@ -36,5 +37,10 @@ describe('posts reducer', () => {
   it('handles requesting posts', () => {
     const result = posts({ items: [] }, requestPosts());
     expect(result.isFetching).to.eq(true);
+  });
+
+  it('handles request errors', () => {
+    const result = posts({ items: [], isFetching: true }, requestPostsError());
+    expect(result.isFetching).to.eq(false);
   });
 });

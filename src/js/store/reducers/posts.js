@@ -17,6 +17,10 @@ function posts(posts = initialState, action) {
       return Object.assign({}, posts, {
         isFetching: true,
       });
+    case types.REQUEST_POSTS_ERROR:
+      return Object.assign({}, posts, {
+        isFetching: false,
+      });
     case types.RECEIVE_POSTS:
       return Object.assign({}, posts, {
         items: action.payload.reverse(),

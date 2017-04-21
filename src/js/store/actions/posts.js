@@ -13,6 +13,13 @@ function requestPosts() {
   };
 }
 
+function requestPostsError(e) {
+  return {
+    type: types.REQUEST_POSTS_ERROR,
+    payload: e,
+  };
+}
+
 function receivePosts(json) {
   return {
     type: types.RECEIVE_POSTS,
@@ -27,9 +34,21 @@ function fetchPosts() {
   return function fetchPostsThunk(dispatch) {
     dispatch(requestPosts());
     return fetch('/api/v1/posts')
-      .then(r => r.json())
-      .then(json => dispatch(receivePosts(json)));
+      .then((r) => {
+        if (!r.ok) {
+          throw new Error(`Response Status ${r.status}`);
+        }
+        return r.json();
+      })
+      .then(json => dispatch(receivePosts(json)))
+      .catch(e => dispatch(requestPostsError(e)));
   };
 }
 
-export { addPost, requestPosts, receivePosts, fetchPosts };
+export {
+  addPost,
+  requestPosts,
+  requestPostsError,
+  receivePosts,
+  fetchPosts,
+};
