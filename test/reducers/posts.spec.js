@@ -18,12 +18,12 @@ describe('posts reducer', () => {
     });
   });
 
-  it('adds post', () => {
+  it('handles adding post', () => {
     const result = posts({ items: [] }, addPost(post));
     expect(result.items).to.include(post);
   });
 
-  it('receives posts', () => {
+  it('handles receiving posts', () => {
     const result = posts(
       undefined,
       receivePosts({ posts: [post] }),
@@ -33,7 +33,7 @@ describe('posts reducer', () => {
     expect(result.lastUpdated).not.to.eq(0);
   });
 
-  it('requests posts', () => {
+  it('handles requesting posts', () => {
     const result = posts({ items: [] }, requestPosts());
     expect(result.isFetching).to.eq(true);
   });

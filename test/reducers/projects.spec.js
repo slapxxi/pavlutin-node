@@ -17,7 +17,7 @@ describe('projects reducer', () => {
     });
   });
 
-  it('receives projects', () => {
+  it('handles receiving projects', () => {
     const result = projects(
       undefined,
       receiveProjects({ projects: [project] }),
@@ -27,7 +27,7 @@ describe('projects reducer', () => {
     expect(result.lastUpdated).not.to.eq(0);
   });
 
-  it('requests projects', () => {
+  it('handles requesting projects', () => {
     const result = projects(undefined, requestProjects());
     expect(result.isFetching).to.eq(true);
   });
