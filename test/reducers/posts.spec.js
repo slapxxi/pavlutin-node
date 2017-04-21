@@ -35,6 +35,6 @@ describe('posts reducer', () => {
 
   it('requests posts', () => {
     const result = posts({ items: [] }, requestPosts());
-    expect(result.lastUpdated).not.to.eq(0);
+    expect(result.isFetching).to.eq(true);
   });
 });
