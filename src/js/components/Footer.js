@@ -3,7 +3,6 @@ import SocialLinks from './SocialLinks';
 import { withClassName } from './HOC';
 import { currentYear } from '../utils';
 
-
 function Footer({ className }) {
   return (
     <footer className={className}>
