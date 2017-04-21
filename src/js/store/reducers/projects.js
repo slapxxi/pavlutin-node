@@ -12,6 +12,10 @@ function projects(projects = initialState, action) {
       return Object.assign({}, projects, {
         isFetching: true,
       });
+    case types.REQUEST_PROJECTS_ERROR:
+      return Object.assign({}, projects, {
+        isFetching: false,
+      });
     case types.RECEIVE_PROJECTS:
       return Object.assign({}, projects, {
         items: action.payload.reverse(),

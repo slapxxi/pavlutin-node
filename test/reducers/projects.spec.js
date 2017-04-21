@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import projects from '../../src/js/store/reducers/projects';
 import {
   requestProjects,
+  requestProjectsError,
   receiveProjects,
 } from '../../src/js/store/actions/projects';
 
@@ -30,5 +31,13 @@ describe('projects reducer', () => {
   it('handles requesting projects', () => {
     const result = projects(undefined, requestProjects());
     expect(result.isFetching).to.eq(true);
+  });
+
+  it('handles request errors', () => {
+    const result = projects(
+      { items: [], isFetching: true },
+      requestProjectsError(),
+    );
+    expect(result.isFetching).to.eq(false);
   });
 });

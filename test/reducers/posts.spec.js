@@ -40,7 +40,10 @@ describe('posts reducer', () => {
   });
 
   it('handles request errors', () => {
-    const result = posts({ items: [], isFetching: true }, requestPostsError());
+    const result = posts(
+      { items: [], isFetching: true },
+      requestPostsError(),
+    );
     expect(result.isFetching).to.eq(false);
   });
 });
