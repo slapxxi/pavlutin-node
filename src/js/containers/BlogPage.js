@@ -21,7 +21,7 @@ class BlogPage extends React.Component {
     const { match, posts, isFetching } = this.props;
     setTitle('Blog');
     return (
-      <div>
+      <div className="page">
         <Route
           exact
           path={`${match.url}`}

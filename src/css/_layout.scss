@@ -44,3 +44,9 @@ body {
   overflow: auto;
   overflow-y: hidden;
 }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
