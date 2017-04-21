@@ -21,7 +21,7 @@ function App() {
               render={({ location }) => (
                 <Transition
                   transitionName="fade"
-                  transitionEnterTimeout={250}
+                  transitionEnterTimeout={350}
                   transitionLeave={false}
                 >
                   <Switch key={location.pathname}>
