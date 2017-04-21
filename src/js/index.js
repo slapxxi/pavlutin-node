@@ -11,10 +11,18 @@ import rootReducer from './store/reducers/root';
 
 const storeParams = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
+let middleware;
+
+if (process.env.NODE_ENV !== 'production') {
+  middleware = applyMiddleware(thunk, logger);
+} else {
+  middleware = applyMiddleware(thunk);
+}
+
 const store = createStore(
   rootReducer,
   storeParams,
-  applyMiddleware(thunk, logger),
+  middleware,
 );
 
 const appProvider = (
