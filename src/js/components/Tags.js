@@ -8,23 +8,33 @@ function Tags({ tags, activeTag, className }) {
   }
   return (
     <ul className={className}>
-      {
-        tags.map((t) => {
-          if (activeTag === t) {
-            return (
-              <li key={t} className="tags__tag tags__tag_active">
-                <Link to="/blog/">{t}</Link>
-              </li>
-            );
-          }
-          return (
-            <li key={t} className="tags__tag">
-              <Link to={`/blog/tag/${t}`}>{t}</Link>
-            </li>
-          );
-        })
-      }
+      {tags.map(mapTagToListItem(activeTag))}
     </ul>
+  );
+}
+
+function mapTagToListItem(activeTag) {
+  return function mapTagWithActiveTag(tag) {
+    if (activeTag === tag) {
+      return renderActiveTag(tag);
+    }
+    return renderTag(tag);
+  };
+}
+
+function renderActiveTag(tag) {
+  return (
+    <li key={tag} className="tags__tag tags__tag_active">
+      <Link to="/blog/">{tag}</Link>
+    </li>
+  );
+}
+
+function renderTag(tag) {
+  return (
+    <li key={tag} className="tags__tag">
+      <Link to={`/blog/tag/${tag}`}>{tag}</Link>
+    </li>
   );
 }
 
