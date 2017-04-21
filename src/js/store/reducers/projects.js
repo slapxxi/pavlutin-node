@@ -1,13 +1,12 @@
 import types from '../actions/types';
 
-function projects(
-  projects = {
-    isFetching: false,
-    lastUpdated: 0,
-    items: [],
-  },
-  action,
-) {
+const initialState = {
+  isFetching: false,
+  items: [],
+  lastUpdated: 0,
+};
+
+function projects(projects = initialState, action) {
   switch (action.type) {
     case types.REQUEST_PROJECTS:
       return Object.assign({}, projects, {

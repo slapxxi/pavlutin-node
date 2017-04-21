@@ -1,13 +1,12 @@
 import types from '../actions/types';
 
-function posts(
-  posts = {
-    isFetching: false,
-    lastUpdated: 0,
-    items: [],
-  },
-  action,
-) {
+const initialState = {
+  isFetching: false,
+  items: [],
+  lastUpdated: 0,
+};
+
+function posts(posts = initialState, action) {
   switch (action.type) {
     case types.ADD_POST:
       return Object.assign({}, posts, {
