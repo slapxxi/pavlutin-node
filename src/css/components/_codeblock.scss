@@ -1,0 +1,18 @@
+.codeblock {
+  @include box;
+
+  overflow: hidden;
+  background: white;
+  margin: 1em 0;
+}
+
+.codeblock__nav {
+  padding: 0.3em 1em;
+  border-top: 1px solid var(--color-border);
+  background: #F7F7FA;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8em;
+  color: var(--color-text-middle);
+}
