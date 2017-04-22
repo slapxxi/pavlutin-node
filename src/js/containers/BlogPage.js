@@ -1,9 +1,9 @@
-import { find } from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { setTitle } from '../utils';
 import { fetchPosts } from '../store/actions/posts';
+import { searchPosts } from '../store/selectors/posts';
 import Search from './Search';
 import PostPage from '../components/PostPage';
 import TagPage from '../components/TagPage';
@@ -52,11 +52,11 @@ class BlogPage extends React.Component {
   }
 }
 
-function mapStateToProps({ posts, searchTerm }) {
+function mapStateToProps(state) {
   return {
-    posts: filterPosts(posts.items, searchTerm),
-    lastUpdated: posts.lastUpdated,
-    isFetching: posts.isFetching,
+    posts: searchPosts(state),
+    lastUpdated: state.posts.lastUpdated,
+    isFetching: state.posts.isFetching,
   };
 }
 
@@ -66,25 +66,6 @@ function mapDispatchToProps(dispatch) {
       dispatch(fetchPosts());
     },
   };
-}
-
-function filterPosts(posts, searchTerm) {
-  return searchPosts(posts, searchTerm);
-}
-
-function searchPosts(posts, searchTerm) {
-  if (searchTerm.trim() === '') {
-    return posts;
-  }
-  const terms = searchTerm
-    .trim()
-    .split(' ')
-    .filter(t => t.length >= 3)
-    .map(term => new RegExp(term, 'i'));
-  return posts.filter((post) => {
-    const description = post.description || '';
-    return !!find(terms, term => post.title.match(term) || description.match(term));
-  });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogPage);
