@@ -33,13 +33,7 @@ class BlogPage extends React.Component {
             </div>
           }
         />
-        <Route
-          exact
-          path={`${match.url}/:slug`}
-          render={({ match }) =>
-            <PostPage posts={posts} slug={match.params.slug} isFetching={isFetching} />
-          }
-        />
+        <Route exact path={`${match.url}/:slug`} component={PostPage} />
         <Route
           exact
           path={`${match.url}/tag/:tag`}
