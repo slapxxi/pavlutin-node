@@ -1,8 +1,7 @@
 .postpage {
-  $padding: 3em;
-
-  @include container-with-limit;
-
-  padding-top: $padding;
-  padding-bottom: $padding;
+  box-sizing: border-box;
+  max-width: 50em;
+  padding: 3em 5%;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
