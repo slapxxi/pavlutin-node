@@ -22,20 +22,27 @@ function CodeBlock(props) {
   if (parsingLanguage) {
     markup = { __html: Prism.highlight(literal, parsingLanguage) };
     return (
-      <pre className={clsName}>
-        <code
-          className={clsName}
-          dangerouslySetInnerHTML={markup}
-        />
-      </pre>
+      <div className="codeblock">
+        <pre className={clsName}>
+          <code
+            className={clsName}
+            dangerouslySetInnerHTML={markup}
+          />
+        </pre>
+        <div className="codeblock__nav">
+          { language }
+        </div>
+      </div>
     );
   }
   return (
-    <pre className={clsName}>
-      <code className={clsName}>
-        { literal }
-      </code>
-    </pre>
+    <div className="codeblock">
+      <pre className={clsName}>
+        <code className={clsName}>
+          { literal }
+        </code>
+      </pre>
+    </div>
   );
 }
 

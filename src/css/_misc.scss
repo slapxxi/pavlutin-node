@@ -25,14 +25,16 @@ pre[class*="language-"] {
   hyphens: none;
 }
 
+code[class*="language-"] {
+  padding: 0;
+  margin: 1em;
+}
+
 /* Code blocks */
 pre[class*="language-"] {
-  @include box;
-
   overflow: auto;
-  padding: 1em;
-  margin: 0.5em 0;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 0;
 }
 
 :not(pre) > code[class*="language-"],
@@ -42,9 +44,9 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
+  word-wrap: break-word;
 }
 
 .token.comment,

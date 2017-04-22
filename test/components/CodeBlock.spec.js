@@ -34,7 +34,7 @@ describe('<CodeBlock>', () => {
         </code>
       </pre>
     `;
-    expect(result.html()).to.eq(expected);
+    expect(result.html()).to.include(expected);
   });
 
   it('converts css literal to language tokens', () => {
@@ -51,6 +51,6 @@ describe('<CodeBlock>', () => {
         </code>
       </pre>
     `;
-    expect(result.html()).to.eq(expected);
+    expect(result.html()).to.include(expected);
   });
 });
