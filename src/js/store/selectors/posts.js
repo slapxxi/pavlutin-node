@@ -9,6 +9,14 @@ function searchTerm(state) {
   return state.searchTerm;
 }
 
+function postsByTag(state, props) {
+  return filterByTag(state.posts.items, props.match.params.tag);
+}
+
+function filterByTag(posts, tag) {
+  return !tag ? posts : posts.filter(p => p.tags.includes(tag));
+}
+
 function search(posts, searchTerm) {
   if (searchTerm.trim() === '') {
     return posts;
@@ -29,4 +37,9 @@ const searchPosts = createSelector(
   search,
 );
 
-export { searchPosts };
+const searchPostsWithTag = createSelector(
+  [postsByTag, searchTerm],
+  search,
+);
+
+export { searchPosts, searchPostsWithTag };

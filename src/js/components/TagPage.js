@@ -1,29 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { searchPostsWithTag } from '../store/selectors/posts';
 import Posts from './Posts';
 import Spinner from './Spinner';
 import Search from '../containers/Search';
 import { setTitle } from '../utils';
 
-function TagPage({ posts, tag, isFetching }) {
-  if (isFetching) {
-    return <Spinner />;
-  }
+function TagPage({ posts, isFetching, match }) {
+  const { tag } = match.params;
   const title = `Tag "${tag}"`;
-  const postsByTag = filterByTag(posts, tag);
   setTitle(title);
   return (
     <div className="blogpage">
       <h1>{title}</h1>
       <div>
         <Search />
-        {isFetching ? <Spinner /> : <Posts posts={postsByTag} tag={tag} />}
+        {isFetching ? <Spinner /> : <Posts posts={posts} tag={tag} />}
       </div>
     </div>
   );
 }
 
-function filterByTag(posts, tag) {
-  return !tag ? posts : posts.filter(p => p.tags.includes(tag));
+function mapStateToProps(state, props) {
+  return {
+    posts: searchPostsWithTag(state, props),
+    isFetching: state.posts.isFetching,
+  };
 }
 
-export default TagPage;
+export default connect(mapStateToProps)(TagPage);
