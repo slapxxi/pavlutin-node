@@ -1,0 +1,15 @@
+.heading__anchor {
+  font-size: 0.7em;
+  vertical-align: bottom;
+
+  &:link,
+  &:visited {
+    color: var(--color-text-very-light);
+  }
+
+  &:hover {
+    line-height: 1;
+    text-decoration: none;
+    color: var(--color-text-em);
+  }
+}

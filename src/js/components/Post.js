@@ -3,6 +3,7 @@ import Icon from 'react-fontawesome';
 import Markdown from 'react-markdown';
 import DisqusThread from 'react-disqus-thread';
 import CodeBlock from './CodeBlock';
+import Heading from './Heading';
 import { toHumanReadableDate } from '../utils';
 
 function Post({ post }) {
@@ -25,7 +26,7 @@ function Post({ post }) {
         <Markdown source={post.description || ''} />
       </div>
       <div className="post__content">
-        <Markdown source={content} renderers={{ CodeBlock }} />
+        <Markdown source={content} renderers={{ CodeBlock, Heading }} />
       </div>
       <DisqusThread
         identifier={post.slug + post.id}
