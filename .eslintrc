@@ -19,6 +19,8 @@
 
   "globals": {
     "it": true,
+    "expect": true,
+    "test": true,
     "describe": true,
     "window": true,
     "document": true,
