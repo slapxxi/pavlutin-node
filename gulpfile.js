@@ -33,7 +33,6 @@ gulp.task('default', ['build']);
 gulp.task('watch', ['browsersync'], () => {
   gulp.watch(config.patterns.scss, ['build:css']);
   gulp.watch(config.patterns.img, ['build:img']);
-  gulp.watch(config.patterns.test, ['test']);
   gulp.watch(config.patterns.html, () => {
     browsersync.reload();
   });
@@ -82,16 +81,6 @@ gulp.task('browsersync', () => {
     proxy: 'localhost:3000',
     notify: false,
   });
-});
-
-gulp.task('test', () => {
-  process.env.NODE_ENV = 'test';
-  gulp.src('test/**/*.js', { read: false })
-    .pipe(mocha({
-      growl: true,
-      require: './test/test-helper',
-    }))
-    .on('error', util.log);
 });
 
 function handleError(error) {
