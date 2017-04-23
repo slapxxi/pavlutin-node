@@ -14,16 +14,15 @@ function PostPage({ post, isFetching, match }) {
   if (!post) {
     return <PageNotFound />;
   }
-  const URL = `http://slavapavlutin.com/${match.url}`;
   setTitle(post.title);
   return (
     <section className="postpage">
       <Post post={post} />
       <DisqusThread
-        identifier={post.slug + post.id}
+        identifier={`${post.slug}-${post.id}`}
         title={post.title}
-        url={URL}
-        category_id={post.id.toString()}
+        url={`http://www.slavapavlutin.com${match.url}`}
+        category_id="1"
         shortname="slavapavlutin-com"
       />
     </section>
