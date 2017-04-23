@@ -3,10 +3,11 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import Heading from '../../src/js/components/Heading';
 
-describe('<Heading/>', () => {
-  it('renders heading matching level', () => {
-    const levels = [1, 2, 3, 4, 5, 6];
-    levels.forEach((l) => {
+describe('<Heading>', () => {
+  const levels = [1, 2, 3, 4, 5, 6];
+
+  levels.forEach((l) => {
+    it(`renders heading with level ${l}`, () => {
       const result = shallow(<Heading level={l} />);
       expect(result.html()).to.eq(`<h${l}></h${l}>`);
     });
