@@ -5,6 +5,9 @@ node_js:
   - "6.8.1"
 env:
   - NODE_ENV=production
+cache:
+  directories:
+    - node_modules
 before_script:
   - npm install -g jest
   - npm install chai@3.5.0
@@ -14,5 +17,3 @@ before_script:
   - npm install jsdom@9.9.1
   - npm install babel-register
   - npm install webpack@2.2.1
-script:
-  - jest
