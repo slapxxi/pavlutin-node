@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
-import rootReducer from './store/reducers/root';
+import rootReducer from './store/root/reducers';
 
 const storeParams = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 

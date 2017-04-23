@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'react-fontawesome';
 import { connect } from 'react-redux';
-import { changeSearchTerm } from '../store/actions/searchTerm';
+import { changeSearchTerm } from '../store/searchTerm/actions';
 
 class Search extends React.Component {
   constructor() {

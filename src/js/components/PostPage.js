@@ -4,7 +4,7 @@ import DisqusThread from 'react-disqus-thread';
 import Post from './Post';
 import PageNotFound from './PageNotFound';
 import Spinner from './Spinner';
-import { postBySlug } from '../store/selectors/posts';
+import { postBySlug } from '../store/posts/selectors';
 import { setTitle } from '../utils';
 
 function PostPage({ post, isFetching, match }) {

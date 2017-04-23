@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Projects from '../components/Projects';
 import Spinner from '../components/Spinner';
-import { fetchProjects } from '../store/actions/projects';
+import { fetchProjects } from '../store/projects/actions';
 import { setTitle } from '../utils';
 
 class ProjectsPage extends React.Component {

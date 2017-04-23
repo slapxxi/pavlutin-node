@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { searchPostsWithTag } from '../store/selectors/posts';
+import { searchPostsWithTag } from '../store/posts/selectors';
 import Posts from './Posts';
 import Spinner from './Spinner';
 import Search from '../containers/Search';
