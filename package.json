@@ -4,9 +4,17 @@
   "description": "Personal website developed with Express",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test && mocha --compilers js:babel-register --require ./test/test-helper --recursive ./test",
+    "test": "jest",
+    "test:test": "export NODE_ENV=test && jest",
     "postinstall": "gulp build --production && ./node_modules/.bin/webpack --env.prod",
     "build": "webpack"
+  },
+  "jest": {
+    "roots": [
+      "./test",
+      "./src/js/store",
+      "./src/js/components"
+    ]
   },
   "keywords": [
     "web",
@@ -80,6 +88,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "jest": "^19.0.2",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",

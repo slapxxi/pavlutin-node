@@ -1,7 +1,6 @@
 import React, { Children } from 'react';
 import { withClassName } from './HOC';
 
-
 function Title({ children, className }) {
   if (Children.count(children) === 1) {
     return <h1 className={className}>{children}</h1>;

@@ -24,9 +24,13 @@ class ProjectsPage extends React.Component {
   }
 }
 
-function mapStateToProps({ projects }) {
-  const { items, isFetching, lastUpdated } = projects;
-  return { projects: items, isFetching, lastUpdated };
+function mapStateToProps(state) {
+  const { items, isFetching, lastUpdated } = state.projects;
+  return {
+    projects: items,
+    isFetching,
+    lastUpdated,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
