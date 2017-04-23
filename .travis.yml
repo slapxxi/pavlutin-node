@@ -16,4 +16,6 @@ before_script:
   - npm install enzyme@2.7.1
   - npm install jsdom@9.9.1
   - npm install babel-register
+  - npm install babel-jest
+  - npm install react-test-renderer
   - npm install webpack@2.2.1
