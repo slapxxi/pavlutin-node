@@ -10,6 +10,7 @@
     "build": "webpack"
   },
   "jest": {
+    "bail": true,
     "roots": [
       "./test",
       "./src/js/store",
@@ -39,7 +40,7 @@
     "browser-sync": "^2.18.6",
     "compression": "^1.6.2",
     "del": "^2.2.2",
-    "enzyme": "^2.7.1",
+    "enzyme": "^2.8.2",
     "eslint": "^3.14.0",
     "eslint-plugin-react": "^6.9.0",
     "express": "^4.14.0",
