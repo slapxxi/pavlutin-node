@@ -13,6 +13,10 @@ function postsByTag(state, props) {
   return filterByTag(state.posts.items, props.match.params.tag);
 }
 
+function postBySlug(state, props) {
+  return findPost(state.posts.items, props.match.params.slug);
+}
+
 function filterByTag(posts, tag) {
   return !tag ? posts : posts.filter(p => p.tags.includes(tag));
 }
@@ -32,6 +36,10 @@ function search(posts, searchTerm) {
   });
 }
 
+function findPost(posts, slug) {
+  return find(posts, p => p.slug === slug);
+}
+
 const searchPosts = createSelector(
   [postsItems, searchTerm],
   search,
@@ -42,4 +50,4 @@ const searchPostsWithTag = createSelector(
   search,
 );
 
-export { searchPosts, searchPostsWithTag };
+export { searchPosts, searchPostsWithTag, postBySlug };
