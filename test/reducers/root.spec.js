@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { createStore } from 'redux';
 import rootReducer from '../../src/js/store/reducers/root';
 
-describe('Redux Store', () => {
+describe('Root reducer', () => {
   const store = createStore(rootReducer);
 
   it('returns initial state', () => {
