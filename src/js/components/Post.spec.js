@@ -13,6 +13,11 @@ const post = {
   tags: ['test', 'react'],
 };
 
+it('renders', () => {
+  const wrapper = shallow(<Post post={post} />);
+  expect(wrapper.length).toBe(1);
+});
+
 it('renders post title', () => {
   const result = shallow(<Post post={post} />);
   expect(result.find('.post__title').text()).toBe('Test Post');
