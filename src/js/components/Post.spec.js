@@ -1,6 +1,6 @@
 import React from 'react';
 import render from 'react-test-renderer';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import Post from './Post';
 import { singleLine } from '../../../test/test-helper';
 
@@ -14,24 +14,15 @@ const post = {
   tags: ['test', 'react'],
 };
 
-it('renders', () => {
-  const wrapper = shallow(<Post post={post} />);
-  expect(wrapper.length).toBe(1);
+it('renders post', () => {
+  const tree = render.create(<Post post={post} />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
-it('matches snapshot', () => {
-  const tree = render.create(<Post post={post} />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-it('renders post title', () => {
-  const result = shallow(<Post post={post} />);
-  expect(result.find('.post__title').text()).toBe('Test Post');
-});
-
-it('renders post content', () => {
-  const result = mount(<Post post={post} />);
-  expect(result.find('.post__content').text()).toBe('content');
+it('renders post image', () => {
+  const postWithImage = { ...post, img: 'test.png' };
+  const tree = render.create(<Post post={postWithImage} />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
 it('converts post content from Markdown', () => {
@@ -44,20 +35,4 @@ it('converts post content from Markdown', () => {
     </div>
   `;
   expect(result.find('.post__content').html()).toBe(expected);
-});
-
-it('renders post metadata', () => {
-  const result = mount(<Post post={post} />);
-  expect(result.find('.post__meta').text()).toBe('  a few seconds ago');
-});
-
-it('renders post image', () => {
-  const postWithImage = { ...post, img: 'imagetoBepng' };
-  const result = shallow(<Post post={postWithImage} />);
-  expect(result.find('.post__image').length).toBe(1);
-});
-
-it('renders no image if missing', () => {
-  const result = mount(<Post post={post} />);
-  expect(result.find('.post__image').length).toBe(0);
 });
