@@ -10,18 +10,23 @@ const cssSnippet = singleLine`
   }
 `;
 
+it('renders', () => {
+  const wrapper = shallow(<CodeBlock />);
+  expect(wrapper.length).toBe(1);
+});
+
 it('sets class matching language prop', () => {
-  const result = shallow(<CodeBlock language="js" literal="" />);
-  expect(result.find('pre.language-js').length).toBe(1);
+  const wrapper = shallow(<CodeBlock language="js" literal="" />);
+  expect(wrapper.find('pre.language-js').length).toBe(1);
 });
 
 it('sets class to "text" if missing language', () => {
-  const result = shallow(<CodeBlock literal="" />);
-  expect(result.find('pre.language-text').length).toBe(1);
+  const wrapper = shallow(<CodeBlock literal="" />);
+  expect(wrapper.find('pre.language-text').length).toBe(1);
 });
 
 it('converts js literal to language tokens', () => {
-  const result = shallow(<CodeBlock language="js" literal={jsSnippet} />);
+  const wrapper = shallow(<CodeBlock language="js" literal={jsSnippet} />);
   const expected = singleLine`
     <pre class="language-js">
       <code class="language-js">
@@ -32,11 +37,11 @@ it('converts js literal to language tokens', () => {
       </code>
     </pre>
   `;
-  expect(result.html()).toContain(expected);
+  expect(wrapper.html()).toContain(expected);
 });
 
 it('converts css literal to language tokens', () => {
-  const result = shallow(<CodeBlock language="css" literal={cssSnippet} />);
+  const wrapper = shallow(<CodeBlock language="css" literal={cssSnippet} />);
   const expected = singleLine`
     <pre class="language-css">
       <code class="language-css">
@@ -49,5 +54,5 @@ it('converts css literal to language tokens', () => {
       </code>
     </pre>
   `;
-  expect(result.html()).toContain(expected);
+  expect(wrapper.html()).toContain(expected);
 });
