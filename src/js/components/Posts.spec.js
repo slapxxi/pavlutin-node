@@ -1,33 +1,28 @@
 import React from 'react';
 import render from 'react-test-renderer';
-import { shallow } from 'enzyme';
 import { MemoryRouter as Router } from 'react-router-dom';
 import Posts from './Posts';
-import PostPreview from './PostPreview';
 
 const posts = [
   { id: 0, title: 'First Post', tags: ['js'] },
   { id: 1, title: 'Second Post' },
 ];
 
-it('renders', () => {
-  const wrapper = shallow(<Posts posts={posts} />);
-  expect(wrapper.length).toBe(1);
+it('renders posts', () => {
+  const tree = render.create(<Router><Posts posts={posts} /></Router>);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
-it('matches snapshot', () => {
+it('renders posts with active tag', () => {
   const tree = render.create(
-    <Router><Posts posts={posts} /></Router>,
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+    <Router>
+      <Posts posts={posts} tag="tag" />
+    </Router>,
+  );
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
-it('renders list of posts', () => {
-  const result = shallow(<Posts posts={posts} />);
-  expect(result.find(PostPreview).length).toBe(2);
-});
-
-it('renders message when there are no posts', () => {
-  const result = shallow(<Posts posts={[]} />);
-  expect(result.contains(<p>No posts found.</p>)).toBe(true);
+it('renders message when there are not posts', () => {
+  const tree = render.create(<Posts posts={[]} />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
