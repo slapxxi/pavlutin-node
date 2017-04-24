@@ -1,4 +1,5 @@
 import React from 'react';
+import render from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import Post from './Post';
 import { singleLine } from '../../../test/test-helper';
@@ -16,6 +17,11 @@ const post = {
 it('renders', () => {
   const wrapper = shallow(<Post post={post} />);
   expect(wrapper.length).toBe(1);
+});
+
+it('matches snapshot', () => {
+  const tree = render.create(<Post post={post} />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 it('renders post title', () => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import render from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Heading from './Heading';
 
@@ -7,6 +8,11 @@ const levels = [1, 2, 3, 4, 5, 6];
 it('renders', () => {
   const wrapper = shallow(<Heading />);
   expect(wrapper.length).toBe(1);
+});
+
+it('matches snapshot', () => {
+  const tree = render.create(<Heading />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 levels.forEach((l) => {

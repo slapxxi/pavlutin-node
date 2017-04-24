@@ -1,4 +1,5 @@
 import React from 'react';
+import render from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import CodeBlock from './CodeBlock';
 import { singleLine } from '../../../test/test-helper';
@@ -13,6 +14,11 @@ const cssSnippet = singleLine`
 it('renders', () => {
   const wrapper = shallow(<CodeBlock />);
   expect(wrapper.length).toBe(1);
+});
+
+it('matches snapshot', () => {
+  const tree = render.create(<CodeBlock />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
 
 it('sets class matching language prop', () => {

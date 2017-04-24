@@ -1,7 +1,18 @@
 import React from 'react';
+import render from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Title from './Title';
 import { singleLine } from '../../../test/test-helper';
+
+it('renders', () => {
+  const wrapper = shallow(<Title />);
+  expect(wrapper.length).toBe(1);
+});
+
+it('matches snapshot', () => {
+  const tree = render.create(<Title />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
 
 it('renders heading when has one child', () => {
   const wrapper = shallow(<Title>Hello</Title>);

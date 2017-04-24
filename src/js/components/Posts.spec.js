@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import render from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import { MemoryRouter as Router } from 'react-router-dom';
 import Posts from './Posts';
 import PostPreview from './PostPreview';
@@ -14,18 +15,16 @@ it('renders', () => {
   expect(wrapper.length).toBe(1);
 });
 
+it('matches snapshot', () => {
+  const tree = render.create(
+    <Router><Posts posts={posts} /></Router>,
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 it('renders list of posts', () => {
   const result = shallow(<Posts posts={posts} />);
   expect(result.find(PostPreview).length).toBe(2);
-});
-
-it('passes tag to <PostPreview>', () => {
-  const result = mount(
-    <Router><Posts tag="js" posts={posts} /></Router>,
-  );
-  expect(result.contains(
-    <PostPreview activeTag="js" post={posts[0]} />,
-  )).toBe(true);
 });
 
 it('renders message when there are no posts', () => {
