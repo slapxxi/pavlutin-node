@@ -3,23 +3,34 @@ import render from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Heading from './Heading';
 
-const levels = [1, 2, 3, 4, 5, 6];
-
-it('renders', () => {
-  const wrapper = shallow(<Heading />);
-  expect(wrapper.length).toBe(1);
+it('renders heading with level 1', () => {
+  const tree = render.create(<Heading level={1} />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
-it('matches snapshot', () => {
-  const tree = render.create(<Heading />).toJSON();
-  expect(tree).toMatchSnapshot();
+it('renders heading with level 2', () => {
+  const tree = render.create(<Heading level={2} />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
-levels.forEach((l) => {
-  it(`renders heading with level ${l}`, () => {
-    const wrapper = shallow(<Heading level={l} />);
-    expect(wrapper.html()).toBe(`<h${l}></h${l}>`);
-  });
+it('renders heading with level 3', () => {
+  const tree = render.create(<Heading level={3} />);
+  expect(tree.toJSON()).toMatchSnapshot();
+});
+
+it('renders heading with level 4', () => {
+  const tree = render.create(<Heading level={4} />);
+  expect(tree.toJSON()).toMatchSnapshot();
+});
+
+it('renders heading with level 5', () => {
+  const tree = render.create(<Heading level={5} />);
+  expect(tree.toJSON()).toMatchSnapshot();
+});
+
+it('renders heading with level 6', () => {
+  const tree = render.create(<Heading level={6} />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
 it('generates heading id based on content', () => {
