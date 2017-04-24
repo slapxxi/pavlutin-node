@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders message when there are not posts 1`] = `
+<p>
+  No posts found.
+</p>
+`;
+
+exports[`renders posts 1`] = `
+<section
+  className="posts"
+>
+  <ul
+    className="nav-list"
+  >
+    <div
+      className="posts__row"
+    >
+      <li
+        className="posts__post"
+      >
+        <div
+          className="post post_preview"
+        >
+          <h2
+            className="post__title"
+          >
+            <a
+              href="/blog/undefined"
+              onClick={[Function]}
+              title="Read First Post"
+            >
+              First Post
+            </a>
+          </h2>
+          <div
+            className="post__meta"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-clock-o"
+            />
+             
+             
+            a few seconds ago
+          </div>
+          <ul
+            className="tags post__tags"
+          >
+            <li
+              className="tags__tag"
+            >
+              <a
+                href="/blog/tag/js"
+                onClick={[Function]}
+              >
+                js
+              </a>
+            </li>
+          </ul>
+          <div
+            className="post__description"
+          >
+            <div>
+              <p>
+                There's no description.
+              </p>
+            </div>
+          </div>
+          <div>
+            <a
+              className="button"
+              href="/blog/undefined"
+              onClick={[Function]}
+            >
+              Keep Reading
+            </a>
+          </div>
+        </div>
+      </li>
+      <li
+        className="posts__post"
+      >
+        <div
+          className="post post_preview"
+        >
+          <h2
+            className="post__title"
+          >
+            <a
+              href="/blog/undefined"
+              onClick={[Function]}
+              title="Read Second Post"
+            >
+              Second Post
+            </a>
+          </h2>
+          <div
+            className="post__meta"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-clock-o"
+            />
+             
+             
+            a few seconds ago
+          </div>
+          <div
+            className="post__description"
+          >
+            <div>
+              <p>
+                There's no description.
+              </p>
+            </div>
+          </div>
+          <div>
+            <a
+              className="button"
+              href="/blog/undefined"
+              onClick={[Function]}
+            >
+              Keep Reading
+            </a>
+          </div>
+        </div>
+      </li>
+    </div>
+  </ul>
+</section>
+`;
+
+exports[`renders posts with active tag 1`] = `
+<section
+  className="posts"
+>
+  <ul
+    className="nav-list"
+  >
+    <div
+      className="posts__row"
+    >
+      <li
+        className="posts__post"
+      >
+        <div
+          className="post post_preview"
+        >
+          <h2
+            className="post__title"
+          >
+            <a
+              href="/blog/undefined"
+              onClick={[Function]}
+              title="Read First Post"
+            >
+              First Post
+            </a>
+          </h2>
+          <div
+            className="post__meta"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-clock-o"
+            />
+             
+             
+            a few seconds ago
+          </div>
+          <ul
+            className="tags post__tags"
+          >
+            <li
+              className="tags__tag"
+            >
+              <a
+                href="/blog/tag/js"
+                onClick={[Function]}
+              >
+                js
+              </a>
+            </li>
+          </ul>
+          <div
+            className="post__description"
+          >
+            <div>
+              <p>
+                There's no description.
+              </p>
+            </div>
+          </div>
+          <div>
+            <a
+              className="button"
+              href="/blog/undefined"
+              onClick={[Function]}
+            >
+              Keep Reading
+            </a>
+          </div>
+        </div>
+      </li>
+      <li
+        className="posts__post"
+      >
+        <div
+          className="post post_preview"
+        >
+          <h2
+            className="post__title"
+          >
+            <a
+              href="/blog/undefined"
+              onClick={[Function]}
+              title="Read Second Post"
+            >
+              Second Post
+            </a>
+          </h2>
+          <div
+            className="post__meta"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-clock-o"
+            />
+             
+             
+            a few seconds ago
+          </div>
+          <div
+            className="post__description"
+          >
+            <div>
+              <p>
+                There's no description.
+              </p>
+            </div>
+          </div>
+          <div>
+            <a
+              className="button"
+              href="/blog/undefined"
+              onClick={[Function]}
+            >
+              Keep Reading
+            </a>
+          </div>
+        </div>
+      </li>
+    </div>
+  </ul>
+</section>
+`;

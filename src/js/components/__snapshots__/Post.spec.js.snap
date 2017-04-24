@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders post 1`] = `
+<article
+  className="post"
+>
+  <h1
+    className="post__title"
+  >
+    Test Post
+  </h1>
+  <div
+    className="post__meta"
+  >
+    <span
+      aria-hidden={true}
+      className="fa fa-clock-o"
+    />
+     
+     
+    a few seconds ago
+  </div>
+  <div
+    className="post__description"
+  >
+    <div>
+      <p>
+        empty
+      </p>
+    </div>
+  </div>
+  <div
+    className="post__content"
+  >
+    <div>
+      <p>
+        <strong>
+          content
+        </strong>
+      </p>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`renders post image 1`] = `
+<article
+  className="post"
+>
+  <h1
+    className="post__title"
+  >
+    Test Post
+  </h1>
+  <div
+    className="post__meta"
+  >
+    <span
+      aria-hidden={true}
+      className="fa fa-clock-o"
+    />
+     
+     
+    a few seconds ago
+  </div>
+  <div
+    className="post__image"
+  >
+    <img
+      alt="Test Post"
+      src="/img/test.png"
+    />
+  </div>
+  <div
+    className="post__description"
+  >
+    <div>
+      <p>
+        empty
+      </p>
+    </div>
+  </div>
+  <div
+    className="post__content"
+  >
+    <div>
+      <p>
+        <strong>
+          content
+        </strong>
+      </p>
+    </div>
+  </div>
+</article>
+`;

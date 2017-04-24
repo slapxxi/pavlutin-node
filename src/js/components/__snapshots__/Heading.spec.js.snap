@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders heading with level 1 1`] = `<h1 />`;
+
+exports[`renders heading with level 2 1`] = `<h2 />`;
+
+exports[`renders heading with level 3 1`] = `<h3 />`;
+
+exports[`renders heading with level 4 1`] = `<h4 />`;
+
+exports[`renders heading with level 5 1`] = `<h5 />`;
+
+exports[`renders heading with level 6 1`] = `<h6 />`;

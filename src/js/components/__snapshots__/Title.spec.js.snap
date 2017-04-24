@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`accepts class name 1`] = `
+<h1
+  className="title test"
+>
+  Test
+</h1>
+`;
+
+exports[`renders group of headings 1`] = `
+<hgroup
+  className="title"
+>
+  <h1
+    className="title__main"
+  >
+    Hello
+  </h1>
+  <h2
+    className="title__secondary"
+  >
+    World
+  </h2>
+</hgroup>
+`;
+
+exports[`renders heading 1`] = `
+<h1
+  className="title"
+>
+  Test
+</h1>
+`;
