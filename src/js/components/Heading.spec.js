@@ -4,6 +4,11 @@ import Heading from './Heading';
 
 const levels = [1, 2, 3, 4, 5, 6];
 
+it('renders', () => {
+  const wrapper = shallow(<Heading />);
+  expect(wrapper.length).toBe(1);
+});
+
 levels.forEach((l) => {
   it(`renders heading with level ${l}`, () => {
     const wrapper = shallow(<Heading level={l} />);
