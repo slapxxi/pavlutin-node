@@ -20,46 +20,50 @@ exports[`renders posts 1`] = `
         className="posts__post"
       >
         <div
-          className="post post_preview"
+          className="preview"
         >
-          <h2
-            className="post__title"
+          <header
+            className="preview__header"
           >
-            <a
-              href="/blog/undefined"
-              onClick={[Function]}
-              title="Read First Post"
-            >
-              First Post
-            </a>
-          </h2>
-          <div
-            className="post__meta"
-          >
-            <span
-              aria-hidden={true}
-              className="fa fa-clock-o"
-            />
-             
-             
-            a few seconds ago
-          </div>
-          <ul
-            className="tags post__tags"
-          >
-            <li
-              className="tags__tag"
+            <h2
+              className="preview__title"
             >
               <a
-                href="/blog/tag/js"
+                href="/blog/undefined"
                 onClick={[Function]}
+                title="Read First Post"
               >
-                js
+                First Post
               </a>
-            </li>
-          </ul>
+            </h2>
+            <div
+              className="preview__meta"
+            >
+              <span
+                aria-hidden={true}
+                className="fa fa-clock-o"
+              />
+               
+               
+              a few seconds ago
+            </div>
+            <ul
+              className="tags preview__tags"
+            >
+              <li
+                className="tags__tag"
+              >
+                <a
+                  href="/blog/tag/js"
+                  onClick={[Function]}
+                >
+                  js
+                </a>
+              </li>
+            </ul>
+          </header>
           <div
-            className="post__description"
+            className="preview__description"
           >
             <div>
               <p>
@@ -67,9 +71,10 @@ exports[`renders posts 1`] = `
               </p>
             </div>
           </div>
-          <div>
+          <div
+            className="preview__button"
+          >
             <a
-              className="button"
               href="/blog/undefined"
               onClick={[Function]}
             >
@@ -82,32 +87,36 @@ exports[`renders posts 1`] = `
         className="posts__post"
       >
         <div
-          className="post post_preview"
+          className="preview"
         >
-          <h2
-            className="post__title"
+          <header
+            className="preview__header"
           >
-            <a
-              href="/blog/undefined"
-              onClick={[Function]}
-              title="Read Second Post"
+            <h2
+              className="preview__title"
             >
-              Second Post
-            </a>
-          </h2>
+              <a
+                href="/blog/undefined"
+                onClick={[Function]}
+                title="Read Second Post"
+              >
+                Second Post
+              </a>
+            </h2>
+            <div
+              className="preview__meta"
+            >
+              <span
+                aria-hidden={true}
+                className="fa fa-clock-o"
+              />
+               
+               
+              a few seconds ago
+            </div>
+          </header>
           <div
-            className="post__meta"
-          >
-            <span
-              aria-hidden={true}
-              className="fa fa-clock-o"
-            />
-             
-             
-            a few seconds ago
-          </div>
-          <div
-            className="post__description"
+            className="preview__description"
           >
             <div>
               <p>
@@ -115,9 +124,10 @@ exports[`renders posts 1`] = `
               </p>
             </div>
           </div>
-          <div>
+          <div
+            className="preview__button"
+          >
             <a
-              className="button"
               href="/blog/undefined"
               onClick={[Function]}
             >
@@ -145,46 +155,50 @@ exports[`renders posts with active tag 1`] = `
         className="posts__post"
       >
         <div
-          className="post post_preview"
+          className="preview"
         >
-          <h2
-            className="post__title"
+          <header
+            className="preview__header"
           >
-            <a
-              href="/blog/undefined"
-              onClick={[Function]}
-              title="Read First Post"
-            >
-              First Post
-            </a>
-          </h2>
-          <div
-            className="post__meta"
-          >
-            <span
-              aria-hidden={true}
-              className="fa fa-clock-o"
-            />
-             
-             
-            a few seconds ago
-          </div>
-          <ul
-            className="tags post__tags"
-          >
-            <li
-              className="tags__tag"
+            <h2
+              className="preview__title"
             >
               <a
-                href="/blog/tag/js"
+                href="/blog/undefined"
                 onClick={[Function]}
+                title="Read First Post"
               >
-                js
+                First Post
               </a>
-            </li>
-          </ul>
+            </h2>
+            <div
+              className="preview__meta"
+            >
+              <span
+                aria-hidden={true}
+                className="fa fa-clock-o"
+              />
+               
+               
+              a few seconds ago
+            </div>
+            <ul
+              className="tags preview__tags"
+            >
+              <li
+                className="tags__tag"
+              >
+                <a
+                  href="/blog/tag/js"
+                  onClick={[Function]}
+                >
+                  js
+                </a>
+              </li>
+            </ul>
+          </header>
           <div
-            className="post__description"
+            className="preview__description"
           >
             <div>
               <p>
@@ -192,9 +206,10 @@ exports[`renders posts with active tag 1`] = `
               </p>
             </div>
           </div>
-          <div>
+          <div
+            className="preview__button"
+          >
             <a
-              className="button"
               href="/blog/undefined"
               onClick={[Function]}
             >
@@ -207,32 +222,36 @@ exports[`renders posts with active tag 1`] = `
         className="posts__post"
       >
         <div
-          className="post post_preview"
+          className="preview"
         >
-          <h2
-            className="post__title"
+          <header
+            className="preview__header"
           >
-            <a
-              href="/blog/undefined"
-              onClick={[Function]}
-              title="Read Second Post"
+            <h2
+              className="preview__title"
             >
-              Second Post
-            </a>
-          </h2>
+              <a
+                href="/blog/undefined"
+                onClick={[Function]}
+                title="Read Second Post"
+              >
+                Second Post
+              </a>
+            </h2>
+            <div
+              className="preview__meta"
+            >
+              <span
+                aria-hidden={true}
+                className="fa fa-clock-o"
+              />
+               
+               
+              a few seconds ago
+            </div>
+          </header>
           <div
-            className="post__meta"
-          >
-            <span
-              aria-hidden={true}
-              className="fa fa-clock-o"
-            />
-             
-             
-            a few seconds ago
-          </div>
-          <div
-            className="post__description"
+            className="preview__description"
           >
             <div>
               <p>
@@ -240,9 +259,10 @@ exports[`renders posts with active tag 1`] = `
               </p>
             </div>
           </div>
-          <div>
+          <div
+            className="preview__button"
+          >
             <a
-              className="button"
               href="/blog/undefined"
               onClick={[Function]}
             >
