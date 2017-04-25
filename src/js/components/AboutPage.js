@@ -1,6 +1,8 @@
 import React from 'react';
+import { setTitle } from '../utils';
 
 function AboutPage() {
+  setTitle('About Me');
   return (
     <div className="container">
       <h1>About Me</h1>
