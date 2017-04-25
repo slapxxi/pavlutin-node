@@ -8,25 +8,31 @@ import { toHumanReadableDate } from '../utils';
 function PostPreview({ post, activeTag }) {
   const URL = `/blog/${post.slug}`;
   return (
-    <div className="post post_preview">
-      <h2 className="post__title">
-        <Link
-          to={URL}
-          title={`Read ${post.title}`}
-        >
-          {post.title}
-        </Link>
-      </h2>
-      <div className="post__meta">
-        <Icon name="clock-o" /> {' '}
-        {toHumanReadableDate(post.createdAt)}
-      </div>
-      <Tags activeTag={activeTag} tags={post.tags} className="post__tags" />
-      <div className="post__description">
+    <div className="preview">
+      <header className="preview__header">
+        <h2 className="preview__title">
+          <Link
+            to={URL}
+            title={`Read ${post.title}`}
+          >
+            {post.title}
+          </Link>
+        </h2>
+        <div className="preview__meta">
+          <Icon name="clock-o" /> {' '}
+          {toHumanReadableDate(post.createdAt)}
+        </div>
+        <Tags
+          activeTag={activeTag}
+          tags={post.tags}
+          className="preview__tags"
+        />
+      </header>
+      <div className="preview__description">
         <Markdown source={post.description || "There's no description."} />
       </div>
-      <div>
-        <Link className="button" to={URL}>
+      <div className="preview__button">
+        <Link to={URL}>
           Keep Reading
         </Link>
       </div>

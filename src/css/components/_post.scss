@@ -1,4 +1,6 @@
 .post {
+  box-sizing: border-box;
+
   img {
     display: block;
     margin: 0 auto;
@@ -7,9 +9,9 @@
 
 .posts {
   @include clearfix;
-  @include container-with-limit;
+  @include container;
 
-  padding: 0;
+  padding: 2em 0;
 
   @media (--screen-large) {
     max-width: none;
@@ -18,18 +20,30 @@
 
 .posts__row {
   @include clearfix;
+
+  @media (--screen-large) {
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 }
 
 .posts__post {
+  display: flex;
+  flex: 1;
   margin-top: 2em;
   margin-bottom: 2em;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   @media (--screen-large) {
     box-sizing: border-box;
     float: left;
     width: 33%;
     margin: 0;
-    padding-left: 3%;
+    padding-left: 15px;
 
     &:first-child {
       padding-left: 0;
@@ -55,21 +69,6 @@
   margin: $grid-offset-vertical auto;
   width: 100%;
   max-width: 35em;
-}
-
-.post_preview {
-  .post__title,
-  .post__meta,
-  .post__description {
-    text-align: left;
-  }
-
-  .post__description {
-    margin: inherit;
-    font-style: normal;
-    font-family: inherit;
-    font-size: 1em;
-  }
 }
 
 .post__meta {
