@@ -1,5 +1,9 @@
 .post {
+  @include box;
+
   box-sizing: border-box;
+  background: white;
+  padding: 0 $grid-offset 2em;
 
   img {
     display: block;

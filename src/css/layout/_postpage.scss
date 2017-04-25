@@ -1,7 +1,7 @@
 .postpage {
   box-sizing: border-box;
   width: 100%;
-  max-width: 60em;
-  padding: 3em 5%;
+  max-width: 70em;
+  padding: 3em $grid-offset;
   align-self: center;
 }
