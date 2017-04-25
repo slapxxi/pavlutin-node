@@ -1,6 +1,6 @@
 .search {
   clear: both;
-  border-bottom: 2px solid var(--color-text);
+  border-bottom: 2px solid var(--color-text-very-light);
   font-size: 1.5em;
   padding: 0 0.1em;
   transition-duration: 0.3s;
@@ -42,7 +42,7 @@ input.search__input {
 }
 
 .search__icon {
-  color: var(--color-text);
+  color: var(--color-text-light);
   cursor: pointer;
   float: right;
   font-size: 0.87em;
