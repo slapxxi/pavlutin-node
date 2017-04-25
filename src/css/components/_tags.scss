@@ -7,9 +7,9 @@
 .tags__tag {
   display: inline-block;
   position: relative;
-  border: 2px solid var(--color-text-light);
+  border: 2px solid var(--color-text-very-light);
   border-radius: 2px;
-  margin: 1em 0.7em 0 0;
+  margin: 0.5em 0.7em 0 0;
 
   & > a {
     display: inline-block;
@@ -39,7 +39,7 @@
     left: 6px;
     width: 4px;
     height: 4px;
-    border: 1px solid var(--color-text-light);
+    border: 1px solid var(--color-text-very-light);
     border-radius: 100px;
   }
 }
