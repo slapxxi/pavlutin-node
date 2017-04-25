@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="preview"
+>
+  <header
+    className="preview__header"
+  >
+    <h2
+      className="preview__title"
+    >
+      <a
+        href="/blog/test-post"
+        onClick={[Function]}
+        title="Read Test Post"
+      >
+        Test Post
+      </a>
+    </h2>
+    <div
+      className="preview__meta"
+    >
+      <span
+        aria-hidden={true}
+        className="fa fa-clock-o"
+      />
+       
+       
+      a few seconds ago
+    </div>
+    <ul
+      className="tags preview__tags"
+    >
+      <li
+        className="tags__tag"
+      >
+        <a
+          href="/blog/tag/test"
+          onClick={[Function]}
+        >
+          test
+        </a>
+      </li>
+      <li
+        className="tags__tag"
+      >
+        <a
+          href="/blog/tag/react"
+          onClick={[Function]}
+        >
+          react
+        </a>
+      </li>
+    </ul>
+  </header>
+  <div
+    className="preview__description"
+  >
+    <div>
+      <p>
+        empty
+      </p>
+    </div>
+  </div>
+  <div
+    className="preview__button"
+  >
+    <a
+      href="/blog/test-post"
+      onClick={[Function]}
+    >
+      Keep Reading
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders with active tag 1`] = `
+<div
+  className="preview"
+>
+  <header
+    className="preview__header"
+  >
+    <h2
+      className="preview__title"
+    >
+      <a
+        href="/blog/test-post"
+        onClick={[Function]}
+        title="Read Test Post"
+      >
+        Test Post
+      </a>
+    </h2>
+    <div
+      className="preview__meta"
+    >
+      <span
+        aria-hidden={true}
+        className="fa fa-clock-o"
+      />
+       
+       
+      a few seconds ago
+    </div>
+    <ul
+      className="tags preview__tags"
+    >
+      <li
+        className="tags__tag"
+      >
+        <a
+          href="/blog/tag/test"
+          onClick={[Function]}
+        >
+          test
+        </a>
+      </li>
+      <li
+        className="tags__tag"
+      >
+        <a
+          href="/blog/tag/react"
+          onClick={[Function]}
+        >
+          react
+        </a>
+      </li>
+    </ul>
+  </header>
+  <div
+    className="preview__description"
+  >
+    <div>
+      <p>
+        empty
+      </p>
+    </div>
+  </div>
+  <div
+    className="preview__button"
+  >
+    <a
+      href="/blog/test-post"
+      onClick={[Function]}
+    >
+      Keep Reading
+    </a>
+  </div>
+</div>
+`;

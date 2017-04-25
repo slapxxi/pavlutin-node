@@ -1,8 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { MemoryRouter as Router, Link } from 'react-router-dom';
+import render from 'react-test-renderer';
+import { MemoryRouter as Router } from 'react-router-dom';
 import PostPreview from './PostPreview';
-import Tags from './Tags';
 
 const post = {
   id: 0,
@@ -14,22 +13,20 @@ const post = {
   tags: ['test', 'react'],
 };
 
-const wrapper = mount(
-  <Router>
-    <PostPreview post={post} />
-  </Router>,
-);
-
-it('renders tags', () => {
-  const tags = <Tags activeTag={undefined} tags={post.tags} className="post__tags" />;
-  expect(wrapper.contains(tags)).toBe(true);
+it('renders', () => {
+  const tree = render.create(
+    <Router>
+      <PostPreview post={post} />
+    </Router>,
+  );
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
-it('renders link to the post', () => {
-  const link = (
-    <Link className="button" to="/blog/test-post">
-      Keep Reading
-    </Link>
+it('renders with active tag', () => {
+  const tree = render.create(
+    <Router>
+      <PostPreview post={post} activeTag="tag" />
+    </Router>,
   );
-  expect(wrapper.contains(link)).toBe(true);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
