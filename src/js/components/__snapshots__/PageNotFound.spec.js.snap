@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Not Found page 1`] = `
+<div
+  className="container page-not-found"
+>
+  <h1>
+    <span
+      aria-hidden={true}
+      className="fa fa-exclamation-triangle"
+    />
+     404 - Page Not Found
+  </h1>
+</div>
+`;
