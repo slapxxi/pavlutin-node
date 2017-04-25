@@ -18,7 +18,7 @@ it('returns initial state', () => {
 });
 
 it('handles adding post', () => {
-  const state = posts({ items: [] }, addPost(post));
+  const state = posts(undefined, addPost(post));
   expect(state.items).toContain(post);
 });
 
