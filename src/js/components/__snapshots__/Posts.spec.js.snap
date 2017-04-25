@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders message when there are not posts 1`] = `
+exports[`renders message when there are no posts 1`] = `
 <p>
   No posts found.
 </p>

@@ -22,7 +22,7 @@ it('renders posts with active tag', () => {
   expect(tree.toJSON()).toMatchSnapshot();
 });
 
-it('renders message when there are not posts', () => {
+it('renders message when there are no posts', () => {
   const tree = render.create(<Posts posts={[]} />);
   expect(tree.toJSON()).toMatchSnapshot();
 });
