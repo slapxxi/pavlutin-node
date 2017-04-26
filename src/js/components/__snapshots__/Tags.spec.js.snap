@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders tags 1`] = `
+<ul
+  className="tags"
+>
+  <li
+    className="tags__tag"
+  >
+    <a
+      href="/blog/tag/test"
+      onClick={[Function]}
+    >
+      test
+    </a>
+  </li>
+  <li
+    className="tags__tag"
+  >
+    <a
+      href="/blog/tag/mock"
+      onClick={[Function]}
+    >
+      mock
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`renders tags with active tag 1`] = `
+<ul
+  className="tags"
+>
+  <li
+    className="tags__tag tags__tag_active"
+  >
+    <a
+      href="/blog/"
+      onClick={[Function]}
+    >
+      test
+    </a>
+  </li>
+  <li
+    className="tags__tag"
+  >
+    <a
+      href="/blog/tag/mock"
+      onClick={[Function]}
+    >
+      mock
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`renders tags with custom className 1`] = `
+<ul
+  className="tags test"
+>
+  <li
+    className="tags__tag"
+  >
+    <a
+      href="/blog/tag/test"
+      onClick={[Function]}
+    >
+      test
+    </a>
+  </li>
+  <li
+    className="tags__tag"
+  >
+    <a
+      href="/blog/tag/mock"
+      onClick={[Function]}
+    >
+      mock
+    </a>
+  </li>
+</ul>
+`;
