@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addPost returns action 1`] = `
+Object {
+  "payload": undefined,
+  "type": "ADD_POST",
+}
+`;
+
+exports[`requestPosts returns action 1`] = `
+Object {
+  "type": "REQUEST_POSTS",
+}
+`;
+
+exports[`requestPostsError returns action 1`] = `
+Object {
+  "payload": Object {},
+  "type": "REQUEST_POSTS_ERROR",
+}
+`;
