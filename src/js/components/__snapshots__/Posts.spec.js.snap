@@ -48,10 +48,10 @@ exports[`renders posts 1`] = `
               a few seconds ago
             </div>
             <ul
-              className="tags preview__tags"
+              className="preview__tags hUhVje"
             >
               <li
-                className="tags__tag"
+                className="gloUTp"
               >
                 <a
                   href="/blog/tag/js"
@@ -183,10 +183,10 @@ exports[`renders posts with active tag 1`] = `
               a few seconds ago
             </div>
             <ul
-              className="tags preview__tags"
+              className="preview__tags hUhVje"
             >
               <li
-                className="tags__tag"
+                className="gloUTp"
               >
                 <a
                   href="/blog/tag/js"

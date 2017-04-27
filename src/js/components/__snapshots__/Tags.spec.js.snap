@@ -2,10 +2,10 @@
 
 exports[`renders tags 1`] = `
 <ul
-  className="tags"
+  className="hUhVje"
 >
   <li
-    className="tags__tag"
+    className="gloUTp"
   >
     <a
       href="/blog/tag/test"
@@ -15,7 +15,7 @@ exports[`renders tags 1`] = `
     </a>
   </li>
   <li
-    className="tags__tag"
+    className="gloUTp"
   >
     <a
       href="/blog/tag/mock"
@@ -29,20 +29,20 @@ exports[`renders tags 1`] = `
 
 exports[`renders tags with active tag 1`] = `
 <ul
-  className="tags"
+  className="hUhVje"
 >
   <li
-    className="tags__tag tags__tag_active"
+    className="hCxuEK"
   >
     <a
-      href="/blog/"
+      href="/blog"
       onClick={[Function]}
     >
       test
     </a>
   </li>
   <li
-    className="tags__tag"
+    className="gloUTp"
   >
     <a
       href="/blog/tag/mock"
@@ -56,10 +56,10 @@ exports[`renders tags with active tag 1`] = `
 
 exports[`renders tags with custom className 1`] = `
 <ul
-  className="tags test"
+  className="test hUhVje"
 >
   <li
-    className="tags__tag"
+    className="gloUTp"
   >
     <a
       href="/blog/tag/test"
@@ -69,7 +69,7 @@ exports[`renders tags with custom className 1`] = `
     </a>
   </li>
   <li
-    className="tags__tag"
+    className="gloUTp"
   >
     <a
       href="/blog/tag/mock"
