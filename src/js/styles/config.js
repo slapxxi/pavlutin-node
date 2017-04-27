@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export const colors = {
   white: '#FCFCFF',
   black: '#0A0A15',
@@ -20,4 +22,8 @@ export const text = {
   light: colors.greyLight,
   dark: colors.black,
   em: colors.cyan,
+};
+
+export const mixins = {
+  hideText: css`text-indent: -9999px`,
 };

@@ -1,13 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import render from 'react-test-renderer';
 import Spinner from './Spinner';
 
-it('has .spinner class', () => {
-  const wrapper = shallow(<Spinner />);
-  expect(wrapper.find('.spinner').length).toBe(1);
+it('renders spinner', () => {
+  const tree = render.create(<Spinner />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });
 
-it('displays loading text', () => {
-  const wrapper = shallow(<Spinner />);
-  expect(wrapper.find('.spinner').text()).toBe('Loading...');
+it('renders spinner with color', () => {
+  const tree = render.create(<Spinner color="blue" />);
+  expect(tree.toJSON()).toMatchSnapshot();
 });

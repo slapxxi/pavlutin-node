@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders spinner 1`] = `
+<div
+  className="ikfjQC"
+  color={undefined}
+>
+  Loading...
+</div>
+`;
+
+exports[`renders spinner with color 1`] = `
+<div
+  className="izjgpp"
+  color="blue"
+>
+  Loading...
+</div>
+`;
