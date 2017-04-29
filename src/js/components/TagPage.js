@@ -4,12 +4,12 @@ import { searchPostsWithTag } from '../store/posts/selectors';
 import Posts from './Posts';
 import Spinner from './Spinner';
 import Search from '../containers/Search';
-import { setTitle } from '../utils';
+import { withPageTitle } from './HOC';
 
-function TagPage({ posts, isFetching, match }) {
+function TagPage(props) {
+  const { posts, isFetching, match } = props;
   const { tag } = match.params;
-  const title = `Tag "${tag}"`;
-  setTitle(title);
+  const title = generateTitle(props);
   return (
     <div className="blogpage">
       <h1>{title}</h1>
@@ -28,4 +28,10 @@ function mapStateToProps(state, props) {
   };
 }
 
-export default connect(mapStateToProps)(TagPage);
+function generateTitle(props) {
+  return `Tag "${props.match.params.tag}"`;
+}
+
+export default connect(mapStateToProps)(
+  withPageTitle(generateTitle)(TagPage),
+);

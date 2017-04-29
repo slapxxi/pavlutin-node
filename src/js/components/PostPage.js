@@ -5,7 +5,7 @@ import Post from './Post';
 import PageNotFound from './PageNotFound';
 import Spinner from './Spinner';
 import { postBySlug } from '../store/posts/selectors';
-import { setTitle } from '../utils';
+import { withPageTitle } from './HOC';
 
 function PostPage({ post, isFetching, match }) {
   if (isFetching) {
@@ -14,7 +14,6 @@ function PostPage({ post, isFetching, match }) {
   if (!post) {
     return <PageNotFound />;
   }
-  setTitle(post.title);
   return (
     <section className="postpage">
       <Post post={post} />
@@ -36,4 +35,6 @@ function mapStateToProps(state, props) {
   };
 }
 
-export default connect(mapStateToProps)(PostPage);
+export default connect(mapStateToProps)(
+  withPageTitle(props => props.post.title)(PostPage),
+);

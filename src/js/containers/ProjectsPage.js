@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Projects from '../components/Projects';
 import Spinner from '../components/Spinner';
 import { fetchProjects } from '../store/projects/actions';
-import { setTitle } from '../utils';
+import { withPageTitle } from '../components/HOC';
 
 class ProjectsPage extends React.Component {
   componentDidMount() {
@@ -14,7 +14,6 @@ class ProjectsPage extends React.Component {
 
   render() {
     const { projects, isFetching } = this.props;
-    setTitle('Projects');
     return (
       <section className="projectspage">
         <h1>Projects</h1>
@@ -41,4 +40,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withPageTitle('Projects')(ProjectsPage),
+);

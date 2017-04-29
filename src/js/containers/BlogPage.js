@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import { setTitle } from '../utils';
+import { withPageTitle } from '../components/HOC';
 import { fetchPosts } from '../store/posts/actions';
 import { searchPosts } from '../store/posts/selectors';
 import Search from './Search';
@@ -19,7 +19,6 @@ class BlogPage extends React.Component {
 
   render() {
     const { match, posts, isFetching } = this.props;
-    setTitle('Blog');
     return (
       <div className="page">
         <Route
@@ -56,4 +55,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BlogPage);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withPageTitle('Blog')(BlogPage),
+);

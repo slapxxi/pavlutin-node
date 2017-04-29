@@ -1,11 +1,11 @@
 import React, { Children } from 'react';
-import { combineClassNames } from '../utils';
+import { combineClassNames, setTitle } from '../utils';
 
 /**
  * Higher order component that requires children to exist
  * in order to render the component.
- * @param  {React.Component} Component Component to wrap
- * @return {React.Component} Wrapped Component
+ * @param  {React.Component} Component component to wrap
+ * @return {React.Component} wrapped component
  */
 function requireChildren(Component) {
   function RequireChildren(props) {
@@ -21,8 +21,8 @@ function requireChildren(Component) {
 /**
  * Higher order component which modifies className prop
  * to include a specified class name.
- * @param  {String} clsName Class to include in resulting className
- * @return {React.Component} Wrapped component
+ * @param  {String} clsName class to include in resulting className
+ * @return {React.Component} wrapped component
  */
 function withClassName(clsName) {
   return function withClassNameSaved(Component) {
@@ -35,5 +35,33 @@ function withClassName(clsName) {
   };
 }
 
-export { requireChildren, withClassName };
-export default requireChildren;
+/**
+ * Higher order component that updates page title.
+ */
+function withPageTitle(pageTitle) {
+  let updateTitle;
+  if (typeof pageTitle === 'function') {
+    updateTitle = props => setTitle(pageTitle(props));
+  } else {
+    updateTitle = () => setTitle(pageTitle);
+  }
+  return function withPageTitleSet(Component) {
+    class WithPageTitle extends React.Component {
+      componentDidMount() {
+        updateTitle(this.props);
+      }
+
+      componentWillReceiveProps(props) {
+        updateTitle(props);
+      }
+
+      render() {
+        return <Component {...this.props} />;
+      }
+    }
+    WithPageTitle.displayName = `WithPageTitle(${Component.name})`;
+    return WithPageTitle;
+  };
+}
+
+export { requireChildren, withClassName, withPageTitle };
