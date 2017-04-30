@@ -94,10 +94,10 @@
     "stylelint-scss": "^1.4.4",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.5",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^3.2.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
     "babel-jest": "^19.0.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "chai": "^3.5.0",

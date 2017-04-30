@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
@@ -46,7 +46,3 @@ if (module.hot) {
     );
   });
 }
-
-$(() => {
-  $('body').addClass('js');
-});

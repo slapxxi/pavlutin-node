@@ -5,6 +5,7 @@ const devConfig = require('./webpack.config.dev');
 
 const baseConfig = {
   entry: [
+    'whatwg-fetch',
     './src/js/index.js',
   ],
 
