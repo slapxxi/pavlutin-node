@@ -20,10 +20,18 @@ export const colors = {
 export const text = {
   middle: colors.greyMiddle,
   light: colors.greyLight,
+  veryLight: colors.greyVeryLight,
   dark: colors.black,
   em: colors.cyan,
 };
 
 export const mixins = {
   hideText: css`text-indent: -9999px`,
+  box(color) {
+    return css`
+      border: 1px solid ${color || text.veryLight};
+      border-radius: 5px;
+      box-shadow: 1px 3px 5px 2px ${color || text.veryLight}80;
+    `;
+  },
 };

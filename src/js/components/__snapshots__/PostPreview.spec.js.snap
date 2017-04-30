@@ -2,13 +2,13 @@
 
 exports[`renders 1`] = `
 <div
-  className="preview"
+  className="dkizvw"
 >
   <header
-    className="preview__header"
+    className="hrvfSh"
   >
     <h2
-      className="preview__title"
+      className="fPvNfP"
     >
       <a
         href="/blog/test-post"
@@ -19,7 +19,7 @@ exports[`renders 1`] = `
       </a>
     </h2>
     <div
-      className="preview__meta"
+      className="gWyvVA"
     >
       <span
         aria-hidden={true}
@@ -55,7 +55,7 @@ exports[`renders 1`] = `
     </ul>
   </header>
   <div
-    className="preview__description"
+    className="dTNsDZ"
   >
     <div>
       <p>
@@ -64,7 +64,7 @@ exports[`renders 1`] = `
     </div>
   </div>
   <div
-    className="preview__button"
+    className="fIOUHv"
   >
     <a
       href="/blog/test-post"
@@ -78,13 +78,13 @@ exports[`renders 1`] = `
 
 exports[`renders with active tag 1`] = `
 <div
-  className="preview"
+  className="dkizvw"
 >
   <header
-    className="preview__header"
+    className="hrvfSh"
   >
     <h2
-      className="preview__title"
+      className="fPvNfP"
     >
       <a
         href="/blog/test-post"
@@ -95,7 +95,7 @@ exports[`renders with active tag 1`] = `
       </a>
     </h2>
     <div
-      className="preview__meta"
+      className="gWyvVA"
     >
       <span
         aria-hidden={true}
@@ -131,7 +131,7 @@ exports[`renders with active tag 1`] = `
     </ul>
   </header>
   <div
-    className="preview__description"
+    className="dTNsDZ"
   >
     <div>
       <p>
@@ -140,7 +140,7 @@ exports[`renders with active tag 1`] = `
     </div>
   </div>
   <div
-    className="preview__button"
+    className="fIOUHv"
   >
     <a
       href="/blog/test-post"
