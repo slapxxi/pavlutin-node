@@ -11,29 +11,42 @@ import Posts from '../components/Posts';
 import Spinner from '../components/Spinner';
 
 class BlogPage extends React.Component {
+  constructor() {
+    super();
+    this.renderBlogPage = this.renderBlogPage.bind(this);
+  }
+
   componentDidMount() {
     if (this.props.lastUpdated === 0) {
       this.props.fetchPosts();
     }
   }
 
+  renderBlogPage() {
+    const { posts, isFetching } = this.props;
+    return (
+      <div className="blogpage">
+        <h1>Blog</h1>
+        <Search />
+        {
+          isFetching ?
+            <div className="blogpage__spinner">
+              <Spinner />
+            </div>
+            :
+            <Posts posts={posts} />
+        }
+      </div>
+    );
+  }
+
   render() {
-    const { match, posts, isFetching } = this.props;
+    const { url } = this.props.match;
     return (
       <div className="page">
-        <Route
-          exact
-          path={`${match.url}`}
-          render={() =>
-            <div className="blogpage">
-              <h1>Blog</h1>
-              <Search />
-              {isFetching ? <Spinner /> : <Posts posts={posts} />}
-            </div>
-          }
-        />
-        <Route exact path={`${match.url}/:slug`} component={PostPage} />
-        <Route exact path={`${match.url}/tag/:tag`} component={TagPage} />
+        <Route exact path={`${url}`} render={this.renderBlogPage} />
+        <Route exact path={`${url}/:slug`} component={PostPage} />
+        <Route exact path={`${url}/tag/:tag`} component={TagPage} />
       </div>
     );
   }
