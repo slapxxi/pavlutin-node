@@ -1,27 +1,28 @@
-import types from '../actions/types';
+// @flow
+import type { PostsState as State, Action } from '../flow-types';
 
-const initialState = {
+const initialState: State = {
   isFetching: false,
   items: [],
   lastUpdated: 0,
 };
 
-function posts(posts = initialState, action) {
+function posts(posts: State = initialState, action: Action): State {
   switch (action.type) {
-    case types.ADD_POST:
+    case 'ADD_POST':
       return Object.assign({}, posts, {
         items: [...posts.items, action.payload],
         lastUpdated: Date.now(),
       });
-    case types.REQUEST_POSTS:
+    case 'REQUEST_POSTS':
       return Object.assign({}, posts, {
         isFetching: true,
       });
-    case types.REQUEST_POSTS_ERROR:
+    case 'REQUEST_POSTS_ERROR':
       return Object.assign({}, posts, {
         isFetching: false,
       });
-    case types.RECEIVE_POSTS:
+    case 'RECEIVE_POSTS':
       return Object.assign({}, posts, {
         items: action.payload.reverse(),
         lastUpdated: action.meta.receivedAt,

@@ -1,29 +1,30 @@
-import types from '../actions/types';
+// @flow
+import type { Action, Post, Dispatch } from '../flow-types';
 
-function addPost(post) {
+function addPost(post: Post): Action {
   return {
-    type: types.ADD_POST,
+    type: 'ADD_POST',
     payload: post,
   };
 }
 
-function requestPosts() {
+function requestPosts(): Action {
   return {
-    type: types.REQUEST_POSTS,
+    type: 'REQUEST_POSTS',
   };
 }
 
-function requestPostsError(e) {
+function requestPostsError(e: Error): Action {
   return {
-    type: types.REQUEST_POSTS_ERROR,
+    type: 'REQUEST_POSTS_ERROR',
     payload: e,
   };
 }
 
-function receivePosts(json) {
+function receivePosts(data: {posts: Array<Post>}): Action {
   return {
-    type: types.RECEIVE_POSTS,
-    payload: json.posts,
+    type: 'RECEIVE_POSTS',
+    payload: data.posts,
     meta: {
       receivedAt: Date.now(),
     },
@@ -31,7 +32,7 @@ function receivePosts(json) {
 }
 
 function fetchPosts() {
-  return function fetchPostsThunk(dispatch) {
+  return function fetchPostsThunk(dispatch: Dispatch) {
     dispatch(requestPosts());
     return fetch('/api/v1/posts')
       .then((r) => {
