@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders spinner 1`] = `
-<div
-  className="ikfjQC"
+<span
+  className="jtFWAu"
   color={undefined}
 >
   Loading...
-</div>
+</span>
 `;
 
 exports[`renders spinner with color 1`] = `
-<div
-  className="izjgpp"
+<span
+  className="dHrOlN"
   color="blue"
 >
   Loading...
-</div>
+</span>
 `;

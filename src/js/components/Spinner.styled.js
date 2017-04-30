@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import chroma from 'chroma-js';
 import { mixins, text } from '../styles/config';
 
-const size = 4;
+const size = 37;
 const clr = text.dark;
 
 const rotate360 = keyframes`
@@ -15,13 +15,12 @@ const rotate360 = keyframes`
   }
 `;
 
-const Spinner = styled.div`
+const Spinner = styled.span`
   ${mixins.hideText}
-  position: relative;
-  width: ${size}em;
-  height: ${size}em;
-  margin: 0 auto;
-  border: ${size / (size * 1.5)}em solid
+  display: inline-block;
+  width: ${size}px;
+  height: ${size}px;
+  border: ${size / 5}px solid
     ${({ color = clr }) => chroma(color).alpha(0.3).css()};
   border-top-color: ${({ color = clr }) => chroma(color).alpha(0.9).css()};
   border-radius: 50%;
