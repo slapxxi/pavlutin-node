@@ -32,9 +32,12 @@ function receivePosts(data: {posts: Array<Post>}): Action {
 }
 
 function fetchPosts() {
-  return function fetchPostsThunk(dispatch: Dispatch) {
+  return (dispatch: Dispatch, getState: Function) => {
+    if (getState().posts.isFetching) {
+      return;
+    }
     dispatch(requestPosts());
-    return fetch('/api/v1/posts')
+    fetch('/api/v1/posts')
       .then((r) => {
         if (!r.ok) {
           throw new Error(`Response Status ${r.status}`);

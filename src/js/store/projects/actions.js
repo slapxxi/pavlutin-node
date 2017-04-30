@@ -24,9 +24,12 @@ function receiveProjects(json) {
 }
 
 function fetchProjects() {
-  return function fetchProjectsThunk(dispatch) {
+  return (dispatch, getState) => {
+    if (getState().projects.isFetching) {
+      return;
+    }
     dispatch(requestProjects());
-    return fetch('/api/v1/projects')
+    fetch('/api/v1/projects')
       .then((r) => {
         if (!r.ok) {
           throw new Error(`Response Status ${r.status}`);
