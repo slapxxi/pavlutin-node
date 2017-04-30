@@ -15,7 +15,7 @@ function postsByTag(state: State, props: Object): Array<Post> {
   return filterByTag(state.posts.items, props.match.params.tag);
 }
 
-function postBySlug(state: State, props: Object): Post {
+function postBySlug(state: State, props: Object): ?Post {
   return findPost(state.posts.items, props.match.params.slug);
 }
 
@@ -38,7 +38,7 @@ function search(posts: Array<Post>, searchTerm: string): Array<Post> {
   });
 }
 
-function findPost(posts: Array<Post>, slug: string) {
+function findPost(posts: Array<Post>, slug: string): ?Post {
   return find(posts, p => p.slug === slug);
 }
 
