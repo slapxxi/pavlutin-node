@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders project 1`] = `
-<div
-  className="fwNlin"
+<li
+  className="gEoxXY"
 >
   <h1>
     Test
   </h1>
-</div>
+</li>
 `;
