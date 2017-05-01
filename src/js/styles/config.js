@@ -27,6 +27,19 @@ export const text = {
 
 export const mixins = {
   hideText: css`text-indent: -9999px`,
+  resetList: css`
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  `,
+  clearfix: css`
+    ::before,
+    ::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  `,
   box(color) {
     return css`
       border: 1px solid ${color || text.veryLight};
