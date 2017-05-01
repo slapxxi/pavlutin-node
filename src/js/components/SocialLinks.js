@@ -1,40 +1,37 @@
 import React from 'react';
 import Icon from 'react-fontawesome';
+import ExternalLink from './ExternalLink';
 import Navigation from './Navigation';
+
+const links = {
+  twitter: 'https://twitter.com/SlavaPavlutin',
+  github: 'https://github.com/slavapavlutin',
+  email: 'mailto://sl.pavlutin@gmail.com',
+  dribbble: 'https://dribbble.com/slavapavlutin',
+};
 
 function SocialLinks({ className }) {
   return (
     <Navigation className={className}>
-      <a
-        href="https://twitter.com/SlavaPavlutin"
-        rel="external noopener noreferrer"
-        target="_blank"
-      >
+      <ExternalLink href={links.twitter}>
         <Icon name="twitter" /> {' '}
         Twitter
-      </a>
-      <a
-        href="https://github.com/slavapavlutin"
-        rel="external noopener noreferrer"
-        target="_blank"
-      >
+      </ExternalLink>
+      <ExternalLink href={links.github}>
         <Icon name="github" /> {' '}
         GitHub
-      </a>
-      <a
-        href="https://dribbble.com/slavapavlutin"
-        rel="external noopener noreferrer"
-        target="_blank"
-      >
+      </ExternalLink>
+      <ExternalLink href={links.dribbble}>
         <Icon name="dribbble" /> {' '}
         Dribbble
-      </a>
-      <a href="mailto://sl.pavlutin@gmail.com">
+      </ExternalLink>
+      <ExternalLink href={links.email}>
         <Icon name="envelope-o" /> {' '}
         Email
-      </a>
+      </ExternalLink>
     </Navigation>
   );
 }
 
+export { links };
 export default SocialLinks;
