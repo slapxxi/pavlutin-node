@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders link to an external resource 1`] = `
+<a
+  href="https://poogle.com"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Poogle
+</a>
+`;
