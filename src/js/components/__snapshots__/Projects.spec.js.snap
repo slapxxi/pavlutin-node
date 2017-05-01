@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders projects 1`] = `
+<ul
+  className="hqGPSu"
+>
+  <li
+    className="gEoxXY"
+  >
+    <h1>
+      First Projects
+    </h1>
+  </li>
+  <li
+    className="gEoxXY"
+  >
+    <h1>
+      Second Project
+    </h1>
+  </li>
+</ul>
+`;
