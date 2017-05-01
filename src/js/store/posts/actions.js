@@ -34,15 +34,15 @@ function receivePosts(data: {posts: Array<Post>}): Action {
 function fetchPosts() {
   return (dispatch: Dispatch, getState: Function) => {
     if (getState().posts.isFetching) {
-      return;
+      return null;
     }
     dispatch(requestPosts());
-    fetch('/api/v1/posts')
-      .then((r) => {
-        if (!r.ok) {
-          throw new Error(`Response Status ${r.status}`);
+    return fetch('/api/v1/posts')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Response Status ${response.status}`);
         }
-        return r.json();
+        return response.json();
       })
       .then(json => dispatch(receivePosts(json)))
       .catch(e => dispatch(requestPostsError(e)));

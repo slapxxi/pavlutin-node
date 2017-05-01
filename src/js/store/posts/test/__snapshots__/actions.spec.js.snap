@@ -7,6 +7,16 @@ Object {
 }
 `;
 
+exports[`receivePosts returns action 1`] = `
+Object {
+  "meta": Object {
+    "receivedAt": 1493591449079,
+  },
+  "payload": Array [],
+  "type": "RECEIVE_POSTS",
+}
+`;
+
 exports[`requestPosts returns action 1`] = `
 Object {
   "type": "REQUEST_POSTS",
