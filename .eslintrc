@@ -18,8 +18,13 @@
   },
 
   "globals": {
+    "jest": true,
     "it": true,
     "expect": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "beforeAll": true,
+    "afterAll": true,
     "test": true,
     "describe": true,
     "window": true,
