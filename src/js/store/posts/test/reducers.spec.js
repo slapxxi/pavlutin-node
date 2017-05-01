@@ -8,18 +8,18 @@ import {
 
 const post = { title: 'A first post' };
 
+beforeAll(() => {
+  Date.now = jest.fn(() => 100100100);
+});
+
 it('returns initial state', () => {
   const state = posts(undefined, {});
-  expect(state).toEqual({
-    isFetching: false,
-    lastUpdated: 0,
-    items: [],
-  });
+  expect(state).toMatchSnapshot();
 });
 
 it('handles adding post', () => {
   const state = posts(undefined, addPost(post));
-  expect(state.items).toContain(post);
+  expect(state).toMatchSnapshot();
 });
 
 it('handles receiving posts', () => {
@@ -27,14 +27,12 @@ it('handles receiving posts', () => {
     undefined,
     receivePosts({ posts: [post] }),
   );
-  expect(state.items.length).not.toBe(0);
-  expect(state.isFetching).toBe(false);
-  expect(state.lastUpdated).not.toBe(0);
+  expect(state).toMatchSnapshot();
 });
 
 it('handles requesting posts', () => {
   const state = posts({ items: [] }, requestPosts());
-  expect(state.isFetching).toBe(true);
+  expect(state).toMatchSnapshot();
 });
 
 it('handles request errors', () => {
@@ -42,5 +40,5 @@ it('handles request errors', () => {
     { items: [], isFetching: true },
     requestPostsError(),
   );
-  expect(state.isFetching).toBe(false);
+  expect(state).toMatchSnapshot();
 });

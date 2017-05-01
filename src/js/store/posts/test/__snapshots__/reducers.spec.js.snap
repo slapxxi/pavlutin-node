@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`handles adding post 1`] = `
+Object {
+  "isFetching": false,
+  "items": Array [
+    Object {
+      "title": "A first post",
+    },
+  ],
+  "lastUpdated": 100100100,
+}
+`;
+
+exports[`handles receiving posts 1`] = `
+Object {
+  "isFetching": false,
+  "items": Array [
+    Object {
+      "title": "A first post",
+    },
+  ],
+  "lastUpdated": 100100100,
+}
+`;
+
+exports[`handles request errors 1`] = `
+Object {
+  "isFetching": false,
+  "items": Array [],
+}
+`;
+
+exports[`handles requesting posts 1`] = `
+Object {
+  "isFetching": true,
+  "items": Array [],
+}
+`;
+
+exports[`returns initial state 1`] = `
+Object {
+  "isFetching": false,
+  "items": Array [],
+  "lastUpdated": 0,
+}
+`;
