@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { Container } from './Project.styled';
 
 function Project({ project }) {
   return (
-    <div className="project">
+    <Container>
       <h1>{ project.title }</h1>
-    </div>
+    </Container>
   );
 }
 
