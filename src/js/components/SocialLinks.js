@@ -8,6 +8,7 @@ const links = {
   github: 'https://github.com/slavapavlutin',
   email: 'mailto://sl.pavlutin@gmail.com',
   dribbble: 'https://dribbble.com/slavapavlutin',
+  discord: 'https://discord.gg/neeeYuz',
 };
 
 function SocialLinks({ className }) {

@@ -26,6 +26,9 @@ export const text = {
 };
 
 export const mixins = {
+  shadow: css`
+    box-shadow: 1px 3px 5px 2px ${text.veryLight}80;
+  `,
   hideText: css`text-indent: -9999px`,
   resetList: css`
     list-style: none;
