@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders site footer 1`] = `
+<footer>
+  <div
+    className="labIeh"
+  >
+    <nav
+      className="nav euufCD"
+    >
+      <ul>
+        <li
+          className="nav__item"
+        >
+          <a
+            href="https://twitter.com/SlavaPavlutin"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-twitter"
+            />
+             
+             
+            Twitter
+          </a>
+        </li>
+        <li
+          className="nav__item"
+        >
+          <a
+            href="https://github.com/slavapavlutin"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-github"
+            />
+             
+             
+            GitHub
+          </a>
+        </li>
+        <li
+          className="nav__item"
+        >
+          <a
+            href="https://dribbble.com/slavapavlutin"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-dribbble"
+            />
+             
+             
+            Dribbble
+          </a>
+        </li>
+        <li
+          className="nav__item"
+        >
+          <a
+            href="mailto://sl.pavlutin@gmail.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-envelope-o"
+            />
+             
+             
+            Email
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <p>
+      This site is an 
+       
+      <a
+        href="https://github.com/slavapavlutin/pavlutin-node"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        open-source
+      </a>
+       
+      project. Coded in 
+       
+      <a
+        href="https://atom.io"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Atom
+      </a>
+      . 
+       
+      Built using 
+       
+      <a
+        href="https://facebook.github.io/react/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        React
+      </a>
+       
+      and 
+       
+      <a
+        href="http://redux.js.org"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Redux
+      </a>
+       
+      with 
+       
+      <a
+        href="https://styled-components.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Styled Components
+      </a>
+      .
+    </p>
+    <small
+      className="dweWkS"
+    >
+      Slava Pavlutin © 2016-
+      2017
+    </small>
+  </div>
+</footer>
+`;

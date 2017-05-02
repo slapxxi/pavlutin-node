@@ -1,19 +1,43 @@
 import React from 'react';
-import SocialLinks from './SocialLinks';
-import { withClassName } from './HOC';
+import ExternalLink from './ExternalLink';
+import { Links, Container, Copy } from './Footer.styled';
+import { links } from './SocialLinks';
 import { currentYear } from '../utils';
 
-function Footer({ className }) {
+function Footer() {
   return (
-    <footer className={className}>
-      <SocialLinks className="footer__nav" />
-      <div>
-        <small className="footer__copy">
+    <footer>
+      <Container>
+        <Links />
+        <p>
+          This site is an {' '}
+          <ExternalLink href={links.openSource}>
+            open-source
+          </ExternalLink>{' '}
+          project.
+          Coded in {' '}
+          <ExternalLink href="https://atom.io">
+            Atom
+          </ExternalLink>. {' '}
+          Built using {' '}
+          <ExternalLink href="https://facebook.github.io/react/">
+            React
+          </ExternalLink>{' '}
+          and {' '}
+          <ExternalLink href="http://redux.js.org">
+            Redux
+          </ExternalLink>{' '}
+          with {' '}
+          <ExternalLink href="https://styled-components.com">
+            Styled Components
+          </ExternalLink>.
+        </p>
+        <Copy>
           Slava Pavlutin &copy; 2016-{ currentYear() }
-        </small>
-      </div>
+        </Copy>
+      </Container>
     </footer>
   );
 }
 
-export default withClassName('footer')(Footer);
+export default Footer;
