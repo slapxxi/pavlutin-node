@@ -44,9 +44,9 @@ function fetchPosts() {
           throw new Error(`Response Status ${response.status}`);
         }
         return response.json();
-      })
-      .then(json => dispatch(receivePosts(json)))
-      .catch(e => dispatch(requestPostsError(e)));
+      }, e => dispatch(requestPostsError(e)))
+      .then(data => dispatch(receivePosts(data)))
+      .catch(e => e);
   };
 }
 
