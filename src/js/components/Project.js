@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from './Project.styled';
 
-function Project({ project, key }) {
+function Project({ project }) {
   return (
-    <Container key={key}>
+    <Container>
       <h1>{ project.title }</h1>
     </Container>
   );
