@@ -31,3 +31,9 @@ export type Reducer = (state: State, action: Action) => State;
 export type Dispatch = (action: Action) => void;
 
 export type Store = {dispatch: Dispatch, getState: () => State};
+
+export type Request = {
+  method: string,
+  url: string,
+  data?: Object,
+};

@@ -1,4 +1,5 @@
 // @flow
+import PostsAPI from '../../services/PostsAPI';
 import type { Action, Post, Dispatch } from '../flow-types';
 
 function addPost(post: Post): Action {
@@ -37,7 +38,7 @@ function fetchPosts() {
       return null;
     }
     dispatch(requestPosts());
-    return fetch('/api/v1/posts')
+    return PostsAPI.get()
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Response Status ${response.status}`);

@@ -5,6 +5,9 @@ import {
   receivePosts,
   fetchPosts,
 } from '../actions';
+import Request from '../../../services/PostsAPI';
+
+jest.mock('../../../services/PostsAPI');
 
 Date.now = jest.fn(() => 1493591449079);
 
@@ -25,8 +28,8 @@ test('receivePosts returns action', () => {
 });
 
 describe('fetchPosts', () => {
-  const data = { posts: [] };
-  const error = Error('Fetching Error');
+  const data = Request.data;
+  const error = Request.error;
   const action = fetchPosts();
 
   let dispatch;
@@ -37,13 +40,10 @@ describe('fetchPosts', () => {
     getState = jest.fn(() => ({ posts: { isFetching: false } }));
   });
 
-  it('requests posts', () => {
-    window.fetch = jest.fn(() => resolvedPromise(data));
-    return Promise.all([action(dispatch, getState)]).then(() => {
-      expect(dispatch.mock.calls[0]).toEqual([requestPosts()]);
-      expect(dispatch.mock.calls[1]).toEqual([receivePosts(data)]);
-    });
-  });
+  it('requests posts', () => Promise.all([action(dispatch, getState)]).then(() => {
+    expect(dispatch.mock.calls[0]).toEqual([requestPosts()]);
+    expect(dispatch.mock.calls[1]).toEqual([receivePosts(data)]);
+  }));
 
   it('does not requests posts if fetching', () => {
     getState.mockReturnValue({ posts: { isFetching: true } });
@@ -52,20 +52,10 @@ describe('fetchPosts', () => {
   });
 
   it('emits error if request failed', () => {
-    window.fetch = jest.fn(() => rejectedPromise(error));
-    return Promise.all([action(dispatch, getState)]).then(() => {
+    Request.fail();
+    Promise.all([action(dispatch, getState)]).then(() => {
       expect(dispatch.mock.calls[0]).toEqual([requestPosts()]);
       expect(dispatch.mock.calls[1]).toEqual([requestPostsError(error)]);
     });
   });
 });
-
-function resolvedPromise(data) {
-  return new Promise((resolve) => {
-    resolve({ ok: true, json() { return data; } });
-  });
-}
-
-function rejectedPromise(error) {
-  return new Promise((_, reject) => reject(error));
-}
