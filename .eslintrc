@@ -4,8 +4,12 @@
 
   "plugins": [
     "jsx-a11y",
-    "mocha",
+    "jest"
   ],
+
+  "env": {
+    "jest/globals": true,
+  },
 
   "rules": {
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
@@ -18,15 +22,6 @@
   },
 
   "globals": {
-    "jest": true,
-    "it": true,
-    "expect": true,
-    "beforeEach": true,
-    "afterEach": true,
-    "beforeAll": true,
-    "afterAll": true,
-    "test": true,
-    "describe": true,
     "window": true,
     "document": true,
   },
